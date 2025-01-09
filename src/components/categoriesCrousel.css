@@ -1,0 +1,41 @@
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 50px;
+  height: 100%;
+  background: linear-gradient(
+  to right,
+  rgba(255, 255, 255, 0.7) 70%, /* White with 70% opacity */
+  rgba(255, 255, 255, 0) 100% /* Fully transparent */
+);
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-button-next {
+  right: 0;
+  left: auto;
+  background: linear-gradient(
+  to left,
+  rgba(255, 255, 255, 0.7) 70%, /* White with 70% opacity */
+  rgba(255, 255, 255, 0) 100% /* Fully transparent */
+);
+}
+
+.swiper-button-prev {
+  left: 0;
+  right: auto;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  opacity: 1;
+}
+
+.swiper-button-disabled {
+  display: none;
+}

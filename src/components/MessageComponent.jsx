@@ -11,7 +11,8 @@ const MessageComponent = () => {
         mr: { xs: 2, sm: 4, md: 8 },
         ml: { xs: 2, sm: 4, md: 8 },
         gap: { lg: "50px", nd: "50px", sm: "30px", xs: "20px" },
-        backgroundColor: "#f9f9f9",
+        backgroundColor: "background.paper",
+        // border: "1px solid black",
       }}
     >
       <Box
@@ -25,7 +26,7 @@ const MessageComponent = () => {
             xs: "column-reverse",
           },
           justifyContent: "space-around",
-          backgroundColor: "#f9f9f9",
+        //   backgroundColor: "#f9f9f9",
         }}
       >
         <Box
@@ -33,7 +34,7 @@ const MessageComponent = () => {
             width: { lg: "50%", md: "50%", sm: "100%", xs: "100%" },
             display: "flex",
             alignItems: "center",
-            backgroundColor: "#f9f9f9",
+            // backgroundColor: "#f9f9f9",
             p: "20px",
           }}
         >
@@ -50,7 +51,7 @@ const MessageComponent = () => {
             // alignItems: "flex-start",
             // justifyContent: "center",
             padding: "20px",
-            backgroundColor: "#f9f9f9",
+            // backgroundColor: "#f9f9f9",
           }}
         >
           <Box
@@ -67,8 +68,9 @@ const MessageComponent = () => {
           >
             <Typography
               sx={{
-                fontSize: { lg: "30px", md: "30px", sm: "24px", xs: "24px" },
+                fontSize: { lg: "40px", md: "30px", sm: "24px", xs: "24px" },
                 fontWeight: 600,
+                fontFamily: "Roboto",
                 borderBottom: "2px solid red",
                 display: "inline-block",
               }}
@@ -76,7 +78,7 @@ const MessageComponent = () => {
               Our Message
             </Typography>
           </Box>
-          <Typography sx={{fontSize:"20px",fontWeight:300,wordSpacing:"4px"}}>
+          <Typography sx={{fontSize:"24px",fontWeight:500,wordSpacing:"4px", fontFamily:"Roboto"}}>
             We provide nutritious, high-quality meals that support a balanced
             and active lifestyle. Whether exercising or on a personalized diet,
             the Captain Chef app is designed to meet your needs while ensuring

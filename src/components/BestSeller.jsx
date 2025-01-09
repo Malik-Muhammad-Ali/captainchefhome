@@ -10,9 +10,9 @@ import "swiper/css/pagination";
 import "./categoriesCrousel.css";
 import { Navigation } from "swiper/modules";
 
-export default function Categories() {
+export default function BestSeller() {
   const arr = [
-    { title: "Weight Maintain", name: "Plan", img: "/weight.png" },
+    { title: "Weight", name: "Maintenance Plan", img: "/weight.png" },
     { title: "Muscles Gain", name: "Plan", img: "/muscleGain.png" },
     { title: "Takmim", name: "Plan", img: "/takmim.png" },
     { title: "Captain Chef", name: "Business", img: "/capSpecial.png" },
@@ -48,15 +48,12 @@ export default function Categories() {
   //   const lastWord = isRTL ? nameArray[0] : nameArray[nameArray.length - 1];
 
   return (
-    <>
     <Box sx={{
         display:"flex",
         flexDirection: "column",
-        gap: { lg: "50px", md: "50px", sm: "30px", xs: "20px" },
+        // gap: { lg: "50px", md: "50px", sm: "30px", xs: "20px" },
         mr: { xs: 2, sm: 4, md: 8 },
-          ml: { xs: 2, sm: 4, md: 8 },
-          mb: { xs: 2, sm: 4, md: 8 },
-    }}>
+          ml: { xs: 2, sm: 4, md: 8 },}}>
       <Box
         sx={{
           display: "inline-block",
@@ -67,6 +64,8 @@ export default function Categories() {
             md: "flex-start",
             lg: "flex-start",
           },
+          
+          mb: { xs: 2, sm: 4, md: 8 },
         }}
       >
         <Typography
@@ -78,14 +77,13 @@ export default function Categories() {
             display: "inline-block",
           }}
         >
-          Our Categories
+          Our Best Sellers
         </Typography>
-      </Box>
       </Box>
       <Box>
         <Swiper
-          spaceBetween={10}
-          slidesPerView={6}
+          spaceBetween={100}
+          slidesPerView={5}
           navigation={{
             prevEl: ".swiper-button-prev", // Link to custom prev button
             nextEl: ".swiper-button-next", // Link to custom next button
@@ -93,7 +91,7 @@ export default function Categories() {
           loop={true}
           centeredSlides={true}
           modules={[Navigation]}
-          style={{ padding: "20px 10px" }}
+          style={{ padding: "20px 30px" }}
           breakpoints={{
             // For mobile screens
             320: {
@@ -102,17 +100,17 @@ export default function Categories() {
             },
             // For small tablets
             640: {
-              slidesPerView: 2, // Show three slides
-              centeredSlides: false, // Don't center the slides
+              slidesPerView: 1, // Show three slides
+              centeredSlides: true, // Don't center the slides
             },
             // For larger screens
             768: {
-              slidesPerView: 4,
+              slidesPerView: 5,
               centeredSlides: false,
             },
             1024: {
-              slidesPerView: 6,
-              centeredSlides: false,
+              slidesPerView: 5,
+              centeredSlides: true,
             },
           }}
         >
@@ -120,25 +118,31 @@ export default function Categories() {
           <div className="swiper-button-next"></div>
           {arr.map((item, index) => (
             <SwiperSlide key={index}>
-            <Box sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '10px'}}>
+            <Box sx={{display: "flex", flexDirection: "column", gap: "20px", alignItems: "center"}}>
               <Card
                 sx={{
-                  maxWidth: "180px",
-                  minWidth: "180px",
-                  maxHeight: 250,
-                  minHeight: 250,
+                  maxWidth: "200px",
+                  minWidth: "200px",
+                  // maxHeight: 225,
+                  // minHeight: 225,
+                  aspectRatio:2/2,
                   borderRadius: "24px",
                   border: "4px solid",
                   borderColor: getTextColor(item.title),
                   flexGrow: 1,
                   cursor: "pointer",
                   boxShadow: "none",
+                  display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
                 }}
                 //   onClick={() => navigate(`/subscriptions/category/${id}`)}
               >
                 <CardMedia
                   sx={{
-                    height: 180,
+                    height: "100%",
                     width: "100%",
                     objectFit: "cover",
                   }}
@@ -146,48 +150,26 @@ export default function Categories() {
                 //   title={item.title}
                   // image='messageBg.svg'
                 />
-
-                <CardContent
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    padding: 0.8,
-                    height: 45,
-                    justifyContent: "flex-start",
-                  }}
-                >
-                  <Typography
+              </Card>
+              <Typography
                     // gutterBottom
-                    variant="body2"
+                    variant="body"
+                    component="div"
                     sx={{
-                      fontSize: "0.85rem",
+                      fontSize: "1.3rem",
+                      fontWeight: "bold",
+                      textAlign: 'center',
                       fontFamily: "Roboto",
-                      color: getTextColor(item.title),
-                      // textAlign: isRTL ? "right" : "left",
                     }}
                   >
                     {/* {titleText} */}
                     {item.title}
                   </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontsize: "0.65rem",
-                      fontFamily: "Roboto",
-                      fontWeight: 400,
-                      // textAlign: isRTL ? "right" : "left",
-                    }}
-                  >
-                    {/* {lastWord} */}
-                    {item.name}
-                  </Typography>
-                </CardContent>
-              </Card>
-              </Box>
+                  </Box>
             </SwiperSlide>
           ))}
         </Swiper>
       </Box>
-    </>
+    </Box>
   );
 }
