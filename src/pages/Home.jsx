@@ -5,6 +5,8 @@ import Categories from "../components/Categories";
 import Meals from "../components/Meals";
 import BestSeller from "../components/BestSeller";
 import HeroSec from "../components/HeroSec";
+import TestimonialsSec from "../components/TestimonialsSec";
+import Footer from "../components/footer/Footer";
 
 const Home = () => {
   return (
@@ -23,6 +25,12 @@ const Home = () => {
       </Box>
       <Box>
         <BestSeller />
+      </Box>
+      <Box>
+        <TestimonialsSec/>
+      </Box>
+      <Box>
+        <Footer/>
       </Box>
     </>
   );

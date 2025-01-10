@@ -1,12 +1,10 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Box, Typography } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 import "./categoriesCrousel.css";
 import { Navigation } from "swiper/modules";
 
@@ -48,62 +46,69 @@ export default function BestSeller() {
   //   const lastWord = isRTL ? nameArray[0] : nameArray[nameArray.length - 1];
 
   return (
-    <Box sx={{
-        display:"flex",
+    <Box
+      sx={{
+        display: "flex",
         flexDirection: "column",
         // gap: { lg: "50px", md: "50px", sm: "30px", xs: "20px" },
         mr: { xs: 2, sm: 4, md: 8 },
-          ml: { xs: 2, sm: 4, md: 8 },}}>
+        ml: { xs: 2, sm: 4, md: 8 },
+      }}
+    >
       <Box
         sx={{
-          display: "inline-block",
-          padding: "20px",
-          alignSelf: {
-            xs: "center",
-            sm: "center",
-            md: "flex-start",
-            lg: "flex-start",
-          },
-          
-          mb: { xs: 2, sm: 4, md: 8 },
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        <Typography
+        <Box
           sx={{
-            fontSize: { lg: "40px", md: "30px", sm: "24px", xs: "24px" },
-            fontWeight: 600,
-            fontFamily: "Roboto",
-            borderBottom: "2px solid red",
             display: "inline-block",
+            padding: "20px",
+            alignSelf: "flex-start",
           }}
         >
-          Our Best Sellers
-        </Typography>
+          <Typography
+            sx={{
+              fontSize: { lg: "40px", md: "30px", sm: "24px", xs: "24px" },
+              fontWeight: 600,
+              fontFamily: "Roboto",
+              display: "inline-block",
+            }}
+          >
+            Our Best Seller
+          </Typography>
+          <Box
+            sx={{
+              width: "auto",
+              height: "4px",
+              bgcolor: "red",
+              borderRadius: "2px",
+            }}
+          ></Box>
+        </Box>
       </Box>
       <Box>
         <Swiper
           spaceBetween={100}
           slidesPerView={5}
           navigation={{
-            prevEl: ".swiper-button-prev", // Link to custom prev button
-            nextEl: ".swiper-button-next", // Link to custom next button
+            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
           }}
           loop={true}
           centeredSlides={true}
           modules={[Navigation]}
           style={{ padding: "20px 30px" }}
           breakpoints={{
-            // For mobile screens
             320: {
-              slidesPerView: 2, // Show one slide
-              centeredSlides: true, // Center the slide
+              slidesPerView: 2,
+              centeredSlides: true,
             },
-            // For small tablets
             640: {
-              slidesPerView: 1, // Show three slides
-              centeredSlides: true, // Don't center the slides
+              slidesPerView: 1,
+              centeredSlides: true,
             },
-            // For larger screens
             768: {
               slidesPerView: 5,
               centeredSlides: false,
@@ -118,54 +123,57 @@ export default function BestSeller() {
           <div className="swiper-button-next"></div>
           {arr.map((item, index) => (
             <SwiperSlide key={index}>
-            <Box sx={{display: "flex", flexDirection: "column", gap: "20px", alignItems: "center"}}>
-              <Card
+              <Box
                 sx={{
-                  maxWidth: "200px",
-                  minWidth: "200px",
-                  // maxHeight: 225,
-                  // minHeight: 225,
-                  aspectRatio:2/2,
-                  borderRadius: "24px",
-                  border: "4px solid",
-                  borderColor: getTextColor(item.title),
-                  flexGrow: 1,
-                  cursor: "pointer",
-                  boxShadow: "none",
                   display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                  alignItems: "center",
+                }}
+              >
+                <Card
+                  sx={{
+                    maxWidth: "200px",
+                    minWidth: "200px",
+                    aspectRatio: 2 / 2,
+                    borderRadius: "24px",
+                    flexGrow: 1,
+                    cursor: "pointer",
+                    boxShadow: "none",
+                    display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
                     gap: "10px",
-                }}
-                //   onClick={() => navigate(`/subscriptions/category/${id}`)}
-              >
-                <CardMedia
-                  sx={{
-                    height: "100%",
-                    width: "100%",
-                    objectFit: "cover",
                   }}
-                  image={item.img}
-                //   title={item.title}
-                  // image='messageBg.svg'
-                />
-              </Card>
-              <Typography
-                    // gutterBottom
-                    variant="body"
-                    component="div"
+                  //   onClick={() => navigate(`/subscriptions/category/${id}`)}
+                >
+                  <CardMedia
                     sx={{
-                      fontSize: "1.3rem",
-                      fontWeight: "bold",
-                      textAlign: 'center',
-                      fontFamily: "Roboto",
+                      height: "100%",
+                      width: "100%",
+                      objectFit: "cover",
                     }}
-                  >
-                    {/* {titleText} */}
-                    {item.title}
-                  </Typography>
-                  </Box>
+                    image={item.img}
+                    //   title={item.title}
+                  />
+                </Card>
+                <Typography
+                  // gutterBottom
+                  variant="body"
+                  component="div"
+                  sx={{
+                    fontSize: "1.3rem",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    fontFamily: "Roboto",
+                    color: getTextColor(item.title),
+                  }}
+                >
+                  {/* {titleText} */}
+                  {item.title}
+                </Typography>
+              </Box>
             </SwiperSlide>
           ))}
         </Swiper>

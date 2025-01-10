@@ -26,7 +26,7 @@ const MessageComponent = () => {
             xs: "column-reverse",
           },
           justifyContent: "space-around",
-        //   backgroundColor: "#f9f9f9",
+          //   backgroundColor: "#f9f9f9",
         }}
       >
         <Box
@@ -38,9 +38,14 @@ const MessageComponent = () => {
             p: "20px",
           }}
         >
-          <img style={{
-            width: "100%", height: "auto"
-          }} src="/messageBg.svg" alt="image" />
+          <img
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+            src="/messageBg.svg"
+            alt="image"
+          />
         </Box>
         <Box
           sx={{
@@ -58,12 +63,7 @@ const MessageComponent = () => {
             sx={{
               display: "inline-block",
               padding: "4px",
-              alignSelf: {
-                xs: "center",
-                sm: "center",
-                md: "flex-start",
-                lg: "flex-start",
-              },
+              alignSelf: "flex-start",
             }}
           >
             <Typography
@@ -71,14 +71,29 @@ const MessageComponent = () => {
                 fontSize: { lg: "40px", md: "30px", sm: "24px", xs: "24px" },
                 fontWeight: 600,
                 fontFamily: "Roboto",
-                borderBottom: "2px solid red",
+                // borderBottom: "2px solid red",
                 display: "inline-block",
               }}
             >
               Our Message
             </Typography>
+            <Box
+              sx={{
+                width: "auto",
+                height: "4px",
+                bgcolor: "red",
+                borderRadius: "2px",
+              }}
+            ></Box>
           </Box>
-          <Typography sx={{fontSize:"24px",fontWeight:500,wordSpacing:"4px", fontFamily:"Roboto"}}>
+          <Typography
+            sx={{
+              fontSize: "24px",
+              fontWeight: 500,
+              wordSpacing: "4px",
+              fontFamily: "Roboto",
+            }}
+          >
             We provide nutritious, high-quality meals that support a balanced
             and active lifestyle. Whether exercising or on a personalized diet,
             the Captain Chef app is designed to meet your needs while ensuring
