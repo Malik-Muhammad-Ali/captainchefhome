@@ -36,7 +36,7 @@ const Footer = () => {
         backgroundColor: "#F9F9F9",
         padding: "40px 20px",
         display: "flex",
-        // flexDirection: "column",
+        flexDirection: {xs:"column",md:"row"},
         alignItems: "center",
       }}
     >
@@ -44,6 +44,13 @@ const Footer = () => {
         sx={{
           backgroundImage: "footerbg.png",
           width: "70%",
+          mr: { xs: 2, sm: 4, md: 8 },
+          ml: { xs: 2, sm: 4, md: 8 },
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 4,
         }}
       >
         <Box
@@ -51,8 +58,11 @@ const Footer = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
-            gap: 2,
+            alignItems: "flex-start",
+            alignSelf: "self-start",
+            mr: { xs: 2, sm: 4, md: 8 },
+            ml: { xs: 2, sm: 4, md: 8 },
+            // gap: 2,
           }}
         >
           <Typography
@@ -80,104 +90,127 @@ const Footer = () => {
           </Typography>
         </Box>
         <Box
-          container
-          spacing={2}
-          justifyContent="center"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <Box
-            sx={{
-                display:"flex",
-                justifyContent:"space-around",
-            }}
-          >
-            <LocationOnIcon
-              sx={{
-                fontSize: "100px",
-                color: "#FBD512",
-              }}
-            />
-            <LocationOnIcon
-              sx={{
-                fontSize: "100px",
-                color: "#CF2528",
-              }}
-            />
-            <LocationOnIcon
-              sx={{
-                fontSize: "100px",
-                color: "#149338",
-              }}
-            />
-            <LocationOnIcon
-              sx={{
-                fontSize: "100px",
-                color: "#8961A7",
-              }}
-            />
-          </Box>
-          <Box sx={{
-            width:"auto",
-            height:"4px",
-            bgcolor:"#f9f9"
-          }}></Box>
-          <Box
+  container
+  spacing={2}
+  justifyContent="center"
   sx={{
     display: "flex",
-    justifyContent: "space-around",
-    width: "100%",  // Ensure the container takes full width
+    flexDirection: "column",
+    position: "relative", // Ensure the content and background are layered correctly
+    backgroundImage: "url('/footerbg.png')", // Replace with your image path
+    backgroundSize: "cover", // Ensure the image covers the entire Box
+    backgroundRepeat: "no-repeat", // Prevent the image from repeating
+    backgroundPosition: "center", // Center the image in the Box
+    padding: "20px", // Optional padding to create spacing
   }}
 >
-  {branches.map((branch, index) => (
-    <Box
-      key={index}
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "space-around",
+    }}
+  >
+    <LocationOnIcon
       sx={{
-        display: "flex",
-        flex: 1, // Ensures equal width for each branch box
-        justifyContent: "center",
+        fontSize: "100px",
+        color: "#FBD512",
       }}
-    >
-      <Box sx={{
+    />
+    <LocationOnIcon
+      sx={{
+        fontSize: "100px",
+        color: "#CF2528",
+      }}
+    />
+    <LocationOnIcon
+      sx={{
+        fontSize: "100px",
+        color: "#149338",
+      }}
+    />
+    <LocationOnIcon
+      sx={{
+        fontSize: "100px",
+        color: "#8961A7",
+      }}
+    />
+  </Box>
+  <Box
+    sx={{
+      width: "auto",
+      height: "4px",
+      bgcolor: "#f9f9",
+    }}
+  ></Box>
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "space-around",
+      alignItems: "flex-start",
+      width: "100%",
+    }}
+  >
+    {branches.map((branch, index) => (
+      <Box
+        key={index}
+        sx={{
           display: "flex",
+          flex: 1,
           justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center",
-          width: "100%",  // Makes sure content doesn't overflow
-          padding: "10px", // Optional padding for spacing
-      }}>
-        <Typography
-          variant="h6"
+          alignItems: "flex-start",
+        }}
+      >
+        <Box
           sx={{
-            color: branch.color,
-            fontWeight: "bold",
-            textTransform: "uppercase",
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "100%",
+            padding: "10px",
           }}
         >
-          {branch.city}
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ color: "#555", margin: "5px 0" }}
-        >
-          {branch.branch}
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ color: "#777", fontStyle: "italic" }}
-        >
-          {branch.arabicBranch}
-        </Typography>
-      </Box>
-    </Box>
-  ))}
-</Box>
-
+          <Typography
+            variant="h6"
+            sx={{
+              color: branch.color,
+              fontWeight: "bold",
+              textTransform: "uppercase",
+            }}
+          >
+            {branch.city}
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ color: "#555", margin: "5px 0" }}
+          >
+            {branch.branch}
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ color: "#777", fontStyle: "italic" }}
+          >
+            {branch.arabicBranch}
+          </Typography>
         </Box>
       </Box>
+    ))}
+  </Box>
+</Box>
+
+      </Box>
       <Box>
+      <Box sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "10px",
+      }}>
+        <img style={{
+          width: "200px",
+          height: "200px",
+        }} src="footerlogo.svg" alt="logo" srcset="" />
+      </Box>
         <Box
           sx={{
             marginTop: "40px",
@@ -202,6 +235,7 @@ const Footer = () => {
           <Box
             sx={{
               display: "flex",
+              flexDirection:"column",
               justifyContent: "center",
               alignItems: "center",
               gap: "10px",
