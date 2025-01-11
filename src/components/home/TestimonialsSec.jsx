@@ -139,6 +139,7 @@ export default function TestimonialsSec() {
                   transition: "opacity 0.3s",
                   backgroundColor: "background.paper",
                   gap: 4,
+                  m:"20px"
                 }}
               >
                 <Box>

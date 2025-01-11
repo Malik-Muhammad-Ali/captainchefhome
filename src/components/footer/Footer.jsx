@@ -139,7 +139,7 @@ const Footer = () => {
     sx={{
       width: "auto",
       height: "4px",
-      bgcolor: "#f9f9",
+      bgcolor: "#AFAFAF",
     }}
   ></Box>
   <Box
@@ -182,13 +182,13 @@ const Footer = () => {
           </Typography>
           <Typography
             variant="body2"
-            sx={{ color: "#555", margin: "5px 0" }}
+            sx={{ color: "black", margin: "5px 0",fontWeight:"bold" }}
           >
             {branch.branch}
           </Typography>
           <Typography
             variant="body2"
-            sx={{ color: "#777", fontStyle: "italic" }}
+            sx={{ color: "black", fontStyle: "italic",fontWeight:"bold"  }}
           >
             {branch.arabicBranch}
           </Typography>
@@ -242,15 +242,41 @@ const Footer = () => {
             }}
           >
             <TextField
-              variant="outlined"
-              placeholder="Enter Your Email"
-              fullWidth
-              sx={{
-                backgroundColor: "#FFF",
-                borderRadius: "4px",
-              }}
-            />
-            <Button
+  variant="outlined"
+  placeholder="Enter Your Email"
+  sx={{
+    backgroundColor: "#FFF", // Background color for the TextField
+    borderRadius: "24px", // Rounded corners
+    width: "auto", // Auto width
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "28px", // Border radius for the input
+      "& fieldset": {
+        borderColor: "#d3d3d3", // Default border color
+      },
+      "&:hover fieldset": {
+        borderColor: "#FF5733", // Border color on hover
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#28a745", // Border color when focused
+      },
+      "& .MuiOutlinedInput-input": {
+      height: "20px", // Adjust the height of the input area
+      padding: "10px 16px", // Add padding for better alignment
+    },
+    },
+    "& input::placeholder": {
+      textAlign: "center", // Centers the placeholder text
+    },
+    "& .MuiInputLabel-root": {
+      color: "black", // Default label color
+    },
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "black", // Label color when focused
+    },
+  }}
+/>
+
+            {/* <Button
               variant="contained"
               sx={{
                 backgroundColor: "#CE2729",
@@ -260,7 +286,7 @@ const Footer = () => {
               }}
             >
               Submit
-            </Button>
+            </Button> */}
           </Box>
         </Box>
       </Box>
