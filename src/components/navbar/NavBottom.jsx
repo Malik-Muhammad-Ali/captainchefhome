@@ -18,7 +18,7 @@ const NavBottom = () => {
   // Navigation Pages
   const pages = [
     { name: "Home", route: "/" },
-    { name: "About Us", route: "/about-us" },
+    { name: "About Us", route: "/about" },
     { name: "Menu", route: "/menu" },
     { name: "Services", route: "/services" },
     { name: "New", route: "/new" },

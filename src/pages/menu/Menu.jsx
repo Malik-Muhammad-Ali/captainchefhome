@@ -2,7 +2,11 @@ import React from 'react'
 
 const Menu = () => {
   return (
-    <div>
+    <div style={{
+      height:"500px",
+      width:"100%",
+      backgroundColor:"green"
+    }}>
       Menu
     </div>
   )
