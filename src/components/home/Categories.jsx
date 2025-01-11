@@ -84,7 +84,7 @@ export default function Categories() {
               display: "inline-block",
             }}
           >
-            Our Categories
+            OUR CATEGORIES
           </Typography>
           <Box
               sx={{
@@ -98,7 +98,7 @@ export default function Categories() {
       </Box>
       <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <Swiper
-          spaceBetween={20}
+          spaceBetween={50}
           slidesPerView={6}
           loop={true}
           speed={2000}

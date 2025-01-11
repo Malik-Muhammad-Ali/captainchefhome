@@ -10,11 +10,44 @@ const MessageComponent = () => {
         alignItems: "center",
         mr: { xs: 2, sm: 4, md: 8 },
         ml: { xs: 2, sm: 4, md: 8 },
-        gap: { lg: "50px", nd: "50px", sm: "30px", xs: "20px" },
+        // gap: { lg: "50px", nd: "50px", sm: "30px", xs: "20px" },
         backgroundColor: "background.paper",
         // border: "1px solid black",
       }}
     >
+      <Box
+              sx={{
+                display: "flex",
+                alignSelf:"flex-start"
+              }}
+            >
+              <Box
+                sx={{
+                  display: "inline-block",
+                  padding: "20px",
+                  alignSelf: "flex-start",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: { lg: "40px", md: "30px", sm: "24px", xs: "24px" },
+                    fontWeight: 600,
+                    fontFamily: "Roboto",
+                    display: "inline-block",
+                  }}
+                >
+                  OUR MESSAGE
+                </Typography>
+                <Box
+                  sx={{
+                    width: "auto",
+                    height: "4px",
+                    bgcolor: "red",
+                    borderRadius: "2px",
+                  }}
+                ></Box>
+              </Box>
+            </Box>
       <Box
         sx={{
           width: "100%",
@@ -59,38 +92,11 @@ const MessageComponent = () => {
             // backgroundColor: "#f9f9f9",
           }}
         >
-          <Box
-            sx={{
-              display: "inline-block",
-              padding: "4px",
-              alignSelf: "flex-start",
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: { lg: "40px", md: "30px", sm: "24px", xs: "24px" },
-                fontWeight: 600,
-                fontFamily: "Roboto",
-                // borderBottom: "2px solid red",
-                display: "inline-block",
-              }}
-            >
-              Our Message
-            </Typography>
-            <Box
-              sx={{
-                width: "auto",
-                height: "4px",
-                bgcolor: "red",
-                borderRadius: "2px",
-              }}
-            ></Box>
-          </Box>
           <Typography
             sx={{
-              fontSize: "24px",
-              fontWeight: 500,
-              wordSpacing: "4px",
+              fontSize: {xs:"14px",md:"24px"},
+              fontWeight: 400,
+              wordSpacing: "2px",
               fontFamily: "Roboto",
             }}
           >
