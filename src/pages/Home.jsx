@@ -7,10 +7,14 @@ import BestSeller from "../components/BestSeller";
 import HeroSec from "../components/HeroSec";
 import TestimonialsSec from "../components/TestimonialsSec";
 import Footer from "../components/footer/Footer";
+import Navbar from "../components/navbar/Navbar";
 
 const Home = () => {
   return (
     <>
+      <Box>
+        <Navbar />
+      </Box>
       <Box>
         <HeroSec />
       </Box>
@@ -27,10 +31,10 @@ const Home = () => {
         <BestSeller />
       </Box>
       <Box>
-        <TestimonialsSec/>
+        <TestimonialsSec />
       </Box>
       <Box>
-        <Footer/>
+        <Footer />
       </Box>
     </>
   );
