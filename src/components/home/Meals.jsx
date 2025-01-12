@@ -10,9 +10,12 @@ import {
   Button,
   Grid2,
 } from "@mui/material";
+import useAppStore from "../store";
 
 const Meals = () => {
   const [selectedTab, setSelectedTab] = React.useState(0); // Track selected tab
+  const { language, setLanguage } = useAppStore();
+  const isArabic = language == "ar";
 
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue); // Update the selected tab
@@ -89,7 +92,7 @@ const Meals = () => {
           sx={{
             display: "inline-block",
             padding: "20px",
-            alignSelf: "flex-start",
+            alignSelf: isArabic ? "flex-end" : "flex-start", // Dynamic alignment
           }}
         >
           <Typography
@@ -100,7 +103,7 @@ const Meals = () => {
               display: "inline-block",
             }}
           >
-            OUR MENU
+            {isArabic ? "قائمتنا" : "OUR MENU"}
           </Typography>
           <Box
             sx={{
@@ -127,8 +130,8 @@ const Meals = () => {
         <Tabs
           value={selectedTab}
           onChange={handleTabChange}
-          indicatorColor="primary"
-          aria-label="tabs"
+          indicatorColor="#D92531"
+          aria-label="#D92531"
           // variant="scrollable"
           scrollButtons
           allowScrollButtonsMobile
@@ -188,10 +191,10 @@ const Meals = () => {
                   fontWeight="bold"
                   sx={{
                     fontSize: { xs: "10px", sm: "12px" },
-                    color: "inherit", // inherit color
+                    color: "#D92531", // inherit color
                   }}
                 >
-                  Breakfast
+                  {isArabic ? "الإفطار" : "BreakFast"}
                 </Typography>
               </Box>
             }
@@ -237,10 +240,10 @@ const Meals = () => {
                   fontWeight="bold"
                   sx={{
                     fontSize: { xs: "10px", sm: "12px" },
-                    color: "inherit",
+                    color: "#D92531",
                   }}
                 >
-                  Dinner
+                  {isArabic ? "العشاء" : "Dinner"}
                 </Typography>
               </Box>
             }
@@ -283,10 +286,10 @@ const Meals = () => {
                   fontWeight="bold"
                   sx={{
                     fontSize: { xs: "10px", sm: "12px" },
-                    color: "inherit",
+                    color: "#D92531",
                   }}
                 >
-                  Lunch
+                  {isArabic ? "الغداء" : "Lunch"}
                 </Typography>
               </Box>
             }
@@ -321,10 +324,10 @@ const Meals = () => {
                   fontWeight="bold"
                   sx={{
                     fontSize: { xs: "10px", sm: "12px" },
-                    color: "inherit",
+                    color: "#D92531",
                   }}
                 >
-                  Snacks
+                  {isArabic ? "الوجبات الخفيفة" : "Snacks"}
                 </Typography>
               </Box>
             }
@@ -363,10 +366,10 @@ const Meals = () => {
                   fontWeight="bold"
                   sx={{
                     fontSize: { xs: "10px", sm: "12px" },
-                    color: "inherit",
+                    color: "#D92531",
                   }}
                 >
-                  Cold Drinks
+                  {isArabic ? "المشروبات الباردة" : "Cold Drinks"}
                 </Typography>
               </Box>
             }
@@ -385,6 +388,7 @@ const Meals = () => {
           marginLeft: { lg: "15%", md: "15%", sm: "0", xs: "0" },
           height: "auto",
           padding: "20px",
+          // direction: isArabic ? "rtl" : "ltr",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -399,6 +403,7 @@ const Meals = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+
             // mb: "20px",
           }}
         >

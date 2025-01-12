@@ -2,10 +2,58 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import Container from "@mui/material/Container";
-import { Button } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu"; // Import hamburger menu icon
+
+import {
+  Button,
+  Drawer,
+  FormControl,
+  IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
+  Typography,
+} from "@mui/material";
+import useAppStore from "../store";
+import { useNavigate } from "react-router-dom";
 const NavTop = () => {
+  const [flag, setFlag] = React.useState("https://flagcdn.com/w40/us.png");
+  const { language, setLanguage } = useAppStore();
+  const isArabic = language === "ar";
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const navigate = useNavigate();
+
+  const [activePage, setActivePage] = React.useState("Home");
+
+  // Navigation Pages
+  const menuItems = [
+    { name: "Home", route: "/", ar: "الرئيسية" },
+    { name: "About Us", route: "/about", ar: "معلومات عنا" },
+    { name: "Menu", route: "/menu", ar: "القائمة" },
+    { name: "Services", route: "/services", ar: "الخدمات" },
+    { name: "New", route: "/new", ar: "الجديد" },
+    { name: "Contact Us", route: "/contact", ar: "اتصل بنا" },
+  ];
+  const toggleDrawer = (open) => {
+    setDrawerOpen(open);
+  };
+
+  const handleNavigation = (page) => {
+    setActivePage(page.name); // Set active page
+    navigate(page.route); // Navigate to the route
+    toggleDrawer(false); // Close drawer on navigation
+  };
+  const handleChange = (event) => {
+    setLanguage(event.target.value);
+    if (event.target.value === "en") {
+      setLanguage("en");
+      setFlag("https://flagcdn.com/w40/us.png");
+    } else if (event.target.value === "ar") {
+      setLanguage("ar");
+      setFlag("https://flagcdn.com/w40/sa.png");
+    }
+  };
   return (
     <AppBar
       position="static"
@@ -15,7 +63,8 @@ const NavTop = () => {
         minHeight: "120px",
         alignItems: "center",
         justifyContent: "center",
-        position: "relative",
+        // position: "relative",
+        direction: language === "ar" ? "rtl" : "ltr",
         boxShadow: "none",
       }}
     >
@@ -51,6 +100,79 @@ const NavTop = () => {
               gap: { xs: "10px", sm: "10px", md: "30px", lg: "30px" },
             }}
           >
+            <FormControl
+              sx={{
+                display: { xs: "none", md: "block", sm: "block" },
+                minWidth: { xs: "", sm: "", md: "150px", lg: "150px" },
+              }}
+              variant="outlined"
+            >
+              <InputLabel
+                id="language-select-label"
+                sx={{
+                  color: "black",
+                  display: { xs: "flex", md: "flex", sm: "flex" },
+                  "&.Mui-focused": {
+                    color: "black",
+                  },
+                }}
+              >
+                Lang
+              </InputLabel>
+              <Select
+                labelId="language-select-label"
+                id="language-select"
+                value={language}
+                onChange={handleChange}
+                label="Lang"
+                sx={{
+                  borderRadius: "12px",
+                  width: "206px",
+                  height: "56px",
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "black",
+                  },
+                  "&:hover .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "black",
+                  },
+                  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "gray",
+                  },
+                  color: "black",
+                }}
+                renderValue={() => (
+                  <Box display="flex" alignItems="center" gap={1}>
+                    <img src={flag} alt={language} width="20" height="15" />
+                    <Typography>
+                      {language === "en" ? "English" : "Arabic"}
+                    </Typography>
+                  </Box>
+                )}
+              >
+                <MenuItem value="en">
+                  <Box display="flex" alignItems="center" gap={2}>
+                    <img
+                      src="https://flagcdn.com/w40/us.png"
+                      alt="English"
+                      width="20"
+                      height="15"
+                    />
+                    <Typography>English</Typography>
+                  </Box>
+                </MenuItem>
+                <MenuItem value="ar">
+                  <Box display="flex" alignItems="center" gap={2}>
+                    <img
+                      src="https://flagcdn.com/w40/sa.png"
+                      alt="Arabic"
+                      width="20"
+                      height="15"
+                    />
+                    <Typography>Arabic</Typography>
+                  </Box>
+                </MenuItem>
+              </Select>
+            </FormControl>
             <svg
               width="30"
               height="30"
@@ -102,26 +224,6 @@ const NavTop = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_349_54)">
-                <path
-                  d="M20 37.2973C19.7977 37.2973 19.5954 37.2451 19.4141 37.1404C19.2173 37.0268 14.5399 34.311 9.79534 30.219C6.98331 27.7938 4.73863 25.3883 3.12379 23.0695C1.03411 20.0691 -0.0167512 17.183 0.000201881 14.4914C0.0200456 11.3593 1.14184 8.41388 3.15918 6.19747C5.21058 3.94373 7.94823 2.70264 10.868 2.70264C14.6099 2.70264 18.0311 4.79873 20.0001 8.11919C21.9691 4.7988 25.3902 2.70264 29.1322 2.70264C31.8906 2.70264 34.5224 3.82248 36.543 5.85591C38.7605 8.08739 40.0204 11.2404 39.9998 14.5062C39.9828 17.1932 38.9122 20.0749 36.8179 23.0712C35.1981 25.3888 32.9565 27.7931 30.1555 30.2177C25.4284 34.3093 20.7845 37.025 20.5891 37.1386C20.4102 37.2426 20.207 37.2973 20 37.2973Z"
-                  fill="#CF2528"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_349_54">
-                  <rect width="40" height="40" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <svg
-              width="30"
-              height="30"
-              viewBox="0 0 40 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
               <g clip-path="url(#clip0_349_41)">
                 <path
                   d="M30 10C30 7.34783 28.9464 4.8043 27.0711 2.92893C25.1957 1.05357 22.6522 0 20 0C17.3478 0 14.8043 1.05357 12.9289 2.92893C11.0536 4.8043 10 7.34783 10 10H0V35C0 36.3261 0.526784 37.5979 1.46447 38.5355C2.40215 39.4732 3.67392 40 5 40H23.3333V36.6667H5C4.55797 36.6667 4.13405 36.4911 3.82149 36.1785C3.50893 35.866 3.33333 35.442 3.33333 35V13.3333H10V16.6667H13.3333V13.3333H26.6667V16.6667H30V13.3333H36.6667V23.3333H40V10H30ZM13.3333 10C13.3333 8.23189 14.0357 6.5362 15.286 5.28595C16.5362 4.03571 18.2319 3.33333 20 3.33333C21.7681 3.33333 23.4638 4.03571 24.714 5.28595C25.9643 6.5362 26.6667 8.23189 26.6667 10H13.3333Z"
@@ -139,6 +241,134 @@ const NavTop = () => {
               </defs>
             </svg>
           </Box>
+          <Box
+            sx={{
+              display: { xs: "flex", sm: "none" }, // Show only on mobile
+              justifyContent: "center",
+              backgroundColor: "transparent",
+            }}
+          >
+            <IconButton
+              onClick={() => toggleDrawer(true)}
+              sx={{
+                color: "#D92531",
+              }}
+            >
+              <MenuIcon sx={{ fontSize: "30px" }} />
+            </IconButton>
+          </Box>
+          <Drawer
+            anchor="top"
+            open={drawerOpen}
+            onClose={() => toggleDrawer(false)}
+            sx={{
+              display: { xs: "block", sm: "none" }, // Show only on mobile
+            }}
+          >
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                paddingTop: "20px",
+                direction: language === "ar" ? "rtl" : "ltr", // Change direction dynamically
+              }}
+            >
+              {menuItems.map((page) => (
+                <Button
+                  key={page.name}
+                  onClick={() => handleNavigation(page)}
+                  sx={{
+                    color: "black",
+                    margin: "10px 0",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    borderRadius: "8px",
+                    "&:hover": {
+                      color: "#D92531",
+                    },
+                  }}
+                >
+                  {language === "ar" ? page.ar : page.name}
+                </Button>
+              ))}
+              <FormControl
+                sx={{
+                  display: { xs: "block", md: "none", sm: "none" },
+                  minWidth: { xs: "", sm: "", md: "150px", lg: "150px" },
+                  mb: "15px",
+                }}
+                variant="outlined"
+              >
+                <InputLabel
+                  id="language-select-label"
+                  sx={{
+                    color: "black",
+                    display: { xs: "flex", md: "flex", sm: "flex" },
+                    "&.Mui-focused": {
+                      color: "black",
+                    },
+                  }}
+                >
+                  Lang
+                </InputLabel>
+                <Select
+                  labelId="language-select-label"
+                  id="language-select"
+                  value={language}
+                  onChange={handleChange}
+                  label="Lang"
+                  sx={{
+                    borderRadius: "12px",
+                    width: "206px",
+                    height: "56px",
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "black",
+                    },
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "black",
+                    },
+                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "gray",
+                    },
+                    color: "black",
+                  }}
+                  renderValue={() => (
+                    <Box display="flex" alignItems="center" gap={1}>
+                      <img src={flag} alt={language} width="20" height="15" />
+                      <Typography>
+                        {language === "en" ? "English" : "Arabic"}
+                      </Typography>
+                    </Box>
+                  )}
+                >
+                  <MenuItem value="en">
+                    <Box display="flex" alignItems="center" gap={2}>
+                      <img
+                        src="https://flagcdn.com/w40/us.png"
+                        alt="English"
+                        width="20"
+                        height="15"
+                      />
+                      <Typography>English</Typography>
+                    </Box>
+                  </MenuItem>
+                  <MenuItem value="ar">
+                    <Box display="flex" alignItems="center" gap={2}>
+                      <img
+                        src="https://flagcdn.com/w40/sa.png"
+                        alt="Arabic"
+                        width="20"
+                        height="15"
+                      />
+                      <Typography>Arabic</Typography>
+                    </Box>
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          </Drawer>
         </Toolbar>
       </Container>
     </AppBar>
