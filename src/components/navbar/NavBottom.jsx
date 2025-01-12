@@ -42,8 +42,8 @@ const NavBottom = () => {
         position="sticky"
         sx={{
           display: { xs: "none", md: "block", sm: "block" },
-          backgroundColor: "transparent", // Transparent background
-          backdropFilter: "blur(5px)", // Blur effect
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
+          //   backdropFilter: "blur(5px)", // Blur effect
           zIndex: 5, // Above other content
         }}
       >
