@@ -120,6 +120,7 @@ const Meals = () => {
       <Box
         sx={{
           display: "flex",
+          // border: "2px solid black",
           justifyContent: "center", // Center horizontally
           alignItems: "center", // Center vertically
           width: "100%",
@@ -382,11 +383,12 @@ const Meals = () => {
       <Box
         sx={{
           backgroundColor: "#D92531",
-          borderTopLeftRadius: "12%",
-          borderBottomLeftRadius: "12%",
+          borderTopLeftRadius: "150px",
+          borderBottomLeftRadius: "150px",
           width: { lg: "85%", md: "85%", sm: "100%", xs: "100%" },
           marginLeft: { lg: "15%", md: "15%", sm: "0", xs: "0" },
           height: "auto",
+          // gap: "20px",
           padding: "20px",
           // direction: isArabic ? "rtl" : "ltr",
           display: "flex",
@@ -397,11 +399,12 @@ const Meals = () => {
         <Grid2
           container
           rowSpacing={9}
-          columnSpacing={15}
+          columnSpacing={0}
           justifyContent="center"
           sx={{
             display: "flex",
             alignItems: "center",
+            gap: { xs: "17px", md: "40px", sm: "40px", lg: "110px" },
             justifyContent: "center",
 
             // mb: "20px",
@@ -425,7 +428,12 @@ const Meals = () => {
                   padding: "20px",
                   position: "relative",
                   ml: { xs: "25px", md: "15px", sm: "15px", lg: "15px" },
-                  minWidth: "300px",
+                  minWidth: {
+                    xs: "200px",
+                    sm: "300px",
+                    md: "300px",
+                    lg: "300px",
+                  },
                   height: "140px",
                   overflow: "visible",
                 }}
@@ -497,7 +505,7 @@ const Meals = () => {
                         textTransform: "none",
                         fontSize: "14px",
                         color: "white",
-                        ml: "48px",
+                        ml: { md: "48px", xs: "33px" },
                         justifySelf: "center",
                         borderRadius: "45px",
                         // padding: "8px 16px", // You can adjust padding as per your preference
