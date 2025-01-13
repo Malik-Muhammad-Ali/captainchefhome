@@ -147,7 +147,7 @@ export default function BestSeller() {
         }}
       >
         <Swiper
-          spaceBetween={130}
+          spaceBetween={150}
           slidesPerView={5}
           navigation={{
             prevEl: ".custome-prev",
@@ -188,8 +188,8 @@ export default function BestSeller() {
               >
                 <Card
                   sx={{
-                    maxWidth: "200px",
-                    minWidth: "200px",
+                    maxWidth: "180px",
+                    minWidth: "180px",
                     aspectRatio: 2 / 2,
                     borderRadius: "24px",
                     flexGrow: 1,
@@ -213,21 +213,32 @@ export default function BestSeller() {
                     //   title={item.title}
                   />
                 </Card>
-                <Typography
-                  // gutterBottom
-                  variant="body"
-                  component="div"
+                <Box
                   sx={{
-                    fontSize: "1.3rem",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    fontFamily: "Roboto",
-                    color: getTextColor(item.title),
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    maxWidth: "180px",
+                    minWidth: "180px",
+                    // border:"2px solid black"
                   }}
                 >
-                  {/* {titleText} */}
-                  {isArabic ? item.ar.title : item.title}{" "}
-                </Typography>
+                  <Typography
+                    // gutterBottom
+                    variant="body"
+                    component="div"
+                    sx={{
+                      fontSize: "1.3rem",
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      fontFamily: "Roboto",
+                      color: getTextColor(item.title),
+                    }}
+                  >
+                    {/* {titleText} */}
+                    {isArabic ? item.ar.title : item.title}{" "}
+                  </Typography>
+                </Box>
               </Box>
             </SwiperSlide>
           ))}
@@ -237,7 +248,7 @@ export default function BestSeller() {
           className="custome-prev"
           sx={{
             position: "absolute",
-            top: "45%",
+            top: "40%",
             left: "1px",
             transform: "translateY(-50%)",
             zIndex: 10,
@@ -248,8 +259,8 @@ export default function BestSeller() {
           }}
         >
           <svg
-            width="50"
-            height="50"
+            width="30"
+            height="30"
             viewBox="0 0 51 108"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -266,7 +277,7 @@ export default function BestSeller() {
           className="custome-next"
           sx={{
             position: "absolute",
-            top: "45%",
+            top: "40%",
             right: "1px",
             transform: "translateY(-50%)",
             zIndex: 10,
@@ -277,8 +288,8 @@ export default function BestSeller() {
           }}
         >
           <svg
-            width="50"
-            height="50"
+            width="30"
+            height="30"
             viewBox="0 0 51 108"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

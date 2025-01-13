@@ -13,40 +13,41 @@ const testimonials = [
   {
     name: "John Doe",
     role: "CEO",
-    text: "Lorem ipsum dolor sit amet consectetur. Vitae egestas ",
+    text: "Leading has been a journey of innovation and teamwork.",
     image: "profilepicture.jpg",
   },
   {
     name: "Jane Smith",
     role: "CTO",
-    text: "Proin amet arcu dui sed tincidunt quis viverra nulla.",
+    text: "Our commitment to technology helped us to deliver solutions",
     image: "profilepicture.jpg",
   },
   {
     name: "Alex Johnson",
     role: "CFO",
-    text: "Vitae egestas quis varius tristique ornare et pharetra purus.",
+    text: "Ensuring financial stability while driving growth.",
     image: "profilepicture.jpg",
   },
   {
     name: "Emily Davis",
     role: "Designer",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+    text: "Design is not just about aesthetics; it's about experiences for our users.",
     image: "profilepicture.jpg",
   },
   {
     name: "Michael Lee",
     role: "Engineer",
-    text: "Quis varius tristique ornare et pharetra purus.",
+    text: "Building robust systems and solving complex problems.",
     image: "profilepicture.jpg",
   },
   {
     name: "Sophia Wilson",
     role: "Developer",
-    text: "Vitae egestas quis varius tristique ornare et pharetra purus.",
+    text: "I take pride in writing clean, efficient code.",
     image: "profilepicture.jpg",
   },
 ];
+
 
 export default function TestimonialsSec() {
   const { language, setLanguage } = useAppStore();
@@ -96,11 +97,12 @@ export default function TestimonialsSec() {
           position: "relative",
           width: "100%",
           m: "auto",
-          p: 2,
+          p: 4,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           height: "auto",
+          border:"2px solid black"
         }}
       >
         <Swiper
@@ -134,14 +136,14 @@ export default function TestimonialsSec() {
                   },
                   alignItems: "center",
                   textAlign: "center",
-                  p: 3,
+                  p: {xs:"10px", md:"20px" },
                   borderRadius: 2,
-                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.4)",
+                  boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
                   // boxShadow: "none",
                   opacity: activeIndex === index ? 1 : 0.5,
                   transition: "opacity 0.3s",
-                  backgroundColor: "background.paper",
-                  gap: 4,
+                  backgroundColor: "#f5f5f5",
+                  gap: 2,
                   m: "20px",
                 }}
               >
@@ -158,6 +160,7 @@ export default function TestimonialsSec() {
                     display: "flex",
                     flexDirection: "column",
                     flexWrap: "wrap",
+                    // border:"2px solid black"
                   }}
                 >
                   <Typography
@@ -172,13 +175,14 @@ export default function TestimonialsSec() {
                       fontWeight: "bold",
                       fontFamily: "Roboto",
                       color: "text.primary",
+                      fontSize:"16px"
                     }}
                   >
                     {testimonial.name}
                   </Typography>
                   <Typography
                     variant="subtitle1"
-                    sx={{ color: "red", fontFamily: "Roboto" }}
+                    sx={{ color: "red", fontFamily: "Roboto", fontSize:"12px" }}
                   >
                     {testimonial.role}
                   </Typography>
@@ -202,8 +206,8 @@ export default function TestimonialsSec() {
           }}
         >
           <svg
-            width="50"
-            height="50"
+            width="30"
+            height="30"
             viewBox="0 0 51 108"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -230,8 +234,8 @@ export default function TestimonialsSec() {
           }}
         >
           <svg
-            width="50"
-            height="50"
+            width="30"
+            height="30"
             viewBox="0 0 51 108"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
