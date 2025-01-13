@@ -6,17 +6,61 @@ import { Box, Typography } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
+import useAppStore from "../store";
 
 export default function Categories() {
+  const { language, setLanguage } = useAppStore();
+  const isArabic = language == "ar";
+
   const arr = [
-    { title: "Weight Maintain", name: "Plan", img: "/weight.png" },
-    { title: "Muscles Gain", name: "Plan", img: "/muscleGain.png" },
-    { title: "Takmim", name: "Plan", img: "/takmim.png" },
-    { title: "Captain Chef", name: "Business", img: "/capSpecial.png" },
-    { title: "Weight Loss", name: "Plan", img: "/weightlose.png" },
-    { title: "Low Carb", name: "Plan", img: "/lowCarb.png" },
-    { title: "Diabetes", name: "Plan", img: "/diabetes.png" },
-    { title: "Life Style", name: "Plan", img: "/lifeStyle.png" },
+    {
+      title: "Weight Maintain",
+      name: "Plan",
+      img: "/weight.png",
+      ar: { title: "الحفاظ على الوزن", name: "الخطة" },
+    },
+    {
+      title: "Muscles Gain",
+      name: "Plan",
+      img: "/muscleGain.png",
+      ar: { title: "زيادة العضلات", name: "الخطة" },
+    },
+    {
+      title: "Takmim",
+      name: "Plan",
+      img: "/takmim.png",
+      ar: { title: "تكمل", name: "الخطة" },
+    },
+    {
+      title: "Captain Chef",
+      name: "Business",
+      img: "/capSpecial.png",
+      ar: { title: "الطباخ كابتن", name: "الأعمال" },
+    },
+    {
+      title: "Weight Loss",
+      name: "Plan",
+      img: "/weightlose.png",
+      ar: { title: "فقدان الوزن", name: "الخطة" },
+    },
+    {
+      title: "Low Carb",
+      name: "Plan",
+      img: "/lowCarb.png",
+      ar: { title: "قليل الكربوهيدرات", name: "الخطة" },
+    },
+    {
+      title: "Diabetes",
+      name: "Plan",
+      img: "/diabetes.png",
+      ar: { title: "السكري", name: "الخطة" },
+    },
+    {
+      title: "Life Style",
+      name: "Plan",
+      img: "/lifeStyle.png",
+      ar: { title: "أسلوب الحياة", name: "الخطة" },
+    },
   ];
 
   const getTextColor = (text) => {
@@ -73,7 +117,7 @@ export default function Categories() {
           sx={{
             display: "inline-block",
             padding: "20px",
-            alignSelf: "flex-start"
+            alignSelf: isArabic ? "flex-end" : "flex-start", // Dynamic alignment
           }}
         >
           <Typography
@@ -84,16 +128,16 @@ export default function Categories() {
               display: "inline-block",
             }}
           >
-            OUR CATEGORIES
+            {isArabic ? "فئاتنا" : "OUR CATEGORIES"}
           </Typography>
           <Box
-              sx={{
-                width: "auto",
-                height: "4px",
-                bgcolor: "red",
-                borderRadius: "2px",
-              }}
-            ></Box>
+            sx={{
+              width: "auto",
+              height: "4px",
+              bgcolor: "red",
+              borderRadius: "2px",
+            }}
+          ></Box>
         </Box>
       </Box>
       <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -175,32 +219,32 @@ export default function Categories() {
                       padding: 0.8,
                       height: 45,
                       justifyContent: "flex-start",
+                      direction: isArabic ? "rtl" : "ltr",
                     }}
                   >
                     <Typography
-                      // gutterBottom
                       variant="body2"
                       sx={{
                         fontSize: "0.85rem",
                         fontFamily: "Roboto",
                         color: getTextColor(item.title),
-                        // textAlign: isRTL ? "right" : "left",
+                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
                       }}
                     >
-                      {/* {titleText} */}
-                      {item.title}
+                      {isArabic ? item.ar.title : item.title}{" "}
+                      {/* Conditionally render Arabic or English title */}
                     </Typography>
                     <Typography
                       variant="body2"
                       sx={{
-                        fontsize: "0.65rem",
+                        fontSize: "0.65rem",
                         fontFamily: "Roboto",
                         fontWeight: 400,
-                        // textAlign: isRTL ? "right" : "left",
+                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
                       }}
                     >
-                      {/* {lastWord} */}
-                      {item.name}
+                      {isArabic ? item.ar.name : item.name}{" "}
+                      {/* Conditionally render Arabic or English name */}
                     </Typography>
                   </CardContent>
                 </Card>

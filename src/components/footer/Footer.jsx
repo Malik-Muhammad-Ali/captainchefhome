@@ -10,7 +10,7 @@ const branches = [
     color: "#FFCA44",
   },
   {
-    city: "JADDAH",
+    city: "JEDDAH",
     branch: "Sari Branch Obhur Branch Al Nahd Branch",
     arabicBranch: "فرع ساري فرع أبحر فرع النهضة",
     color: "#CE2729",
@@ -22,7 +22,7 @@ const branches = [
     color: "#0EA81D",
   },
   {
-    city: "RIYAD",
+    city: "RIYADH",
     branch: "Al Munisiyah Branch",
     arabicBranch: "فرع المنصية",
     color: "#AE77BA",
@@ -37,14 +37,14 @@ const Footer = () => {
         padding: "40px 20px",
         display: "flex",
         flexDirection: { xs: "column-reverse", md: "row" },
-        gap:{lg:"20px",sm:"10px"},
+        gap: { lg: "20px", sm: "10px" },
         alignItems: "center",
       }}
     >
       <Box
         sx={{
           backgroundImage: "footerbg.png",
-          width: {lg:"70%",sm:"100%"},
+          width: { lg: "70%", sm: "100%" },
           mr: { xs: 2, sm: 4, md: 8 },
           ml: { xs: 2, sm: 4, md: 8 },
           display: "flex",
@@ -60,7 +60,7 @@ const Footer = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "flex-start",
-            alignSelf: "self-start",
+            alignSelf: { xs: "center", md: "flex-start" },
             mr: { xs: 2, sm: 4, md: 8 },
             ml: { xs: 2, sm: 4, md: 8 },
             // gap: 2,
@@ -68,13 +68,24 @@ const Footer = () => {
         >
           <Typography
             variant="h4"
-            sx={{ color: "#CE2729", fontWeight: "bold", textAlign: "center", fontSize:{xs:"24px",md:"38px"} }}
+            sx={{
+              color: "#CE2729",
+              fontWeight: "bold",
+              textAlign: "center",
+              fontSize: { xs: "24px", md: "38px" },
+            }}
           >
             Our Branches Across
           </Typography>
           <Typography
             variant="h4"
-            sx={{ color: "#CE2729", fontWeight: "bold", textAlign: "center" ,fontSize:{xs:"24px",md:"38px"}}}
+            sx={{
+              color: "#CE2729",
+              fontWeight: "bold",
+              textAlign: "center",
+              alignSelf: { xs: "center", md: "start" },
+              fontSize: { xs: "24px", md: "38px" },
+            }}
           >
             The Kingdom
           </Typography>
@@ -85,7 +96,7 @@ const Footer = () => {
               fontWeight: "bold",
               textAlign: "center",
               marginBottom: "20px",
-              fontSize:{xs:"24px",md:"38px"}
+              fontSize: { xs: "24px", md: "38px" },
             }}
           >
             فروعنا المنتشرة في المملكة
@@ -103,7 +114,7 @@ const Footer = () => {
             backgroundSize: "cover", // Ensure the image covers the entire Box
             backgroundRepeat: "no-repeat", // Prevent the image from repeating
             backgroundPosition: "center", // Center the image in the Box
-            padding: {lg:"20px",md:"5px"}, // Optional padding to create spacing
+            padding: { lg: "20px", md: "5px" }, // Optional padding to create spacing
             // border:"2px solid black"
           }}
         >
@@ -115,25 +126,25 @@ const Footer = () => {
           >
             <LocationOnIcon
               sx={{
-                fontSize: {lg:"100px",md:"100px",sm:"70px",xs:"70px"},
+                fontSize: { lg: "100px", md: "100px", sm: "70px", xs: "70px" },
                 color: "#FBD512",
               }}
             />
             <LocationOnIcon
               sx={{
-                fontSize: {lg:"100px",md:"100px",sm:"70px",xs:"70px"},
+                fontSize: { lg: "100px", md: "100px", sm: "70px", xs: "70px" },
                 color: "#CF2528",
               }}
             />
             <LocationOnIcon
               sx={{
-                fontSize: {lg:"100px",md:"100px",sm:"70px",xs:"70px"},
+                fontSize: { lg: "100px", md: "100px", sm: "70px", xs: "70px" },
                 color: "#149338",
               }}
             />
             <LocationOnIcon
               sx={{
-                fontSize: {lg:"100px",md:"100px",sm:"70px",xs:"70px"},
+                fontSize: { lg: "100px", md: "100px", sm: "70px", xs: "70px" },
                 color: "#8961A7",
               }}
             />
@@ -178,7 +189,7 @@ const Footer = () => {
                     variant="h6"
                     sx={{
                       color: branch.color,
-                      fontSize:{xs:"16px",md:"22px"},
+                      fontSize: { xs: "16px", md: "22px" },
                       fontWeight: "bold",
                       textTransform: "uppercase",
                     }}
@@ -187,7 +198,12 @@ const Footer = () => {
                   </Typography>
                   <Typography
                     variant="body2"
-                    sx={{ color: "black", margin: "5px 0", fontWeight: "bold",fontSize:{xs:"8px",md:"16px"}, }}
+                    sx={{
+                      color: "black",
+                      margin: "5px 0",
+                      fontWeight: "bold",
+                      fontSize: { xs: "8px", md: "16px" },
+                    }}
                   >
                     {branch.branch}
                   </Typography>
@@ -197,7 +213,7 @@ const Footer = () => {
                       color: "black",
                       // fontStyle: "italic",
                       fontWeight: "bold",
-                      fontSize:{xs:"8px",md:"16px"},
+                      fontSize: { xs: "8px", md: "16px" },
                     }}
                   >
                     {branch.arabicBranch}
@@ -208,14 +224,15 @@ const Footer = () => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{
-        display:"flex",
-        flexDirection:"column",
-        alignItems:{xs:"center",md:"flex-start"},
-        justifyContent:"space-between",
-        gap:{xs:"20px",md:"40px"}
-        
-      }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: { xs: "center", md: "flex-start" },
+          justifyContent: "space-between",
+          gap: { xs: "20px", md: "40px" },
+        }}
+      >
         <Box>
           <img
             style={{
@@ -229,7 +246,7 @@ const Footer = () => {
         </Box>
         <Box
           sx={{
-            textAlign: {xs:"center",md:"start"},
+            textAlign: { xs: "center", md: "start" },
             width: "100%",
             maxWidth: "400px",
           }}
@@ -252,7 +269,7 @@ const Footer = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              alignItems:{xs:"center",md:"flex-start"},
+              alignItems: { xs: "center", md: "flex-start" },
               gap: "10px",
             }}
           >
@@ -298,17 +315,15 @@ const Footer = () => {
                 color: "#FFF",
                 padding: "10px 20px",
                 textTransform: "none",
-                borderRadius:"28px",
-                height:"30px"
+                borderRadius: "28px",
+                height: "30px",
               }}
             >
               Submit
             </Button>
           </Box>
         </Box>
-        <Box sx={{
-
-        }}>
+        <Box sx={{}}>
           <img
             style={{
               width: "150px",
