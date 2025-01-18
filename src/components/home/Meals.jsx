@@ -385,13 +385,14 @@ const Meals = () => {
           backgroundColor: "#D92531",
           borderTopLeftRadius: "150px",
           borderBottomLeftRadius: "150px",
-          width: { lg: "85%", md: "85%", sm: "100%", xs: "100%" },
-          marginLeft: { lg: "15%", md: "15%", sm: "0", xs: "0" },
+          width: { lg: "95%", md: "95%", sm: "100%", xs: "100%" },
+          marginLeft: { lg: "5%", md: "5%", sm: "0", xs: "0" },
           height: "auto",
           // gap: "20px",
           padding: "20px",
           // direction: isArabic ? "rtl" : "ltr",
           display: "flex",
+          // gap: "10px",
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -405,7 +406,12 @@ const Meals = () => {
             display: "flex",
             alignItems: "center",
             gap: { xs: "17px", md: "40px", sm: "40px", lg: "110px" },
-            justifyContent: "center",
+            justifyContent: {
+              lg: "flex-end",
+              sm: "center",
+              md: "flex-end",
+              xs: "center",
+            },
 
             // mb: "20px",
           }}
@@ -431,8 +437,8 @@ const Meals = () => {
                   minWidth: {
                     xs: "200px",
                     sm: "300px",
-                    md: "300px",
-                    lg: "300px",
+                    md: "250px",
+                    lg: "250px",
                   },
                   height: "140px",
                   overflow: "visible",
