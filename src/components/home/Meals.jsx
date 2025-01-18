@@ -402,11 +402,11 @@ const Meals = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            gap: { xs: "17px", md: "40px", sm: "40px", lg: "110px" },
+            gap: { xs: "17px", md: "100px", sm: "40px", lg: "110px" },
             justifyContent: {
               lg: "flex-end",
               sm: "center",
-              md: "flex-end",
+              md: "center",
               xs: "center",
             },
 
@@ -434,7 +434,7 @@ const Meals = () => {
                   backgroundColor: "white",
                   padding: "20px",
                   position: "relative",
-                  ml: { xs: "25px", md: "15px", sm: "15px", lg: "15px" },
+                  ml: { xs: "25px", md: "60px", sm: "15px", lg: "15px" },
                   minWidth: {
                     xs: "200px",
                     sm: "300px",
