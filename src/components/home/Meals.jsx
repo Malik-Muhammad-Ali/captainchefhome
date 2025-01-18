@@ -13,67 +13,70 @@ import {
 import useAppStore from "../store";
 
 const Meals = () => {
-  const [selectedTab, setSelectedTab] = React.useState(0); // Track selected tab
+  const [selectedTab, setSelectedTab] = React.useState(0);
   const { language, setLanguage } = useAppStore();
   const isArabic = language == "ar";
 
   const handleTabChange = (event, newValue) => {
-    setSelectedTab(newValue); // Update the selected tab
+    setSelectedTab(newValue);
+  };
+
+  const handleNavigation = () => {
+    window.location.href = 'https://captainchefsubscription.netlify.app';
   };
 
   const menuItems = [
     // Breakfast
-    { name: "Breakfast Item 1", kcal: "1080 Kcal", image: "pasta.png" },
-    { name: "Breakfast Item 2", kcal: "900 Kcal", image: "pasta.png" },
-    { name: "Breakfast Item 3", kcal: "850 Kcal", image: "pasta.png" },
-    { name: "Breakfast Item 4", kcal: "950 Kcal", image: "pasta.png" },
-    { name: "Breakfast Item 5", kcal: "1000 Kcal", image: "pasta.png" },
-    { name: "Breakfast Item 6", kcal: "1050 Kcal", image: "pasta.png" },
+    { name: "Pesto Halloumi Sandwich", kcal: "1080 Kcal", image: "pasta.png" },
+    { name: "Club Sandwich", kcal: "900 Kcal", image: "pasta.png" },
+    { name: "Waffle with Eggs", kcal: "850 Kcal", image: "pasta.png" },
+    { name: "Chocolate Waffel", kcal: "950 Kcal", image: "pasta.png" },
+    { name: "Egg Club Sandwich", kcal: "1000 Kcal", image: "pasta.png" },
+    { name: "Turkey Egg Sandwich", kcal: "1050 Kcal", image: "pasta.png" },
 
     // Lunch
-    { name: "Dinner Item 1", kcal: "1200 Kcal", image: "pasta.png" },
-    { name: "Dinner Item 2", kcal: "1100 Kcal", image: "pasta.png" },
-    { name: "Dinner Item 3", kcal: "1150 Kcal", image: "pasta.png" },
-    { name: "Dinner Item 4", kcal: "1250 Kcal", image: "pasta.png" },
-    { name: "Dinner Item 5", kcal: "1300 Kcal", image: "pasta.png" },
-    { name: "Dinner Item 6", kcal: "1400 Kcal", image: "pasta.png" },
+    { name: "Chicken Mexican", kcal: "1200 Kcal", image: "pasta.png" },
+    { name: "Chicken Crispy Oats", kcal: "1100 Kcal", image: "pasta.png" },
+    { name: "Chicken Kabab", kcal: "1150 Kcal", image: "pasta.png" },
+    { name: "Beef Teriyaki", kcal: "1250 Kcal", image: "pasta.png" },
+    { name: "Beef Fahita", kcal: "1300 Kcal", image: "pasta.png" },
+    { name: "Beef Macaroni Cheese", kcal: "1400 Kcal", image: "pasta.png" },
 
     // Dinner
-    { name: "Lunch Item 1", kcal: "1500 Kcal", image: "pasta.png" },
-    { name: "Lunch Item 2", kcal: "1300 Kcal", image: "pasta.png" },
-    { name: "Lunch Item 3", kcal: "1350 Kcal", image: "pasta.png" },
-    { name: "Lunch Item 4", kcal: "1450 Kcal", image: "pasta.png" },
-    { name: "Lunch Item 5", kcal: "1550 Kcal", image: "pasta.png" },
-    { name: "Lunch Item 6", kcal: "1600 Kcal", image: "pasta.png" },
+    { name: "Steak Sandwich", kcal: "1500 Kcal", image: "pasta.png" },
+    { name: "Turkey Mix Cheese", kcal: "1300 Kcal", image: "pasta.png" },
+    { name: "Beef Fahita Sandwich", kcal: "1350 Kcal", image: "pasta.png" },
+    { name: "Dry Fruit Salad", kcal: "1450 Kcal", image: "pasta.png" },
+    { name: "Nicoise salad", kcal: "1550 Kcal", image: "pasta.png" },
+    { name: "Dawood Basha", kcal: "1600 Kcal", image: "pasta.png" },
 
     // Snacks
-    { name: "Snack Item 1", kcal: "450 Kcal", image: "pasta.png" },
-    { name: "Snack Item 2", kcal: "350 Kcal", image: "pasta.png" },
-    { name: "Snack Item 3", kcal: "500 Kcal", image: "pasta.png" },
-    { name: "Snack Item 4", kcal: "400 Kcal", image: "pasta.png" },
-    { name: "Snack Item 5", kcal: "450 Kcal", image: "pasta.png" },
-    { name: "Snack Item 6", kcal: "550 Kcal", image: "pasta.png" },
+    { name: "Masoob", kcal: "450 Kcal", image: "pasta.png" },
+    { name: "Taboulah Salad", kcal: "350 Kcal", image: "pasta.png" },
+    { name: "Caeser Salad", kcal: "500 Kcal", image: "pasta.png" },
+    { name: "Mango Pinacolada Cake", kcal: "400 Kcal", image: "pasta.png" },
+    { name: "Blueberries Coconut Cake", kcal: "450 Kcal", image: "pasta.png" },
+    { name: "Mix Salad", kcal: "550 Kcal", image: "pasta.png" },
 
     // Cold Drinks
-    { name: "Cold Drink Item 1", kcal: "200 Kcal", image: "pasta.png" },
-    { name: "Cold Drink Item 2", kcal: "150 Kcal", image: "pasta.png" },
-    { name: "Cold Drink Item 3", kcal: "180 Kcal", image: "pasta.png" },
-    { name: "Cold Drink Item 4", kcal: "220 Kcal", image: "pasta.png" },
-    { name: "Cold Drink Item 5", kcal: "250 Kcal", image: "pasta.png" },
-    { name: "Cold Drink Item 6", kcal: "270 Kcal", image: "pasta.png" },
+    { name: "Lemon Mint", kcal: "200 Kcal", image: "pasta.png" },
+    { name: "Coke", kcal: "150 Kcal", image: "pasta.png" },
+    { name: "Mountain Dew", kcal: "180 Kcal", image: "pasta.png" },
+    { name: "Dr Pepper", kcal: "220 Kcal", image: "pasta.png" },
+    { name: "Pepsi", kcal: "250 Kcal", image: "pasta.png" },
+    { name: "Fanta.", kcal: "270 Kcal", image: "pasta.png" },
   ];
 
   const filteredItems = [
-    // Filter items based on the selected tab
     selectedTab === 0
-      ? menuItems.slice(0, 6) // Breakfast (First 6 items)
+      ? menuItems.slice(0, 6)
       : selectedTab === 1
-      ? menuItems.slice(6, 12) // Lunch (Next 6 items)
+      ? menuItems.slice(6, 12)
       : selectedTab === 2
-      ? menuItems.slice(12, 18) // Dinner (Next 6 items)
+      ? menuItems.slice(12, 18)
       : selectedTab === 3
-      ? menuItems.slice(18, 24) // Snacks (Next 6 items)
-      : menuItems.slice(24, 30), // Cold Drinks (Last 6 items)
+      ? menuItems.slice(18, 24)
+      : menuItems.slice(24, 30),
   ];
 
   return (
@@ -92,7 +95,7 @@ const Meals = () => {
           sx={{
             display: "inline-block",
             padding: "20px",
-            alignSelf: isArabic ? "flex-end" : "flex-start", // Dynamic alignment
+            alignSelf: isArabic ? "flex-end" : "flex-start",
           }}
         >
           <Typography
@@ -120,12 +123,11 @@ const Meals = () => {
       <Box
         sx={{
           display: "flex",
-          // border: "2px solid black",
-          justifyContent: "center", // Center horizontally
-          alignItems: "center", // Center vertically
+          justifyContent: "center",
+          alignItems: "center",
           width: "100%",
-          height: { lg: "20vh", sm: "20vh", md: "20vh", xs: "10vh" }, // Maintain the height
-          padding: "0 10px", // Horizontal padding for responsiveness
+          height: { lg: "20vh", sm: "20vh", md: "20vh", xs: "10vh" },
+          padding: "0 10px",
         }}
       >
         <Tabs
@@ -133,7 +135,6 @@ const Meals = () => {
           onChange={handleTabChange}
           indicatorColor="#D92531"
           aria-label="#D92531"
-          // variant="scrollable"
           scrollButtons
           allowScrollButtonsMobile
           sx={{
@@ -143,16 +144,14 @@ const Meals = () => {
               gap: { md: "5rem", sm: "10px", xs: "5px" },
             },
             "& .Mui-selected": {
-              color: "#D92531", // Change text and icon color for the selected tab to red
-              fontWeight: "bold", // Optional: make the text bolder
+              color: "#D92531",
+              fontWeight: "bold",
             },
-            // Make sure all tabs have a gray color when unselected
             "& .MuiTab-root": {
-              color: "gray", // Default color for unselected tabs
+              color: "gray",
             },
-            // Style the indicator (underline) color
             "& .MuiTabs-indicator": {
-              backgroundColor: "#D92531", // Set the color of the underline (indicator)
+              backgroundColor: "#D92531",
             },
           }}
         >
@@ -192,7 +191,7 @@ const Meals = () => {
                   fontWeight="bold"
                   sx={{
                     fontSize: { xs: "10px", sm: "12px" },
-                    color: "#D92531", // inherit color
+                    color: "#D92531",
                   }}
                 >
                   {isArabic ? "الإفطار" : "BreakFast"}
@@ -388,9 +387,7 @@ const Meals = () => {
           width: { lg: "85%", md: "85%", sm: "100%", xs: "100%" },
           marginLeft: { lg: "15%", md: "15%", sm: "0", xs: "0" },
           height: "auto",
-          // gap: "20px",
           padding: "20px",
-          // direction: isArabic ? "rtl" : "ltr",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -406,8 +403,6 @@ const Meals = () => {
             alignItems: "center",
             gap: { xs: "17px", md: "40px", sm: "40px", lg: "110px" },
             justifyContent: "center",
-
-            // mb: "20px",
           }}
         >
           {filteredItems[0].map((item, index) => (
@@ -471,11 +466,10 @@ const Meals = () => {
                   sx={{
                     display: "flex",
                     marginLeft: "30px",
-                    flexDirection: "column", // Stack the content vertically
-                    justifyContent: "flex-start", // Align the text at the start
-                    alignItems: "flex-start", // Align text to the left
-                    // gap: "10px", // Add some space between the text elements
-                    height: "100%", // Ensure the CardContent takes full height to center the button
+                    flexDirection: "column",
+                    justifyContent: "flex-start",
+                    alignItems: "flex-start",
+                    height: "100%",
                   }}
                 >
                   <Typography variant="h6" fontWeight="bold">
@@ -488,8 +482,7 @@ const Meals = () => {
                     sx={{
                       display: "flex",
                       mr: "20px",
-                      justifyContent: "center", // Center the button horizontally
-                      //   marginTop: "auto", // Push the button to the bottom of the CardContent
+                      justifyContent: "center",
                     }}
                   >
                     <Button
@@ -508,8 +501,8 @@ const Meals = () => {
                         ml: { md: "48px", xs: "33px" },
                         justifySelf: "center",
                         borderRadius: "45px",
-                        // padding: "8px 16px", // You can adjust padding as per your preference
                       }}
+                      onClick={handleNavigation}
                     >
                       Select
                     </Button>

@@ -6,8 +6,6 @@ import Meals from "../../components/home/Meals";
 import BestSeller from "../../components/home/BestSeller";
 import HeroSec from "../../components/home/HeroSec";
 import TestimonialsSec from "../../components/home/TestimonialsSec";
-// import Footer from "../components/footer/Footer";
-// import Navbar from "../components/navbar/Navbar";
 
 const Home = () => {
   return (
@@ -16,9 +14,6 @@ const Home = () => {
       flexDirection:"column",
       gap: { xs: "20px", sm: "40px", md: "80px", lg: "80px" },
     }}>
-      {/* <Box>
-        <Navbar />
-      </Box> */}
       <Box>
         <HeroSec />
       </Box>
@@ -37,9 +32,6 @@ const Home = () => {
       <Box>
         <TestimonialsSec />
       </Box>
-      {/* <Box>
-        <Footer />
-      </Box> */}
     </Box>
   );
 };

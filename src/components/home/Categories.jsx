@@ -93,13 +93,10 @@ export default function Categories() {
       swiperRef.current.autoplay.start(); // Resume autoplay immediately on mouse leave
     }
   };
-  //   const navigate = useNavigate();
-  //   const nameArray = title.split(" ");
-  //   const isRTL = language === "ar";
 
-  //   // Adjust the title arrangement for RTL and LTR
-  //   const titleText = nameArray.length > 1 ? nameArray.slice(0, -1).join(" ") : title;
-  //   const lastWord = isRTL ? nameArray[0] : nameArray[nameArray.length - 1];
+  const handleNavigation = () => {
+    window.location.href = 'https://captainchefsubscription.netlify.app';
+  };
 
   return (
     <>
@@ -200,7 +197,7 @@ export default function Categories() {
                     cursor: "pointer",
                     boxShadow: "none",
                   }}
-                  //   onClick={() => navigate(`/subscriptions/category/${id}`)}
+                    onClick={handleNavigation}
                 >
                   <CardMedia
                     sx={{
