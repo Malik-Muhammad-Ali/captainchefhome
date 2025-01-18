@@ -170,6 +170,7 @@ export default function BestSeller() {
             768: {
               slidesPerView: 5,
               centeredSlides: false,
+              spaceBetween:100
             },
             1024: {
               slidesPerView: 5,

@@ -185,7 +185,7 @@ export default function Categories() {
               centeredSlides: false,
             },
             1024: {
-              slidesPerView: 6,
+              slidesPerView: 5,
               centeredSlides: false,
             },
             1440: {
