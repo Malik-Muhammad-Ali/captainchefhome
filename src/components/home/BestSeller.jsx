@@ -99,6 +99,11 @@ export default function BestSeller() {
         swiperRef.current.autoplay.start(); // Resume autoplay immediately on mouse leave
       }
     };
+
+    const handleNavigation = () => {
+      window.location.href = 'https://captainchefsubscription.netlify.app';
+    };
+    
   return (
     <Box
       sx={{
