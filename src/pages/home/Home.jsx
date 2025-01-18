@@ -12,7 +12,7 @@ const Home = () => {
     <Box sx={{
       display:"flex",
       flexDirection:"column",
-      gap: { xs: "20px", sm: "40px", md: "80px", lg: "80px" },
+      gap: { xs: "20px", sm: "20px", md: "30px", lg: "30px" },
     }}>
       <Box>
         <HeroSec />
