@@ -1,16 +1,17 @@
-// import * as React from "react";
+import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Typography, useMediaQuery } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./categoriesCrousel.css";
-import { Navigation } from "swiper/modules";
-import { useRef } from "react";
+import { Autoplay } from "swiper/modules";
+// import { useRef } from "react";
 import useAppStore from "../store";
 
 export default function BestSeller() {
+  const isExtraLarge = useMediaQuery("(min-width:1500px)");
   const { language, setLanguage } = useAppStore();
   const isArabic = language == "ar";
   const arr = [
@@ -82,13 +83,22 @@ export default function BestSeller() {
     }
   };
 
-  const prevRef = useRef(null); // Reference for the previous button
-  const nextRef = useRef(null);
-
-  const handleNavigation = () => {
-    window.location.href = 'https://captainchefsubscription.netlify.app';
-  };
-
+  //   // Adjust the title arrangement for RTL and LTR
+  //   const titleText = nameArray.length > 1 ? nameArray.slice(0, -1).join(" ") : title;
+  //   const lastWord = isRTL ? nameArray[0] : nameArray[nameArray.length - 1];
+  const swiperRef = React.useRef(null);
+  
+    const handleMouseEnter = () => {
+      if (swiperRef.current) {
+        swiperRef.current.autoplay.stop(); // Stop autoplay immediately on hover
+      }
+    };
+  
+    const handleMouseLeave = () => {
+      if (swiperRef.current) {
+        swiperRef.current.autoplay.start(); // Resume autoplay immediately on mouse leave
+      }
+    };
   return (
     <Box
       sx={{
@@ -134,6 +144,7 @@ export default function BestSeller() {
         </Box>
       </Box>
       <Box
+      onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
         sx={{
           position: "relative",
           width: "100%",
@@ -146,15 +157,20 @@ export default function BestSeller() {
         }}
       >
         <Swiper
-          spaceBetween={150}
-          slidesPerView={5}
-          navigation={{
-            prevEl: ".custome-prev",
-            nextEl: ".custome-next",
-          }}
+          spaceBetween={70}
+          slidesPerView={6}
           loop={true}
-          centeredSlides={true}
-          modules={[Navigation]}
+          speed={2000}
+          freeMode={true}
+          freeModeMomentum={false}
+          modules={[Autoplay]}
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: true,
+          }}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
           style={{ padding: "20px 30px" }}
           breakpoints={{
             320: {
@@ -167,19 +183,26 @@ export default function BestSeller() {
               centeredSlides: true,
             },
             768: {
-              slidesPerView: 5,
+              slidesPerView: 3,
               centeredSlides: false,
-              spaceBetween:100
+              spaceBetween:50
             },
             1024: {
               slidesPerView: 5,
               centeredSlides: true,
+              spaceBetween:200
+            },
+            1440: {
+              slidesPerView: 6,
+              centeredSlides: true,
+              spaceBetween:150
             },
           }}
         >
           {arr.map((item, index) => (
             <SwiperSlide key={index}>
-              <Box
+            {!isExtraLarge ? 
+              (<Box
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -240,11 +263,74 @@ export default function BestSeller() {
                     {isArabic ? item.ar.title : item.title}{" "}
                   </Typography>
                 </Box>
-              </Box>
+              </Box>) : 
+              (<Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                  alignItems: "center",
+                }}
+              >
+                <Card
+                  sx={{
+                    maxWidth: "300px",
+                    minWidth: "300px",
+                    aspectRatio: 2 / 2,
+                    borderRadius: "24px",
+                    flexGrow: 1,
+                    cursor: "pointer",
+                    boxShadow: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                  //   onClick={() => navigate(`/subscriptions/category/${id}`)}
+                >
+                  <CardMedia
+                    sx={{
+                      height: "100%",
+                      width: "100%",
+                      objectFit: "cover",
+                    }}
+                    image={item.img}
+                    //   title={item.title}
+                  />
+                </Card>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    maxWidth: "180px",
+                    minWidth: "180px",
+                    // border:"2px solid black"
+                  }}
+                >
+                  <Typography
+                    // gutterBottom
+                    variant="body"
+                    component="div"
+                    sx={{
+                      fontSize: "1.75rem",
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      fontFamily: "Roboto",
+                      color: getTextColor(item.title),
+                    }}
+                  >
+                    {/* {titleText} */}
+                    {isArabic ? item.ar.title : item.title}{" "}
+                  </Typography>
+                </Box>
+              </Box>)
+            }
             </SwiperSlide>
           ))}
         </Swiper>
-        <IconButton
+        {/* <IconButton
           ref={prevRef}
           className="custome-prev"
           sx={{
@@ -300,7 +386,7 @@ export default function BestSeller() {
               fill="#797A7A"
             />
           </svg>
-        </IconButton>
+        </IconButton> */}
       </Box>
     </Box>
   );
