@@ -21,10 +21,10 @@ const NavBottom = () => {
   const menuItems = [
     { name: "Home", route: "/", ar: "الرئيسية" },
     { name: "About Us", route: "/about", ar: "معلومات عنا" },
-    { name: "Subscriptions", route: "/about", ar: "معلومات عنا" },
+    { name: "Subscriptions", route: "/subscriptions", ar: "معلومات عنا" },
     { name: "Menu", route: "/menu", ar: "القائمة" },
     // { name: "Services", route: "/services", ar: "الخدمات" },
-    { name: "Join Us", route: "/services", ar: "الخدمات" },
+    { name: "Join Us", route: "/join", ar: "الخدمات" },
     // { name: "New", route: "/new", ar: "الجديد" },
     { name: "Contact Us", route: "/contact", ar: "اتصل بنا" },
   ];
@@ -34,8 +34,8 @@ const NavBottom = () => {
   };
 
   const handleNavigation = (page) => {
-    setActivePage(page.name); // Set active page
-    navigate(page.route); // Navigate to the route
+    setActivePage(page); // Set active page
+    navigate(page); // Navigate to the route
     toggleDrawer(false); // Close drawer on navigation
   };
 
@@ -57,25 +57,109 @@ const NavBottom = () => {
             direction: isArabic ? "rtl" : "ltr", // Change direction dynamically
           }}
         >
-          {menuItems.map((page) => (
-            <Button
-              key={page.name}
-              onClick={() => handleNavigation(page)}
-              sx={{
-                color: activePage === page.name ? "#D92531" : "black",
-                backgroundColor: activePage === page.name ? "white" : "none",
-                margin: "0 10px",
-                fontWeight: "bold",
-                fontSize: "16px",
-                borderRadius: "8px",
-                "&:hover": {
-                  color: "#D92531",
-                },
-              }}
-            >
-              {language === "ar" ? page.ar : page.name}
-            </Button>
-          ))}
+          {/* Home */}
+          <Button
+            onClick={() => handleNavigation("/")}
+            sx={{
+              color: activePage === "Home" ? "#D92531" : "black",
+              backgroundColor: activePage === "Home" ? "white" : "none",
+              margin: "0 10px",
+              fontWeight: "bold",
+              fontSize: "16px",
+              borderRadius: "8px",
+              "&:hover": {
+                color: "#D92531",
+              },
+            }}
+          >
+            {language === "ar" ? "بيت" : "Home"}
+          </Button>
+          {/* About Us  */}
+          <Button
+            onClick={() => handleNavigation("/about")}
+            sx={{
+              color: activePage === "About Us" ? "#D92531" : "black",
+              backgroundColor: activePage === "About Us" ? "white" : "none",
+              margin: "0 10px",
+              fontWeight: "bold",
+              fontSize: "16px",
+              borderRadius: "8px",
+              "&:hover": {
+                color: "#D92531",
+              },
+            }}
+          >
+            {language === "ar" ? "بيت" : "About Us"}
+          </Button>
+          {/* Subscriptions  */}
+          <Button
+            onClick={() => handleNavigation("/about")}
+            sx={{
+              color: activePage === "Subscriptions" ? "#D92531" : "black",
+              backgroundColor:
+                activePage === "Subscriptions" ? "white" : "none",
+              margin: "0 10px",
+              fontWeight: "bold",
+              fontSize: "16px",
+              borderRadius: "8px",
+              "&:hover": {
+                color: "#D92531",
+              },
+            }}
+          >
+            {language === "ar" ? "بيت" : "Subscriptions"}
+          </Button>
+          {/* Menu  */}
+          <Button
+            onClick={() => handleNavigation("/menu")}
+            sx={{
+              color: activePage === "Menu" ? "#D92531" : "black",
+              backgroundColor: activePage === "Menu" ? "white" : "none",
+              margin: "0 10px",
+              fontWeight: "bold",
+              fontSize: "16px",
+              borderRadius: "8px",
+              "&:hover": {
+                color: "#D92531",
+              },
+            }}
+          >
+            {language === "ar" ? "بيت" : "Menu"}
+          </Button>
+          {/* Join Us  */}
+          <Button
+            onClick={() => handleNavigation("/join")}
+            sx={{
+              color: activePage === "Join Us" ? "#D92531" : "black",
+              backgroundColor: activePage === "Join Us" ? "white" : "none",
+              margin: "0 10px",
+              fontWeight: "bold",
+              fontSize: "16px",
+              borderRadius: "8px",
+              "&:hover": {
+                color: "#D92531",
+              },
+            }}
+          >
+            {language === "ar" ? "بيت" : "Join Us"}
+          </Button>
+          {/* Contact Us  */}
+          <Button
+            onClick={() => handleNavigation("/contact")}
+            sx={{
+              color: activePage === "Contact Us" ? "#D92531" : "black",
+              backgroundColor: activePage === "Contact Us" ? "white" : "none",
+              margin: "0 10px",
+              fontWeight: "bold",
+              fontSize: "16px",
+              borderRadius: "8px",
+              "&:hover": {
+                color: "#D92531",
+              },
+            }}
+          >
+            {language === "ar" ? "بيت" : "Contact Us"}
+          </Button>
         </Toolbar>
       </AppBar>
       {/* Mobile Menu Icon */}
