@@ -80,7 +80,7 @@ const Meals = () => {
   ];
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: "0px"}}>
       <Box
         sx={{
           display: "flex",
@@ -88,7 +88,8 @@ const Meals = () => {
           gap: { lg: "50px", md: "50px", sm: "30px", xs: "20px" },
           mr: { xs: 2, sm: 4, md: 8 },
           ml: { xs: 2, sm: 4, md: 8 },
-          mb: { xs: 2, sm: 4, md: 8 },
+          mb: { xs: 2, sm: 4, md: 0 },
+          // border: '1px solid red'
         }}
       >
         <Box
@@ -126,8 +127,10 @@ const Meals = () => {
           justifyContent: "center",
           alignItems: "center",
           width: "100%",
-          height: { lg: "20vh", sm: "20vh", md: "20vh", xs: "10vh" },
-          padding: "0 10px",
+          height: { lg: "16vh", sm: "20vh", md: "20vh", xs: "10vh" },
+          // padding: "0 10px",
+          // border: '1px solid blue',
+          // backgroundColor: "blue",
         }}
       >
         <Tabs
@@ -404,11 +407,14 @@ const Meals = () => {
             alignItems: "center",
             gap: { xs: "17px", md: "100px", sm: "40px", lg: "110px" },
             justifyContent: {
-              lg: "flex-end",
+              lg: "space-between",
+              // lg: "flex-end",
               sm: "center",
               md: "center",
               xs: "center",
             },
+            ml: {lg: '120px'},
+            mt: {xs: '40px', sm: '20px'},
 
             // mb: "20px",
           }}
