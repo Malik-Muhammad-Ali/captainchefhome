@@ -17,8 +17,10 @@ function App() {
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/menu' element={<Menu/>}/>
-          <Route path='/new' element={<New/>}/>
-          <Route path='/services' element={<Services/>}/>
+          <Route path='/subscriptions' element={<Menu/>}/>
+          <Route path='/join' element={<Menu/>}/>
+          {/* <Route path='/new' element={<New/>}/> */}
+          {/* <Route path='/services' element={<Services/>}/> */}
         </Route>
       </Routes>
     </BrowserRouter>
