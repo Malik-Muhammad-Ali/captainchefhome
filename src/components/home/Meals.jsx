@@ -423,7 +423,11 @@ const Meals = () => {
               sm={6}
               md={6}
               key={index}
-              sx={{ position: "relative" }}
+              sx={{
+                position: "relative",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+              }}
             >
               <Card
                 sx={{
