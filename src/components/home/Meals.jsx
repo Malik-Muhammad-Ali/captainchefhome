@@ -27,7 +27,7 @@ const Meals = () => {
 
   const menuItems = [
     // Breakfast
-    { name: "Pesto Halloumi Sandwich", kcal: "1080 Kcal", image: "pasta.png" },
+    { name: "Pesto Sandwich", kcal: "1080 Kcal", image: "pasta.png" },
     { name: "Club Sandwich", kcal: "900 Kcal", image: "pasta.png" },
     { name: "Waffle with Eggs", kcal: "850 Kcal", image: "pasta.png" },
     { name: "Chocolate Waffel", kcal: "950 Kcal", image: "pasta.png" },
@@ -384,11 +384,12 @@ const Meals = () => {
           backgroundColor: "#D92531",
           borderTopLeftRadius: "150px",
           borderBottomLeftRadius: "150px",
-          width: { lg: "85%", md: "85%", sm: "100%", xs: "100%" },
-          marginLeft: { lg: "15%", md: "15%", sm: "0", xs: "0" },
+          width: { lg: "95%", md: "95%", sm: "100%", xs: "100%" },
+          marginLeft: { lg: "5%", md: "5%", sm: "0", xs: "0" },
           height: "auto",
           padding: "20px",
           display: "flex",
+          // gap: "10px",
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -402,7 +403,14 @@ const Meals = () => {
             display: "flex",
             alignItems: "center",
             gap: { xs: "17px", md: "40px", sm: "40px", lg: "110px" },
-            justifyContent: "center",
+            justifyContent: {
+              lg: "flex-end",
+              sm: "center",
+              md: "flex-end",
+              xs: "center",
+            },
+
+            // mb: "20px",
           }}
         >
           {filteredItems[0].map((item, index) => (
@@ -412,7 +420,11 @@ const Meals = () => {
               sm={6}
               md={6}
               key={index}
-              sx={{ position: "relative" }}
+              sx={{
+                position: "relative",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+              }}
             >
               <Card
                 sx={{
@@ -426,8 +438,8 @@ const Meals = () => {
                   minWidth: {
                     xs: "200px",
                     sm: "300px",
-                    md: "300px",
-                    lg: "300px",
+                    md: "250px",
+                    lg: "250px",
                   },
                   height: "140px",
                   overflow: "visible",
