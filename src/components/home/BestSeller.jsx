@@ -161,9 +161,10 @@ export default function BestSeller() {
             320: {
               slidesPerView: 2,
               centeredSlides: true,
+              spaceBetween:150
             },
             640: {
-              slidesPerView: 1,
+              slidesPerView: 3,
               centeredSlides: true,
             },
             768: {
