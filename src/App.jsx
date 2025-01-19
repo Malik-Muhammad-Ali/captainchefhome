@@ -4,8 +4,8 @@ import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import Menu from './pages/menu/Menu';
-import New from './pages/new/New';
-import Services from './pages/service/Services';
+import Subscriptions from './pages/subscriptions/Subscriptions';
+// import New from './pages/new/New';
 import Layout from './components/layout/Layout';
 
 function App() {
@@ -17,10 +17,9 @@ function App() {
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/menu' element={<Menu/>}/>
-          <Route path='/subscriptions' element={<Menu/>}/>
+          <Route path='/subscriptions' element={<Subscriptions/>}/>
           <Route path='/join' element={<Menu/>}/>
           {/* <Route path='/new' element={<New/>}/> */}
-          {/* <Route path='/services' element={<Services/>}/> */}
         </Route>
       </Routes>
     </BrowserRouter>

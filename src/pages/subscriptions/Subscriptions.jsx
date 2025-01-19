@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
 
-const About = () => {
+const Subscriptions = () => {
   return (
     <Box sx={{
       height:"400px",
@@ -16,13 +16,13 @@ const About = () => {
         fontFamily:"Roboto",
         fontStyle:"italic",
         fontWeight:"bold",
-        color:"#AE77BA",
+        color:"#CE2729",
         letterSpacing:"6px"
       }}>
-        About Comming soon
+        Subscriptions Comming soon
       </Typography>
     </Box>
   )
 }
 
-export default About
+export default Subscriptions

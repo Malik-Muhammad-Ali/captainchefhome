@@ -31,8 +31,8 @@ const NavTop = () => {
     { name: "Home", route: "/", ar: "الرئيسية" },
     { name: "About Us", route: "/about", ar: "معلومات عنا" },
     { name: "Menu", route: "/menu", ar: "القائمة" },
-    { name: "Services", route: "/services", ar: "الخدمات" },
-    { name: "New", route: "/new", ar: "الجديد" },
+    // { name: "Services", route: "/services", ar: "الخدمات" },
+    // { name: "New", route: "/new", ar: "الجديد" },
     { name: "Contact Us", route: "/contact", ar: "اتصل بنا" },
   ];
   const toggleDrawer = (open) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Box,
@@ -8,14 +8,17 @@ import {
   Toolbar,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu"; // Import hamburger menu icon
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import useAppStore from "../store";
 
 const NavBottom = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location.pathname);
   const { language, setLanguage } = useAppStore();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const [activePage, setActivePage] = React.useState("Home");
+  const [activePage, setActivePage] = useState(location.pathname);
+
 
   // Navigation Pages
   const menuItems = [
@@ -33,11 +36,12 @@ const NavBottom = () => {
     setDrawerOpen(open);
   };
 
-  const handleNavigation = (page) => {
-    setActivePage(page); // Set active page
-    navigate(page); // Navigate to the route
+  const handleNavigation = (route) => {
+    setActivePage(route);
+    navigate(route);
     toggleDrawer(false); // Close drawer on navigation
   };
+  console.log(activePage);
 
   return (
     <>
@@ -61,8 +65,8 @@ const NavBottom = () => {
           <Button
             onClick={() => handleNavigation("/")}
             sx={{
-              color: activePage === "Home" ? "#D92531" : "black",
-              backgroundColor: activePage === "Home" ? "white" : "none",
+              color: activePage === "/" ? "#D92531" : "black",
+              backgroundColor: activePage === "/" ? "white" : "none",
               margin: "0 10px",
               fontWeight: "bold",
               fontSize: "16px",
@@ -78,8 +82,8 @@ const NavBottom = () => {
           <Button
             onClick={() => handleNavigation("/about")}
             sx={{
-              color: activePage === "About Us" ? "#D92531" : "black",
-              backgroundColor: activePage === "About Us" ? "white" : "none",
+              color: activePage === "/about" ? "#D92531" : "black",
+              backgroundColor: activePage === "/about" ? "white" : "none",
               margin: "0 10px",
               fontWeight: "bold",
               fontSize: "16px",
@@ -93,11 +97,11 @@ const NavBottom = () => {
           </Button>
           {/* Subscriptions  */}
           <Button
-            onClick={() => handleNavigation("/about")}
+            onClick={() => handleNavigation("/subscriptions")}
             sx={{
-              color: activePage === "Subscriptions" ? "#D92531" : "black",
+              color: activePage === "/subscriptions" ? "#D92531" : "black",
               backgroundColor:
-                activePage === "Subscriptions" ? "white" : "none",
+                activePage === "/subscriptions" ? "white" : "none",
               margin: "0 10px",
               fontWeight: "bold",
               fontSize: "16px",
@@ -113,8 +117,8 @@ const NavBottom = () => {
           <Button
             onClick={() => handleNavigation("/menu")}
             sx={{
-              color: activePage === "Menu" ? "#D92531" : "black",
-              backgroundColor: activePage === "Menu" ? "white" : "none",
+              color: activePage === "/menu" ? "#D92531" : "black",
+              backgroundColor: activePage === "/menu" ? "white" : "none",
               margin: "0 10px",
               fontWeight: "bold",
               fontSize: "16px",
@@ -128,10 +132,10 @@ const NavBottom = () => {
           </Button>
           {/* Join Us  */}
           <Button
-            onClick={() => handleNavigation("/join")}
+            onClick={() => handleNavigation("/menu")}
             sx={{
-              color: activePage === "Join Us" ? "#D92531" : "black",
-              backgroundColor: activePage === "Join Us" ? "white" : "none",
+              color: activePage === "/menu" ? "#D92531" : "black",
+              backgroundColor: activePage === "/menu" ? "white" : "none",
               margin: "0 10px",
               fontWeight: "bold",
               fontSize: "16px",
@@ -141,14 +145,14 @@ const NavBottom = () => {
               },
             }}
           >
-            {language === "ar" ? "بيت" : "Join Us"}
+            {language === "ar" ? "بيت" : "Join us"}
           </Button>
           {/* Contact Us  */}
           <Button
             onClick={() => handleNavigation("/contact")}
             sx={{
-              color: activePage === "Contact Us" ? "#D92531" : "black",
-              backgroundColor: activePage === "Contact Us" ? "white" : "none",
+              color: activePage === "/contact" ? "#D92531" : "black",
+              backgroundColor: activePage === "/contact" ? "white" : "none",
               margin: "0 10px",
               fontWeight: "bold",
               fontSize: "16px",
@@ -162,64 +166,73 @@ const NavBottom = () => {
           </Button>
         </Toolbar>
       </AppBar>
-      {/* Mobile Menu Icon */}
-      {/* <Box
-        sx={{
-          display: { xs: "flex", sm: "none" }, // Show only on mobile
-          justifyContent: "center",
-          backgroundColor: "transparent",
-        }}
-      >
-        <IconButton
-          onClick={() => toggleDrawer(true)}
-          sx={{
-            color: "black",
-          }}
-        >
-          <MenuIcon />
-        </IconButton>
-      </Box> */}
-      {/* Drawer for Mobile Navigation */}
-      {/* <Drawer
-        anchor="top"
-        open={drawerOpen}
-        onClose={() => toggleDrawer(false)}
-        sx={{
-          display: { xs: "block", sm: "none" }, // Show only on mobile
-        }}
-      >
-        <Box
-          sx={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            paddingTop: "20px",
-            direction: language === "ar" ? "rtl" : "ltr", // Change direction dynamically
-          }}
-        >
-          {menuItems.map((page) => (
-            <Button
-              key={page.name}
-              onClick={() => handleNavigation(page)}
-              sx={{
-                color: "black",
-                margin: "10px 0",
-                fontWeight: "bold",
-                fontSize: "16px",
-                borderRadius: "8px",
-                "&:hover": {
-                  color: "#D92531",
-                },
-              }}
-            >
-              {language === "ar" ? page.ar : page.name}
-            </Button>
-          ))}
-        </Box>
-      </Drawer> */}
     </>
   );
 };
 
 export default NavBottom;
+
+{
+  /* Mobile Menu Icon */
+}
+{
+  /* <Box
+  sx={{
+    display: { xs: "flex", sm: "none" }, // Show only on mobile
+    justifyContent: "center",
+    backgroundColor: "transparent",
+  }}
+>
+  <IconButton
+    onClick={() => toggleDrawer(true)}
+    sx={{
+      color: "black",
+    }}
+  >
+    <MenuIcon />
+  </IconButton>
+</Box> */
+}
+{
+  /* Drawer for Mobile Navigation */
+}
+{
+  /* <Drawer
+  anchor="top"
+  open={drawerOpen}
+  onClose={() => toggleDrawer(false)}
+  sx={{
+    display: { xs: "block", sm: "none" }, // Show only on mobile
+  }}
+>
+  <Box
+    sx={{
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      paddingTop: "20px",
+      direction: language === "ar" ? "rtl" : "ltr", // Change direction dynamically
+    }}
+  >
+    {menuItems.map((page) => (
+      <Button
+        key={page.name}
+        onClick={() => handleNavigation(page)}
+        sx={{
+          color: "black",
+          margin: "10px 0",
+          fontWeight: "bold",
+          fontSize: "16px",
+          borderRadius: "8px",
+          "&:hover": {
+            color: "#D92531",
+          },
+        }}
+      >
+        {language === "ar" ? page.ar : page.name}
+      </Button>
+    ))}
+  </Box>
+</Drawer> */
+}
