@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,34 +15,61 @@ import {
   MenuItem,
   Select,
   Typography,
+  Menu,
 } from "@mui/material";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIos from "@mui/icons-material/ArrowBackIos";
 import useAppStore from "../store";
 import { useNavigate } from "react-router-dom";
+
 const NavTop = () => {
-  const [flag, setFlag] = React.useState("https://flagcdn.com/w40/us.png");
-  const { language, setLanguage } = useAppStore();
-  const isArabic = language === "ar";
-  const [drawerOpen, setDrawerOpen] = React.useState(false);
   const navigate = useNavigate();
+  const { language, setLanguage } = useAppStore();
+  const [flag, setFlag] = useState("https://flagcdn.com/w40/us.png");
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [joinAnchorEl, setJoinAnchorEl] = useState(null); // For Join Us dropdown
+  const [careersAnchorEl, setCareersAnchorEl] = useState(null); // For Careers submenu
+  const [contactAnchorEl, setContactAnchorEl] = useState(null); // For Contact Us dropdown
 
-  const [activePage, setActivePage] = React.useState("Home");
+  const [activePage, setActivePage] = useState("/home");
+  const isArabic = language === "ar";
+  const isJoinDropdownOpen = Boolean(joinAnchorEl);
+  const isCareersSubMenuOpen = Boolean(careersAnchorEl);
+  const isContactDropdownOpen = Boolean(contactAnchorEl);
 
-  // Navigation Pages
-  const menuItems = [
-    { name: "Home", route: "/", ar: "الرئيسية" },
-    { name: "About Us", route: "/about", ar: "معلومات عنا" },
-    { name: "Menu", route: "/menu", ar: "القائمة" },
-    // { name: "Services", route: "/services", ar: "الخدمات" },
-    // { name: "New", route: "/new", ar: "الجديد" },
-    { name: "Contact Us", route: "/contact", ar: "اتصل بنا" },
-  ];
+  const handleCareersSubMenuToggle = (event) => {
+    setCareersAnchorEl((prev) => (prev ? null : event.currentTarget));
+  };
+
+  const handleJoinDropdownOpen = (event) => {
+    setJoinAnchorEl(event.currentTarget);
+  };
+
+  const handleJoinDropdownClose = () => {
+    setJoinAnchorEl(null);
+  };
+
+  const handleCareersSubMenuClose = () => {
+    setCareersAnchorEl(null); // Close submenu
+  };
+
   const toggleDrawer = (open) => {
     setDrawerOpen(open);
   };
 
+  const handleContactDropdownOpen = (event) => {
+    setContactAnchorEl(event.currentTarget);
+  };
+
+  const handleContactDropdownClose = () => {
+    setContactAnchorEl(null);
+  };
+
   const handleNavigation = (page) => {
-    setActivePage(page.name); // Set active page
-    navigate(page.route); // Navigate to the route
+    setActivePage(page); // Set active page
+    navigate(page); // Navigate to the route
     toggleDrawer(false); // Close drawer on navigation
   };
   const handleChange = (event) => {
@@ -76,7 +104,7 @@ const NavTop = () => {
               display: "flex",
               width: "55%",
               justifyContent: {
-                xs: "start", // Center logo on mobile
+                xs: "start",
                 sm: "space-between",
                 md: "space-between",
                 lg: "flex-end",
@@ -275,24 +303,193 @@ const NavTop = () => {
                 direction: language === "ar" ? "rtl" : "ltr", // Change direction dynamically
               }}
             >
-              {menuItems.map((page) => (
-                <Button
-                  key={page.name}
-                  onClick={() => handleNavigation(page)}
-                  sx={{
-                    color: "black",
-                    margin: "10px 0",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                    borderRadius: "8px",
-                    "&:hover": {
-                      color: "#D92531",
-                    },
-                  }}
+              {/* Home */}
+              <Button
+                onClick={() => handleNavigation("/")}
+                sx={{
+                  color: "black",
+                  margin: "10px 0",
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  borderRadius: "8px",
+                  "&:hover": {
+                    color: "#D92531",
+                  },
+                }}
+              >
+                {language === "ar" ? "بيت" : "Home"}
+              </Button>
+
+              {/* About Us */}
+              <Button
+                onClick={() => handleNavigation("/about")}
+                sx={{
+                  color: "black",
+                  margin: "10px 0",
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  borderRadius: "8px",
+                  "&:hover": {
+                    color: "#D92531",
+                  },
+                }}
+              >
+                {language === "ar" ? "معلومات عنا" : "About Us"}
+              </Button>
+
+              {/* Subscriptions */}
+              <Button
+                onClick={() => handleNavigation("/subscriptions")}
+                sx={{
+                  color: "black",
+                  margin: "10px 0",
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  borderRadius: "8px",
+                  "&:hover": {
+                    color: "#D92531",
+                  },
+                }}
+              >
+                {language === "ar" ? "الاشتراكات" : "Subscriptions"}
+              </Button>
+
+              {/* Menu */}
+              <Button
+                onClick={() => handleNavigation("/menu")}
+                sx={{
+                  color: "black",
+                  margin: "10px 0",
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  borderRadius: "8px",
+                  "&:hover": {
+                    color: "#D92531",
+                  },
+                }}
+              >
+                {language === "ar" ? "قائمة طعام" : "Menu"}
+              </Button>
+
+              {/* Join Us Dropdown */}
+              <Button
+                onClick={handleJoinDropdownOpen}
+                endIcon={
+                  isJoinDropdownOpen ? (
+                    <KeyboardArrowUpIcon sx={{ fontSize: 20 }} />
+                  ) : (
+                    <KeyboardArrowDownIcon sx={{ fontSize: 20 }} />
+                  )
+                }
+                sx={{
+                  color: activePage === "/join" ? "#D92531" : "black",
+                  margin: "0 10px",
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  borderRadius: "8px",
+                  "&:hover": { color: "#D92531" },
+                }}
+              >
+                {isArabic ? "انضم إلينا" : "Join Us"}
+              </Button>
+              <Menu
+                anchorEl={joinAnchorEl}
+                open={isJoinDropdownOpen}
+                onClose={handleJoinDropdownClose}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                transformOrigin={{ vertical: "top", horizontal: "center" }}
+              >
+                {/* Careers Menu with Submenu */}
+                <MenuItem
+                  onClick={handleCareersSubMenuToggle} // Open the submenu
                 >
-                  {language === "ar" ? page.ar : page.name}
-                </Button>
-              ))}
+                  {isArabic ? "وظائف" : "Careers"}
+                  {/* Arrow Icon */}
+                  {isCareersSubMenuOpen ? (
+                    <ArrowBackIos sx={{ fontSize: 16, marginLeft: "8px" }} />
+                  ) : (
+                    <ArrowForwardIos sx={{ fontSize: 16, marginLeft: "8px" }} />
+                  )}
+                  <Menu
+                    anchorEl={careersAnchorEl}
+                    open={isCareersSubMenuOpen}
+                    onClose={handleCareersSubMenuClose}
+                    anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                    transformOrigin={{ vertical: "top", horizontal: "left" }}
+                  >
+                    <MenuItem
+                      onClick={() =>
+                        handleDropdownClick("/join/careers/cashier", "join")
+                      }
+                    >
+                      {isArabic ? "أمين الصندوق" : "Cashier"}
+                    </MenuItem>
+                    <MenuItem
+                      onClick={() =>
+                        handleDropdownClick("/join/careers/it", "join")
+                      }
+                    >
+                      {isArabic ? "تكنولوجيا المعلومات" : "IT"}
+                    </MenuItem>
+                  </Menu>
+                </MenuItem>
+                <MenuItem
+                  onClick={() =>
+                    handleDropdownClick("/join/categories", "join")
+                  }
+                >
+                  {isArabic ? "الفئات" : "Categories"}
+                </MenuItem>
+              </Menu>
+
+              {/* Contact Us Dropdown */}
+              <Button
+                onClick={handleContactDropdownOpen}
+                endIcon={
+                  isContactDropdownOpen ? (
+                    <KeyboardArrowUpIcon sx={{ fontSize: 20 }} />
+                  ) : (
+                    <KeyboardArrowDownIcon sx={{ fontSize: 20 }} />
+                  )
+                }
+                sx={{
+                  color: activePage === "/contact" ? "#D92531" : "black",
+                  margin: "0 10px",
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  borderRadius: "8px",
+                  "&:hover": { color: "#D92531" },
+                }}
+              >
+                {isArabic ? "اتصل بنا" : "Contact Us"}
+              </Button>
+              <Menu
+                anchorEl={contactAnchorEl}
+                open={isContactDropdownOpen}
+                onClose={handleContactDropdownClose}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                transformOrigin={{ vertical: "top", horizontal: "center" }}
+              >
+                <MenuItem
+                  onClick={() => handleDropdownClick("/contact/b2b", "contact")}
+                >
+                  {isArabic ? "B2B" : "B2B"}
+                </MenuItem>
+                <MenuItem
+                  onClick={() =>
+                    handleDropdownClick("/contact/events", "contact")
+                  }
+                >
+                  {isArabic ? "الفعاليات" : "Events"}
+                </MenuItem>
+                <MenuItem
+                  onClick={() => handleDropdownClick("/contact/faq", "contact")}
+                >
+                  {isArabic ? "الأسئلة الشائعة" : "FAQ"}
+                </MenuItem>
+              </Menu>
+
+              {/* Language Option */}
               <FormControl
                 sx={{
                   display: { xs: "block", md: "none", sm: "none" },
