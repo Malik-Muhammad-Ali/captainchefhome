@@ -58,7 +58,7 @@ const TestimonialsSec = () => {
           alt="Top Left Image"
           sx={{
             aspectRatio: { xs: "6/8", lg: "1 / 2" },
-            objectFit: "cover",
+            objectFit: "contain",
           }}
         />
       </Box>
