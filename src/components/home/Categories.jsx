@@ -230,16 +230,16 @@ export default function Categories() {
                     boxShadow: "none",
                   }}
                     onClick={handleNavigation}
-                >
-                  <CardMedia
-                    sx={{
-                      height: 180,
-                      width: "100%",
-                      objectFit: "cover",
-                    }}
-                    image={item.img}
-                    //   title={item.title}
-                  />
+                  >
+                    <CardMedia
+                      sx={{
+                        height: 180,
+                        width: "100%",
+                        objectFit: "cover",
+                      }}
+                      image={item.img}
+                      //   title={item.title}
+                    />
 
                   <CardContent
                     sx={{
@@ -312,44 +312,44 @@ export default function Categories() {
                     //   title={item.title}
                   />
 
-                  <CardContent
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      padding: 0.8,
-                      height: 45,
-                      justifyContent: "flex-start",
-                      direction: isArabic ? "rtl" : "ltr",
-                    }}
-                  >
-                    <Typography
-                      variant="body2"
+                    <CardContent
                       sx={{
-                        fontSize: "1rem",
-                        fontFamily: "Roboto",
-                        color: getTextColor(item.title),
-                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        display: "flex",
+                        flexDirection: "column",
+                        padding: 0.8,
+                        height: 45,
+                        justifyContent: "flex-start",
+                        direction: isArabic ? "rtl" : "ltr",
                       }}
                     >
-                      {isArabic ? item.ar.title : item.title}{" "}
-                      {/* Conditionally render Arabic or English title */}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontSize: "1rem",
-                        fontFamily: "Roboto",
-                        fontWeight: 400,
-                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
-                      }}
-                    >
-                      {isArabic ? item.ar.name : item.name}{" "}
-                      {/* Conditionally render Arabic or English name */}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Box>)
-            }
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: "1rem",
+                          fontFamily: "Roboto",
+                          color: getTextColor(item.title),
+                          // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        }}
+                      >
+                        {isArabic ? item.ar.title : item.title}{" "}
+                        {/* Conditionally render Arabic or English title */}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: "1rem",
+                          fontFamily: "Roboto",
+                          fontWeight: 400,
+                          // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        }}
+                      >
+                        {isArabic ? item.ar.name : item.name}{" "}
+                        {/* Conditionally render Arabic or English name */}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Box>
+              )}
             </SwiperSlide>
           ))}
         </Swiper>

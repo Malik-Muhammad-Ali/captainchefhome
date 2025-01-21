@@ -178,7 +178,7 @@ const NavBottom = () => {
           transformOrigin={{ vertical: "top", horizontal: "center" }}
         >
           <MenuItem
-            onClick={() => handleDropdownClick("/join/careers", "join")}
+            onClick={() => handleDropdownClick("/careers", "join")}
           >
             {isArabic ? "وظائف" : "Careers"}
           </MenuItem>

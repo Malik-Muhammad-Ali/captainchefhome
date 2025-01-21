@@ -80,7 +80,7 @@ const Meals = () => {
   ];
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: "0px", border: '1px solid black'}}>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: "0px"}}>
       <Box
         sx={{
           display: "flex",

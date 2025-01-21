@@ -43,57 +43,57 @@ const Footer = () => {
   const [isHovered, setIsHovered] = useState(null);
   return (
     <>
-    <Box
-      sx={{
-        backgroundColor: "#F9F9F9",
-        // padding: "40px 20px",
-        display: "flex",
-        flexDirection: { xs: "column-reverse", md: "row" },
-        gap: { lg: "20px", sm: "10px" },
-        alignItems: "center",
-        // border: "2px solid red",
-        height: "70vh",
-      }}
-    >
       <Box
         sx={{
-          backgroundImage: "footerbg.png",
-          width: { lg: "70%", sm: "100%" },
-          mr: { xs: 2, sm: 4, md: 8 },
-          ml: { xs: 2, sm: 4, md: 8 },
+          backgroundColor: "#F9F9F9",
+          // padding: "40px 20px",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
+          flexDirection: { xs: "column-reverse", md: "row" },
+          gap: { lg: "20px", sm: "10px" },
           alignItems: "center",
-          gap: 4,
-          // border: "2px solid black",
-          height: "100%",
+          // border: "2px solid red",
+          height: "70vh",
         }}
       >
         <Box
           sx={{
+            backgroundImage: "footerbg.png",
+            width: { lg: "70%", sm: "100%" },
+            mr: { xs: 2, sm: 4, md: 8 },
+            ml: { xs: 2, sm: 4, md: 8 },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "flex-start",
-            alignSelf: { xs: "center", md: "flex-start" },
-            mr: { xs: 2, sm: 4, md: 8 },
-            ml: { xs: 2, sm: 4, md: 8 },
-            // gap: 2,
+            alignItems: "center",
+            gap: 4,
+            // border: "2px solid black",
+            height: "100%",
           }}
         >
-          <Typography
-            variant="h4"
+          <Box
             sx={{
-              color: "#CE2729",
-              fontWeight: "bold",
-              textAlign: "center",
-              fontSize: { xs: "24px", md: "38px" },
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              alignSelf: { xs: "center", md: "flex-start" },
+              mr: { xs: 2, sm: 4, md: 8 },
+              ml: { xs: 2, sm: 4, md: 8 },
+              // gap: 2,
             }}
           >
-            Our Branches Across The Kingdom
-          </Typography>
-          {/* <Typography
+            <Typography
+              variant="h4"
+              sx={{
+                color: "#CE2729",
+                fontWeight: "bold",
+                textAlign: "center",
+                fontSize: { xs: "24px", md: "38px" },
+              }}
+            >
+              Our Branches Across The Kingdom
+            </Typography>
+            {/* <Typography
             variant="h4"
             sx={{
               color: "#CE2729",
@@ -105,7 +105,7 @@ const Footer = () => {
           >
             The Kingdom
           </Typography> */}
-          {/* <Typography
+            {/* <Typography
             variant="h6"
             sx={{
               color: "#000",
@@ -117,82 +117,82 @@ const Footer = () => {
           >
             فروعنا المنتشرة في المملكة
           </Typography> */}
-        </Box>
-        <Box
-          // container
-          // spacing={2}
-          // justifyContent="center"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            padding: { lg: "20px", md: "5px" }, // Optional padding to create spacing
-            // border:"2px solid black",
-            width: "100%",
-            height: "50%",
-          }}
-        >
+          </Box>
           <Box
+            // container
+            // spacing={2}
+            // justifyContent="center"
             sx={{
               display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
+              flexDirection: "column",
+              padding: { lg: "20px", md: "5px" }, // Optional padding to create spacing
+              // border:"2px solid black",
               width: "100%",
-              // border:"2px solid red"
+              height: "50%",
             }}
           >
-            {branches.map((branch, index) => (
-              <Box
-                key={index}
-                onMouseEnter={() => {
-                  setIsHovered(index);
-                }}
-                key={index}
-                onMouseLeave={() => {
-                  setIsHovered(null);
-                }}
-                key={index}
-                sx={{
-                  display: "flex",
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "flex-start",
-                  transition: "all 0.5s ease-in-out",
-                }}
-              >
-                {isHovered !== index ? (
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      width: "100%",
-                      padding: "10px",
-                    }}
-                  >
-                    <LocationOnIcon
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                width: "100%",
+                // border:"2px solid red"
+              }}
+            >
+              {branches.map((branch, index) => (
+                <Box
+                  key={index}
+                  onMouseEnter={() => {
+                    setIsHovered(index);
+                  }}
+                  key={index}
+                  onMouseLeave={() => {
+                    setIsHovered(null);
+                  }}
+                  key={index}
+                  sx={{
+                    display: "flex",
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "flex-start",
+                    transition: "all 0.5s ease-in-out",
+                  }}
+                >
+                  {isHovered !== index ? (
+                    <Box
                       sx={{
-                        fontSize: {
-                          lg: "100px",
-                          md: "100px",
-                          sm: "70px",
-                          xs: "70px",
-                        },
-                        color: branch.color,
-                      }}
-                    />
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        color: "#191919",
-                        fontSize: { xs: "16px", md: "22px" },
-                        fontWeight: "bold",
-                        textTransform: "uppercase",
+                        display: "flex",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        width: "100%",
+                        padding: "10px",
                       }}
                     >
-                      {branch.city}
-                    </Typography>
-                    {/* <Typography
+                      <LocationOnIcon
+                        sx={{
+                          fontSize: {
+                            lg: "100px",
+                            md: "100px",
+                            sm: "70px",
+                            xs: "70px",
+                          },
+                          color: branch.color,
+                        }}
+                      />
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          color: "#191919",
+                          fontSize: { xs: "16px", md: "22px" },
+                          fontWeight: "bold",
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        {branch.city}
+                      </Typography>
+                      {/* <Typography
                     variant="body2"
                     sx={{
                       color: "black",
@@ -214,251 +214,262 @@ const Footer = () => {
                   >
                     {branch.arabicBranch}
                   </Typography> */}
-                  </Box>
-                ) : (
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      width: "100%",
-                      padding: "10px",
-                      // border:"2px solid black"
-                    }}
-                  >
-                    <LocationOnIcon
-                      sx={{
-                        fontSize: {
-                          lg: "40px",
-                          md: "40px",
-                          sm: "30px",
-                          xs: "30px",
-                        },
-                        color: branch.color,
-                      }}
-                    />
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        color: "#191919",
-                        fontSize: { xs: "16px", md: "22px" },
-                        fontWeight: "bold",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      {branch.city}
-                    </Typography>
+                    </Box>
+                  ) : (
                     <Box
                       sx={{
                         display: "flex",
-                        flexDirection: "column",
                         justifyContent: "center",
+                        flexDirection: "column",
                         alignItems: "center",
-                        gap: "10px",
                         width: "100%",
-                        // border:"2px solid red"
+                        padding: "10px",
+                        transition: "all 0.5s ease-in-out",
+                        // border:"2px solid black"
                       }}
                     >
-                      {branch.subBranches.map((subBranch, subIndex) => (
-                        <Box
-                          key={index}
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            // justifyContent:"flex-start",
-                            gap: "10px",
-                          }}
-                        >
-                          <LocationOnIcon
+                      <LocationOnIcon
+                        sx={{
+                          fontSize: {
+                            lg: "40px",
+                            md: "40px",
+                            sm: "30px",
+                            xs: "30px",
+                          },
+                          color: branch.color,
+                          transition: "all 0.5s ease-in-out",
+                        }}
+                      />
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          color: "#191919",
+                          fontSize: { xs: "16px", md: "22px" },
+                          fontWeight: "bold",
+                          textTransform: "uppercase",
+                          transition: isHovered
+                            ? "all 0.5s ease-in-out"
+                            : "all 1s fade",
+                        }}
+                      >
+                        {branch.city}
+                      </Typography>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "10px",
+                          width: "100%",
+                          // border:"2px solid red"
+                        }}
+                      >
+                        {branch.subBranches.map((subBranch, subIndex) => (
+                          <Box
+                            key={index}
                             sx={{
-                              fontSize: {
-                                lg: "30px",
-                                md: "30px",
-                                sm: "20px",
-                                xs: "20px",
-                              },
-                              color: subBranch.subColor,
-                            }}
-                          />
-                          <Typography
-                            variant="h6"
-                            sx={{
-                              color: "#191919",
-                              fontSize: { xs: "16px", md: "16px" },
-                              fontWeight: "bold",
-                              textTransform: "uppercase",
+                              display: "flex",
+                              alignItems: "center",
+                              transition: isHovered
+                                ? "all 0.5s ease-in-out"
+                                : "all 1s fade",
+                              gap: "10px",
                             }}
                           >
-                            {subBranch.subBranch}
-                          </Typography>
-                        </Box>
-                      ))}
+                            <LocationOnIcon
+                              sx={{
+                                fontSize: {
+                                  lg: "30px",
+                                  md: "30px",
+                                  sm: "20px",
+                                  xs: "20px",
+                                },
+                                color: subBranch.subColor,
+                              }}
+                            />
+                            <Typography
+                              variant="h6"
+                              sx={{
+                                color: "#191919",
+                                fontSize: { xs: "16px", md: "16px" },
+                                fontWeight: "bold",
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {subBranch.subBranch}
+                            </Typography>
+                          </Box>
+                        ))}
+                      </Box>
                     </Box>
-                  </Box>
-                )}
-              </Box>
-            ))}
-          </Box>
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: { xs: "flex-start", md: "flex-start" },
-          justifyContent: "space-between",
-          gap: { xs: "20px", md: "20px" },
-          height: "100%",
-          // border: "2px solid red",
-        }}
-      >
-        <Box>
-          <img
-            style={{
-              width: "150px",
-              height: "150px",
-            }}
-            src="footerlogo.svg"
-            alt="logo"
-            srcset=""
-          />
-        </Box>
-        <Box
-          sx={{
-            textAlign: { xs: "center", md: "start" },
-            width: "100%",
-            maxWidth: "400px",
-          }}
-        >
-          <Typography
-            variant="h5"
-            sx={{ fontWeight: "bold", color: "#CE2729", marginBottom: "10px" }}
-          >
-            Sign Up For Updates
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{ color: "#777", marginBottom: "20px" }}
-          >
-            To Stay Up To Date Our Promotions, Promotions Discount Sales Special
-            Offers And More
-          </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: { xs: "center", md: "flex-start" },
-              gap: "10px",
-            }}
-          >
-            <TextField
-              variant="outlined"
-              placeholder="Enter Your Email"
-              sx={{
-                backgroundColor: "#FFF", // Background color for the TextField
-                borderRadius: "24px", // Rounded corners
-                width: "auto", // Auto width
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "28px", // Border radius for the input
-                  "& fieldset": {
-                    borderColor: "#d3d3d3", // Default border color
-                  },
-                  "&:hover fieldset": {
-                    borderColor: "#FF5733", // Border color on hover
-                  },
-                  "&.Mui-focused fieldset": {
-                    borderColor: "#28a745", // Border color when focused
-                  },
-                  "& .MuiOutlinedInput-input": {
-                    height: "20px", // Adjust the height of the input area
-                    padding: "10px 16px", // Add padding for better alignment
-                  },
-                },
-                "& input::placeholder": {
-                  textAlign: "center", // Centers the placeholder text
-                },
-                "& .MuiInputLabel-root": {
-                  color: "black", // Default label color
-                },
-                "& .MuiInputLabel-root.Mui-focused": {
-                  color: "black", // Label color when focused
-                },
-              }}
-            />
-
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#CE2729",
-                color: "#FFF",
-                padding: "10px 20px",
-                textTransform: "none",
-                borderRadius: "28px",
-                height: "30px",
-              }}
-            >
-              Submit
-            </Button>
+                  )}
+                </Box>
+              ))}
+            </Box>
           </Box>
         </Box>
         <Box
           sx={{
             display: "flex",
-            gap: "10px",
+            flexDirection: "column",
+            alignItems: { xs: "flex-start", md: "flex-start" },
+            justifyContent: "space-between",
+            gap: { xs: "20px", md: "20px" },
+            height: "100%",
+            // border: "2px solid red",
           }}
         >
           <Box>
             <img
               style={{
-                width: "50px",
-                height: "50px",
-                cursor: "pointer",
+                width: "150px",
+                height: "150px",
               }}
-              src="instagram.png"
-              alt=""
+              src="footerlogo.svg"
+              alt="logo"
               srcset=""
             />
           </Box>
-          <Box>
-            <img
-              style={{
-                width: "50px",
-                height: "50px",
-                cursor: "pointer",
+          <Box
+            sx={{
+              textAlign: { xs: "center", md: "start" },
+              width: "100%",
+              maxWidth: "400px",
+            }}
+          >
+            <Typography
+              variant="h5"
+              sx={{
+                fontWeight: "bold",
+                color: "#CE2729",
+                marginBottom: "10px",
               }}
-              src="facebook.png"
-              alt=""
-              srcset=""
-            />
-          </Box>
-          <Box>
-            <img
-              style={{
-                width: "50px",
-                height: "50px",
-                cursor: "pointer",
+            >
+              Sign Up For Updates
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ color: "#777", marginBottom: "20px" }}
+            >
+              To Stay Up To Date Our Promotions, Promotions Discount Sales
+              Special Offers And More
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: { xs: "center", md: "flex-start" },
+                gap: "10px",
               }}
-              src="twitter.png"
-              alt=""
-              srcset=""
-            />
+            >
+              <TextField
+                variant="outlined"
+                placeholder="Enter Your Email"
+                sx={{
+                  backgroundColor: "#FFF", // Background color for the TextField
+                  borderRadius: "24px", // Rounded corners
+                  width: "auto", // Auto width
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "28px", // Border radius for the input
+                    "& fieldset": {
+                      borderColor: "#d3d3d3", // Default border color
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "#FF5733", // Border color on hover
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "#28a745", // Border color when focused
+                    },
+                    "& .MuiOutlinedInput-input": {
+                      height: "20px", // Adjust the height of the input area
+                      padding: "10px 16px", // Add padding for better alignment
+                    },
+                  },
+                  "& input::placeholder": {
+                    textAlign: "center", // Centers the placeholder text
+                  },
+                  "& .MuiInputLabel-root": {
+                    color: "black", // Default label color
+                  },
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "black", // Label color when focused
+                  },
+                }}
+              />
+
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#CE2729",
+                  color: "#FFF",
+                  padding: "10px 20px",
+                  textTransform: "none",
+                  borderRadius: "28px",
+                  height: "30px",
+                }}
+              >
+                Submit
+              </Button>
+            </Box>
           </Box>
-          <Box>
-            <img
-              style={{
-                width: "50px",
-                height: "50px",
-                cursor: "pointer",
-              }}
-              src="youtube.png"
-              alt=""
-              srcset=""
-            />
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+            }}
+          >
+            <Box>
+              <img
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  cursor: "pointer",
+                }}
+                src="instagram.png"
+                alt=""
+                srcset=""
+              />
+            </Box>
+            <Box>
+              <img
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  cursor: "pointer",
+                }}
+                src="facebook.png"
+                alt=""
+                srcset=""
+              />
+            </Box>
+            <Box>
+              <img
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  cursor: "pointer",
+                }}
+                src="twitter.png"
+                alt=""
+                srcset=""
+              />
+            </Box>
+            <Box>
+              <img
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  cursor: "pointer",
+                }}
+                src="youtube.png"
+                alt=""
+                srcset=""
+              />
+            </Box>
           </Box>
-        </Box>
-        {/* <Box sx={{}}>
+          {/* <Box sx={{}}>
           <img
             style={{
               width: "150px",
@@ -469,9 +480,9 @@ const Footer = () => {
             srcset=""
           />
         </Box> */}
+        </Box>
       </Box>
-    </Box>
-    <Box
+      <Box
         sx={{
           textAlign: "center",
           display: { md: "flex", xs: "none" },
