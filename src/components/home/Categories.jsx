@@ -108,7 +108,7 @@ export default function Categories() {
   };
 
   const handleNavigation = () => {
-    window.location.href = 'https://captainchefsubscription.netlify.app';
+    window.location.href = "https://captainchefsubscription.netlify.app";
   };
 
   return (
@@ -186,7 +186,7 @@ export default function Categories() {
               centeredSlides: false,
             },
             1440: {
-              slidesPerView: 6,
+              slidesPerView: 5,
               centeredSlides: false,
             },
             1600: {
@@ -197,150 +197,151 @@ export default function Categories() {
         >
           {arr.map((item, index) => (
             <SwiperSlide key={index}>
-            {!isExtraLarge?
-              (<Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "10px",
-                }}
-              >
-                <Card
+              {!isExtraLarge ? (
+                <Box
                   sx={{
-                    maxWidth: "180px",
-                    minWidth: "180px",
-                    maxHeight: 250,
-                    minHeight: 250,
-                    borderRadius: "24px",
-                    border: "4px solid",
-                    borderColor: getTextColor(item.title),
-                    flexGrow: 1,
-                    cursor: "pointer",
-                    boxShadow: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
                   }}
+                >
+                  <Card
+                    sx={{
+                      maxWidth: "180px",
+                      minWidth: "180px",
+                      maxHeight: 250,
+                      minHeight: 250,
+                      borderRadius: "24px",
+                      border: "4px solid",
+                      borderColor: getTextColor(item.title),
+                      flexGrow: 1,
+                      cursor: "pointer",
+                      boxShadow: "none",
+                    }}
                     onClick={handleNavigation}
-                >
-                  <CardMedia
-                    sx={{
-                      height: 180,
-                      width: "100%",
-                      objectFit: "cover",
-                    }}
-                    image={item.img}
-                    //   title={item.title}
-                  />
-
-                  <CardContent
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      padding: 0.8,
-                      height: 45,
-                      justifyContent: "flex-start",
-                      direction: isArabic ? "rtl" : "ltr",
-                    }}
                   >
-                    <Typography
-                      variant="body2"
+                    <CardMedia
                       sx={{
-                        fontSize: "0.85rem",
-                        fontFamily: "Roboto",
-                        color: getTextColor(item.title),
-                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        height: 180,
+                        width: "100%",
+                        objectFit: "cover",
+                      }}
+                      image={item.img}
+                      //   title={item.title}
+                    />
+
+                    <CardContent
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        padding: 0.8,
+                        height: 45,
+                        justifyContent: "flex-start",
+                        direction: isArabic ? "rtl" : "ltr",
                       }}
                     >
-                      {isArabic ? item.ar.title : item.title}{" "}
-                      {/* Conditionally render Arabic or English title */}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontSize: "0.65rem",
-                        fontFamily: "Roboto",
-                        fontWeight: 400,
-                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
-                      }}
-                    >
-                      {isArabic ? item.ar.name : item.name}{" "}
-                      {/* Conditionally render Arabic or English name */}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Box>) :
-              (<Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "10px",
-                }}
-              >
-                <Card
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: "1rem",
+                          fontFamily: "Roboto",
+                          color: getTextColor(item.title),
+                          // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        }}
+                      >
+                        {isArabic ? item.ar.title : item.title}{" "}
+                        {/* Conditionally render Arabic or English title */}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: "0.65rem",
+                          fontFamily: "Roboto",
+                          fontWeight: 400,
+                          // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        }}
+                      >
+                        {isArabic ? item.ar.name : item.name}{" "}
+                        {/* Conditionally render Arabic or English name */}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Box>
+              ) : (
+                <Box
                   sx={{
-                    maxWidth: "300px",
-                    minWidth: "300px",
-                    maxHeight: 380,
-                    minHeight: 380,
-                    borderRadius: "24px",
-                    border: "4px solid",
-                    borderColor: getTextColor(item.title),
-                    flexGrow: 1,
-                    cursor: "pointer",
-                    boxShadow: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
                   }}
-                  //   onClick={() => navigate(`/subscriptions/category/${id}`)}
                 >
-                  <CardMedia
+                  <Card
                     sx={{
-                      height: 300,
-                      width: "100%",
-                      objectFit: "cover",
+                      maxWidth: "300px",
+                      minWidth: "300px",
+                      maxHeight: 380,
+                      minHeight: 380,
+                      borderRadius: "24px",
+                      border: "4px solid",
+                      borderColor: getTextColor(item.title),
+                      flexGrow: 1,
+                      cursor: "pointer",
+                      boxShadow: "none",
                     }}
-                    image={item.img}
-                    //   title={item.title}
-                  />
-
-                  <CardContent
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      padding: 0.8,
-                      height: 45,
-                      justifyContent: "flex-start",
-                      direction: isArabic ? "rtl" : "ltr",
-                    }}
+                    //   onClick={() => navigate(`/subscriptions/category/${id}`)}
                   >
-                    <Typography
-                      variant="body2"
+                    <CardMedia
                       sx={{
-                        fontSize: "1rem",
-                        fontFamily: "Roboto",
-                        color: getTextColor(item.title),
-                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        height: 300,
+                        width: "100%",
+                        objectFit: "cover",
+                      }}
+                      image={item.img}
+                      //   title={item.title}
+                    />
+
+                    <CardContent
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        padding: 0.8,
+                        height: 45,
+                        justifyContent: "flex-start",
+                        direction: isArabic ? "rtl" : "ltr",
                       }}
                     >
-                      {isArabic ? item.ar.title : item.title}{" "}
-                      {/* Conditionally render Arabic or English title */}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontSize: "1rem",
-                        fontFamily: "Roboto",
-                        fontWeight: 400,
-                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
-                      }}
-                    >
-                      {isArabic ? item.ar.name : item.name}{" "}
-                      {/* Conditionally render Arabic or English name */}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Box>)
-            }
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: "1rem",
+                          fontFamily: "Roboto",
+                          color: getTextColor(item.title),
+                          // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        }}
+                      >
+                        {isArabic ? item.ar.title : item.title}{" "}
+                        {/* Conditionally render Arabic or English title */}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: "1rem",
+                          fontFamily: "Roboto",
+                          fontWeight: 400,
+                          // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        }}
+                      >
+                        {isArabic ? item.ar.name : item.name}{" "}
+                        {/* Conditionally render Arabic or English name */}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Box>
+              )}
             </SwiperSlide>
           ))}
         </Swiper>

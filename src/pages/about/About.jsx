@@ -37,7 +37,7 @@ const About = () => {
         <Box
           sx={{
             width: "100%",
-            maxWidth: 1000,
+            maxWidth: 1200,
             height: 550,
             margin: "0 auto",
             position: "relative",
@@ -47,24 +47,52 @@ const About = () => {
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
           }}
         >
-          <iframe
-            width="100%"
+          <video
+            width="100%" // Adjust the width as needed
             height="100%"
-            src="https://www.youtube.com/embed/bHauDmejB5g"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
+            controls
             style={{
               borderRadius: "10px",
+              objectFit: "cover",
             }}
-          ></iframe>
+          >
+            <source src="/capchefvideo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </Box>
+        <Box
+          sx={{
+            // display: "flex",
+            // justifyContent: "start",
+            // alignItems: "start",
+            // gap: 2,
+            marginTop: 2,
+          }}
+        >
+          <Typography
+            // variant="h4"
+            sx={{
+              color: "#D92531",
+              fontWeight: "bold",
+              textAlign: "center",
+              fontSize: {
+                xs: "22px",
+                md: "30px",
+                sm: "30px",
+                lg: "30px",
+                xl: "30px",
+              },
+            }}
+          >
+            Meet Hussain Mahmoud Al Daqal: Founder of Captain Chef
+          </Typography>
+        </Box>
+
         <Box
           sx={{
             // border:"2px solid black",
             display: "flex",
-            mr: { xs: 2, sm: 4, md: 8 },
+            m: { xs: 2, sm: 4, md: 2 },
             ml: { xs: 2, sm: 4, md: 8 },
             backgroundColor: "background.paper",
             flexDirection: !isArabic
@@ -94,16 +122,23 @@ const About = () => {
             <Typography
               variant="h6"
               sx={{
-                // fontSize: { xs: "14px", md: "20px", lg: "20px", xl: "20px" },
-                // fontWeight: "bold",
-                // wordSpacing: "2px",
                 fontFamily: "Roboto",
                 direction: isArabic ? "rtl" : "ltr",
+                textAlign: "center",
+                fontSize: {
+                  xs: "18px",
+                  md: "20px",
+                  sm: "25px",
+                  lg: "20px",
+                  xl: "30px",
+                },
               }}
             >
-              {isArabic
-                ? `نحن نوفر وجبات غذائية عالية الجودة تدعم أسلوب حياة متوازن ونشط. سواء كنت تمارس الرياضة أو تتبع نظامًا غذائيًا مخصصًا، فإن تطبيق كابتن شيف مصمم لتلبية احتياجاتك مع ضمان التنوع والمذاق اللذيذ. نحن هنا لنكون شريكك الموثوق في رحلتك الصحية من خلال حلول مرنة للوجبات ووجبات عالية الجودة تدعم أسلوب حياة متوازن ونشط. سواء كنت تمارس الرياضة أو تتبع نظامًا غذائيًا مخصصًا، فإن تطبيق كابتن شيف مصمم لتلبية احتياجاتك مع ضمان التنوع والمذاق اللذيذ. نحن هنا لنكون شريكك الموثوق في رحلتك الصحية من خلال حلول مرنة للوجبات.`
-                : `Hussain Mahmoud Al Daqal, the visionary founder of Captain Chef, established the brand to inspire Saudi youth to embrace healthier lifestyles. With a focus on accessible, nutritious meal plans and a commitment to quality, he empowers individuals to make better choices for their well-being. Guided by the belief that "You are not alone," Captain Chef fosters a culture of wellness across the community.`}
+              Hussain Mahmoud Al Daqal, the visionary founder of Captain Chef,
+              established the brand to inspire Saudi youth to embrace healthier
+              lifestyles. Hussain Mahmoud Al Daqal, the visionary founder of
+              Captain Chef, established the brand to inspire Saudi youth to
+              embrace healthier lifestyles.
             </Typography>
           </Box>
           {/* right section */}
@@ -137,8 +172,10 @@ const About = () => {
             padding: 2,
             textAlign: "center",
             display: "flex",
-            gap: "25px",
+            // gap: "25px",
             flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <Typography
@@ -147,15 +184,33 @@ const About = () => {
           >
             Who we are ?{" "}
           </Typography>
-          <Box>
-            <Typography variant="h6">
-              Founded in 2016 by Captain Hussein Al-Daqal, Captain Chef combines
-              expertise in fitness and nutrition to offer healthy, balanced
-              meals tailored to diverse lifestyles. With 7 sales points, 3
-              central kitchens, and delivery across 7 regions, we provide
-              flexible solutions like monthly subscriptions, direct purchases,
-              and corporate agreements. Our mission is to promote a holistic
-              lifestyle through high-quality, nutritious meal services.
+          <Box
+            sx={{
+              maxWidth: {
+                xs: "90%",
+                sm: "80%",
+                md: "60%",
+                lg: "88%",
+                xl: "85%",
+              },
+              margin: "0 auto",
+              textAlign: "center",
+            }}
+          >
+            <Typography
+              variant="h6"
+              sx={{
+                fontSize: {
+                  xs: "1rem",
+                  sm: "1.2rem",
+                  md: "1.5rem",
+                  lg: "1.5rem",
+                  xl: "1.5rem",
+                },
+              }}
+            >
+              To promote a holistic lifestyle through high-quality, nutritious
+              meal services.
             </Typography>
           </Box>
         </Box>
