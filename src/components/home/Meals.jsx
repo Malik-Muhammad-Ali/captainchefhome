@@ -22,7 +22,7 @@ const Meals = () => {
   };
 
   const handleNavigation = () => {
-    window.location.href = 'https://captainchefsubscription.netlify.app';
+    window.location.href = 'http://localhost:5173/';
   };
 
   const menuItems = [
