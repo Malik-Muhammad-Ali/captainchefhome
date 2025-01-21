@@ -9,6 +9,7 @@ import Subscriptions from "./pages/subscriptions/Subscriptions";
 import Layout from "./components/layout/Layout";
 import Careers from "./pages/careers/Careers";
 import ApplyNow from "./pages/applynow/ApplyNow";
+import Help from "./pages/help/Help";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/join" element={<Menu />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/apply" element={<ApplyNow />} />
+          <Route path="/help" element={<Help />} />
           {/* <Route path='/new' element={<New/>}/> */}
         </Route>
       </Routes>
