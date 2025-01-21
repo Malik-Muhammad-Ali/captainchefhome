@@ -8,7 +8,7 @@ const TestimonialsSec = () => {
   const employees = [
     {
       text: "Fantastic, I have used Right Bite multiple times in the past and it has just been great. Great variety of dishes, great taste and I get my macros on point to assist my fitness goals. Highly recommend!",
-      rating: 5,
+      rating: 3,
       name: "Huzaifa Siddique",
     },
     {
@@ -124,9 +124,13 @@ const TestimonialsSec = () => {
                 sx={{
                   display: "flex",
                   alignItems: "center",
+                  gap:"10px"
                 }}
               >
-                <Rating
+                <Rating sx={{
+                  display:"flex",
+                  gap:"10px"
+                }}
                   name="testimonial-rating"
                   value={employees[currentIndex].rating}
                   readOnly
