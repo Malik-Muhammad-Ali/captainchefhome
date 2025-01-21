@@ -99,8 +99,8 @@ const NavBottom = () => {
         <Button
           onClick={() => handleNavigation("/about")}
           sx={{
-            color: activePage === "About Us" ? "#D92531" : "black",
-            backgroundColor: activePage === "About Us" ? "white" : "none",
+            color: activePage === "/about" ? "#D92531" : "black",
+            backgroundColor: activePage === "/about" ? "white" : "none",
             margin: "0 10px",
             fontWeight: "bold",
             fontSize: { xs: "16px", sm: "12px", md: "16px", lg: "16px" },
@@ -115,10 +115,10 @@ const NavBottom = () => {
 
         {/* Subscriptions  */}
         <Button
-          onClick={() => handleNavigation("/about")}
+          onClick={() => handleNavigation("/subscriptions")}
           sx={{
-            color: activePage === "Subscriptions" ? "#D92531" : "black",
-            backgroundColor: activePage === "Subscriptions" ? "white" : "none",
+            color: activePage === "/subscriptions" ? "#D92531" : "black",
+            backgroundColor: activePage === "/subscriptions" ? "white" : "none",
             margin: "0 10px",
             fontWeight: "bold",
             fontSize: { xs: "16px", sm: "12px", md: "16px", lg: "16px" },
@@ -135,8 +135,8 @@ const NavBottom = () => {
         <Button
           onClick={() => handleNavigation("/menu")}
           sx={{
-            color: activePage === "Menu" ? "#D92531" : "black",
-            backgroundColor: activePage === "Menu" ? "white" : "none",
+            color: activePage === "/menu" ? "#D92531" : "black",
+            backgroundColor: activePage === "/menu" ? "white" : "none",
             margin: "0 10px",
             fontWeight: "bold",
             fontSize: { xs: "16px", sm: "12px", md: "16px", lg: "16px" },
@@ -181,11 +181,6 @@ const NavBottom = () => {
             onClick={() => handleDropdownClick("/join/careers", "join")}
           >
             {isArabic ? "وظائف" : "Careers"}
-          </MenuItem>
-          <MenuItem
-            onClick={() => handleDropdownClick("/join/categories", "join")}
-          >
-            {isArabic ? "الفئات" : "Categories"}
           </MenuItem>
         </Menu>
 
