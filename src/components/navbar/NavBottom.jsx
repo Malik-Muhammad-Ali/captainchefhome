@@ -177,37 +177,10 @@ const NavBottom = () => {
           anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           transformOrigin={{ vertical: "top", horizontal: "center" }}
         >
-          {/* Careers Menu with Submenu */}
           <MenuItem
-            onClick={handleCareersSubMenuToggle} // Open the submenu
+            onClick={() => handleDropdownClick("/join/careers", "join")}
           >
             {isArabic ? "وظائف" : "Careers"}
-            {/* Arrow Icon */}
-            {isCareersSubMenuOpen ? (
-              <ArrowBackIos sx={{ fontSize: 16, marginLeft: "8px" }} />
-            ) : (
-              <ArrowForwardIos sx={{ fontSize: 16, marginLeft: "8px" }} />
-            )}
-            <Menu
-              anchorEl={careersAnchorEl}
-              open={isCareersSubMenuOpen}
-              onClose={handleCareersSubMenuClose}
-              anchorOrigin={{ vertical: "top", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "left" }}
-            >
-              <MenuItem
-                onClick={() =>
-                  handleDropdownClick("/join/careers/cashier", "join")
-                }
-              >
-                {isArabic ? "أمين الصندوق" : "Cashier"}
-              </MenuItem>
-              <MenuItem
-                onClick={() => handleDropdownClick("/join/careers/it", "join")}
-              >
-                {isArabic ? "تكنولوجيا المعلومات" : "IT"}
-              </MenuItem>
-            </Menu>
           </MenuItem>
           <MenuItem
             onClick={() => handleDropdownClick("/join/categories", "join")}
@@ -255,9 +228,9 @@ const NavBottom = () => {
             {isArabic ? "الفعاليات" : "Events"}
           </MenuItem>
           <MenuItem
-            onClick={() => handleDropdownClick("/contact/faq", "contact")}
+            onClick={() => handleDropdownClick("/contact/help", "contact")}
           >
-            {isArabic ? "الأسئلة الشائعة" : "FAQ"}
+            {isArabic ? "ساعدني" : "Help Me"}
           </MenuItem>
         </Menu>
       </Toolbar>

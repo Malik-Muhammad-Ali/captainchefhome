@@ -119,8 +119,8 @@ export default function Categories() {
           flexDirection: "column",
           gap: { lg: "50px", md: "50px", sm: "30px", xs: "20px" },
           mr: { xs: 2, sm: 4, md: 8 },
-          ml: { xs: 2, sm: 4, md: 8 },
-          mb: { xs: 2, sm: 4, md: 8 },
+          // ml: { xs: 2, sm: 4, md: 8 },
+          mb: { xs: 2, sm: 4, md: 1 },
           // border:"2px solid black"
         }}
       >
@@ -128,7 +128,8 @@ export default function Categories() {
           sx={{
             display: "inline-block",
             padding: "20px",
-            alignSelf: isArabic ? "flex-end" : "flex-start", // Dynamic alignment
+            alignSelf: isArabic ? "flex-end" : "flex-start",
+            // border: "2px solid green",
           }}
         >
           <Typography
@@ -141,6 +142,7 @@ export default function Categories() {
           >
             {isArabic ? "فئاتنا" : "OUR CATEGORIES"}
           </Typography>
+          {/* Red Line */}
           <Box
             sx={{
               width: "auto",
@@ -151,23 +153,24 @@ export default function Categories() {
           ></Box>
         </Box>
       </Box>
-      <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Box >
         <Swiper
           spaceBetween={70}
           slidesPerView={6}
           loop={true}
           speed={2000}
-          freeMode={true}
+          // freeMode={true}
           freeModeMomentum={false}
-          modules={[Autoplay]}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: true,
-          }}
+          // modules={[Autoplay]}
+          // autoplay={{
+          //   delay: 0,
+          //   disableOnInteraction: true,
+          // }}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
-          style={{ padding: "20px 10px" }}
+          // style={{ padding: "20px 10px" }}
+          // style={{border: "2px solid black"}}
           breakpoints={{
             320: {
               slidesPerView: 2,
@@ -185,8 +188,12 @@ export default function Categories() {
               slidesPerView: 5,
               centeredSlides: false,
             },
-            1440: {
+            1200: {
               slidesPerView: 6,
+              centeredSlides: false
+            },
+            1440: {
+              slidesPerView: 7,
               centeredSlides: false,
             },
             1600: {
@@ -205,6 +212,8 @@ export default function Categories() {
                   justifyContent: "center",
                   alignItems: "center",
                   gap: "10px",
+                  // padding: "10px",
+                  // margin: "10px",
                 }}
               >
                 <Card
@@ -245,7 +254,7 @@ export default function Categories() {
                     <Typography
                       variant="body2"
                       sx={{
-                        fontSize: "0.85rem",
+                        fontSize: { xl: '1.6rem', lg: "1rem", md: "1rem", sm: "1rem", xs: "1rem" },
                         fontFamily: "Roboto",
                         color: getTextColor(item.title),
                         // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
@@ -257,7 +266,7 @@ export default function Categories() {
                     <Typography
                       variant="body2"
                       sx={{
-                        fontSize: "0.65rem",
+                        fontSize: { xl: '1.6rem', lg: "1rem", md: "1rem", sm: "1rem", xs: "1rem" },
                         fontFamily: "Roboto",
                         fontWeight: 400,
                         // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
