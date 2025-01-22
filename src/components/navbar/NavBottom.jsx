@@ -99,8 +99,8 @@ const NavBottom = () => {
         <Button
           onClick={() => handleNavigation("/about")}
           sx={{
-            color: activePage === "About Us" ? "#D92531" : "black",
-            backgroundColor: activePage === "About Us" ? "white" : "none",
+            color: activePage === "/about" ? "#D92531" : "black",
+            backgroundColor: activePage === "/about" ? "white" : "none",
             margin: "0 10px",
             fontWeight: "bold",
             fontSize: { xs: "16px", sm: "12px", md: "16px", lg: "16px" },
@@ -115,10 +115,10 @@ const NavBottom = () => {
 
         {/* Subscriptions  */}
         <Button
-          onClick={() => handleNavigation("/about")}
+          onClick={() => handleNavigation("/subscriptions")}
           sx={{
-            color: activePage === "Subscriptions" ? "#D92531" : "black",
-            backgroundColor: activePage === "Subscriptions" ? "white" : "none",
+            color: activePage === "/subscriptions" ? "#D92531" : "black",
+            backgroundColor: activePage === "/subscriptions" ? "white" : "none",
             margin: "0 10px",
             fontWeight: "bold",
             fontSize: { xs: "16px", sm: "12px", md: "16px", lg: "16px" },
@@ -135,8 +135,8 @@ const NavBottom = () => {
         <Button
           onClick={() => handleNavigation("/menu")}
           sx={{
-            color: activePage === "Menu" ? "#D92531" : "black",
-            backgroundColor: activePage === "Menu" ? "white" : "none",
+            color: activePage === "/menu" ? "#D92531" : "black",
+            backgroundColor: activePage === "/menu" ? "white" : "none",
             margin: "0 10px",
             fontWeight: "bold",
             fontSize: { xs: "16px", sm: "12px", md: "16px", lg: "16px" },
@@ -177,42 +177,10 @@ const NavBottom = () => {
           anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           transformOrigin={{ vertical: "top", horizontal: "center" }}
         >
-          {/* Careers Menu with Submenu */}
           <MenuItem
-            onClick={handleCareersSubMenuToggle} // Open the submenu
+            onClick={() => handleDropdownClick("/careers", "join")}
           >
             {isArabic ? "وظائف" : "Careers"}
-            {/* Arrow Icon */}
-            {isCareersSubMenuOpen ? (
-              <ArrowBackIos sx={{ fontSize: 16, marginLeft: "8px" }} />
-            ) : (
-              <ArrowForwardIos sx={{ fontSize: 16, marginLeft: "8px" }} />
-            )}
-            <Menu
-              anchorEl={careersAnchorEl}
-              open={isCareersSubMenuOpen}
-              onClose={handleCareersSubMenuClose}
-              anchorOrigin={{ vertical: "top", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "left" }}
-            >
-              <MenuItem
-                onClick={() =>
-                  handleDropdownClick("/join/careers/cashier", "join")
-                }
-              >
-                {isArabic ? "أمين الصندوق" : "Cashier"}
-              </MenuItem>
-              <MenuItem
-                onClick={() => handleDropdownClick("/join/careers/it", "join")}
-              >
-                {isArabic ? "تكنولوجيا المعلومات" : "IT"}
-              </MenuItem>
-            </Menu>
-          </MenuItem>
-          <MenuItem
-            onClick={() => handleDropdownClick("/join/categories", "join")}
-          >
-            {isArabic ? "الفئات" : "Categories"}
           </MenuItem>
         </Menu>
 
@@ -245,19 +213,19 @@ const NavBottom = () => {
           transformOrigin={{ vertical: "top", horizontal: "center" }}
         >
           <MenuItem
-            onClick={() => handleDropdownClick("/contact/b2b", "contact")}
+            onClick={() => handleDropdownClick("/b2b", "contact")}
           >
             {isArabic ? "B2B" : "B2B"}
           </MenuItem>
           <MenuItem
-            onClick={() => handleDropdownClick("/contact/events", "contact")}
+            onClick={() => handleDropdownClick("/events", "contact")}
           >
             {isArabic ? "الفعاليات" : "Events"}
           </MenuItem>
           <MenuItem
-            onClick={() => handleDropdownClick("/contact/faq", "contact")}
+            onClick={() => handleDropdownClick("/help", "contact")}
           >
-            {isArabic ? "الأسئلة الشائعة" : "FAQ"}
+            {isArabic ? "ساعدني" : "Help Me"}
           </MenuItem>
         </Menu>
       </Toolbar>

@@ -6,8 +6,8 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import styled from "styled-components";
 const CustomAccordion = styled(Accordion)(({ theme }) => ({
-  backgroundColor: "#D92531", // Transparent background
-  color: "#FAFAFA", // White text
+  backgroundColor: "transparent",
+  color: "black", // White text
   boxShadow: "none", // No shadow
   "&:before": {
     display: "none", // Remove the divider line
@@ -23,7 +23,8 @@ const CustomAccordion = styled(Accordion)(({ theme }) => ({
 }));
 
 const CustomAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
-  backgroundColor: "#D92531",
+  background:
+    "linear-gradient(to right, rgba(255, 7, 27, 0.6), rgba(255, 255, 255, 0.6))",
   // Gradient background
   borderRadius: "8px", // Rounded corners
   minHeight: "40px",
@@ -41,7 +42,7 @@ const CustomAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
 }));
 
 const CustomAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
-  backgroundColor: "rgba(173, 216, 230, 0.2)", // Slightly tinted background for details
+  backgroundColor: "rgba(173, 216, 230, 0.2)", // Slightly tinted background for details
   padding: "4px 8px", // Padding for details with a small gap
   borderRadius: "0 0 8px 8px", // Rounded bottom corners
   // marginTop: "4px", // Gap between header and details
@@ -73,7 +74,7 @@ const Help = () => {
           backgroundColor: "#f0f4f8",
           minHeight: "100vh",
           //   width: "1200px",
-          border: "2px solid black",
+          // border: "2px solid black",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -226,7 +227,7 @@ const Help = () => {
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
             backgroundColor: "#D92531",
             "&:hover": {
-              backgroundColor: "#0088cc",
+              // backgroundColor: "#0088cc",
             },
           }}
         >
@@ -238,6 +239,7 @@ const Help = () => {
           display: "flex",
           flexDirection: "column",
           gap: 1, // Space between accordions
+          mb: 8,
         }}
       >
         <CustomAccordion

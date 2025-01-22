@@ -22,7 +22,7 @@ const Meals = () => {
   };
 
   const handleNavigation = () => {
-    window.location.href = 'https://captainchefsubscription.netlify.app';
+    window.location.href = 'http://localhost:5173/';
   };
 
   const menuItems = [
@@ -86,8 +86,7 @@ const Meals = () => {
           display: "flex",
           flexDirection: "column",
           gap: { lg: "50px", md: "50px", sm: "30px", xs: "20px" },
-          mr: { xs: 2, sm: 4, md: 8 },
-          ml: { xs: 2, sm: 4, md: 8 },
+          ml: { xs: 2, sm: 4, md: 1 },
           mb: { xs: 2, sm: 4, md: 0 },
           // border: '1px solid red'
         }}

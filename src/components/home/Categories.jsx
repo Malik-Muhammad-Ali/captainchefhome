@@ -108,7 +108,7 @@ export default function Categories() {
   };
 
   const handleNavigation = () => {
-    window.location.href = "https://captainchefsubscription.netlify.app";
+    window.location.href = 'http://localhost:5173/';
   };
 
   return (
@@ -119,8 +119,8 @@ export default function Categories() {
           flexDirection: "column",
           gap: { lg: "50px", md: "50px", sm: "30px", xs: "20px" },
           mr: { xs: 2, sm: 4, md: 8 },
-          ml: { xs: 2, sm: 4, md: 8 },
-          mb: { xs: 2, sm: 4, md: 8 },
+          // ml: { xs: 2, sm: 4, md: 8 },
+          mb: { xs: 2, sm: 4, md: 1 },
           // border:"2px solid black"
         }}
       >
@@ -128,7 +128,8 @@ export default function Categories() {
           sx={{
             display: "inline-block",
             padding: "20px",
-            alignSelf: isArabic ? "flex-end" : "flex-start", // Dynamic alignment
+            alignSelf: isArabic ? "flex-end" : "flex-start",
+            // border: "2px solid green",
           }}
         >
           <Typography
@@ -141,6 +142,7 @@ export default function Categories() {
           >
             {isArabic ? "فئاتنا" : "OUR CATEGORIES"}
           </Typography>
+          {/* Red Line */}
           <Box
             sx={{
               width: "auto",
@@ -151,23 +153,24 @@ export default function Categories() {
           ></Box>
         </Box>
       </Box>
-      <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Box >
         <Swiper
           spaceBetween={70}
           slidesPerView={6}
           loop={true}
           speed={2000}
-          freeMode={true}
+          // freeMode={true}
           freeModeMomentum={false}
-          modules={[Autoplay]}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: true,
-          }}
+          // modules={[Autoplay]}
+          // autoplay={{
+          //   delay: 0,
+          //   disableOnInteraction: true,
+          // }}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
-          style={{ padding: "20px 10px" }}
+          // style={{ padding: "20px 10px" }}
+          // style={{border: "2px solid black"}}
           breakpoints={{
             320: {
               slidesPerView: 2,
@@ -185,8 +188,12 @@ export default function Categories() {
               slidesPerView: 5,
               centeredSlides: false,
             },
+            1200: {
+              slidesPerView: 6,
+              centeredSlides: false
+            },
             1440: {
-              slidesPerView: 5,
+              slidesPerView: 7,
               centeredSlides: false,
             },
             1600: {
@@ -197,29 +204,31 @@ export default function Categories() {
         >
           {arr.map((item, index) => (
             <SwiperSlide key={index}>
-              {!isExtraLarge ? (
-                <Box
+            {!isExtraLarge?
+              (<Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "10px",
+                  // padding: "10px",
+                  // margin: "10px",
+                }}
+              >
+                <Card
                   sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "10px",
+                    maxWidth: "180px",
+                    minWidth: "180px",
+                    maxHeight: 250,
+                    minHeight: 250,
+                    borderRadius: "24px",
+                    border: "4px solid",
+                    borderColor: getTextColor(item.title),
+                    flexGrow: 1,
+                    cursor: "pointer",
+                    boxShadow: "none",
                   }}
-                >
-                  <Card
-                    sx={{
-                      maxWidth: "180px",
-                      minWidth: "180px",
-                      maxHeight: 250,
-                      minHeight: 250,
-                      borderRadius: "24px",
-                      border: "4px solid",
-                      borderColor: getTextColor(item.title),
-                      flexGrow: 1,
-                      cursor: "pointer",
-                      boxShadow: "none",
-                    }}
                     onClick={handleNavigation}
                   >
                     <CardMedia
@@ -232,77 +241,76 @@ export default function Categories() {
                       //   title={item.title}
                     />
 
-                    <CardContent
+                  <CardContent
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: 0.8,
+                      height: 45,
+                      justifyContent: "flex-start",
+                      direction: isArabic ? "rtl" : "ltr",
+                    }}
+                  >
+                    <Typography
+                      variant="body2"
                       sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        padding: 0.8,
-                        height: 45,
-                        justifyContent: "flex-start",
-                        direction: isArabic ? "rtl" : "ltr",
+                        fontSize: { xl: '1.6rem', lg: "1rem", md: "1rem", sm: "1rem", xs: "1rem" },
+                        fontFamily: "Roboto",
+                        color: getTextColor(item.title),
+                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
                       }}
                     >
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          fontSize: "1rem",
-                          fontFamily: "Roboto",
-                          color: getTextColor(item.title),
-                          // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
-                        }}
-                      >
-                        {isArabic ? item.ar.title : item.title}{" "}
-                        {/* Conditionally render Arabic or English title */}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          fontSize: "0.65rem",
-                          fontFamily: "Roboto",
-                          fontWeight: 400,
-                          // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
-                        }}
-                      >
-                        {isArabic ? item.ar.name : item.name}{" "}
-                        {/* Conditionally render Arabic or English name */}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Box>
-              ) : (
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "10px",
-                  }}
-                >
-                  <Card
-                    sx={{
-                      maxWidth: "300px",
-                      minWidth: "300px",
-                      maxHeight: 380,
-                      minHeight: 380,
-                      borderRadius: "24px",
-                      border: "4px solid",
-                      borderColor: getTextColor(item.title),
-                      flexGrow: 1,
-                      cursor: "pointer",
-                      boxShadow: "none",
-                    }}
-                    //   onClick={() => navigate(`/subscriptions/category/${id}`)}
-                  >
-                    <CardMedia
+                      {isArabic ? item.ar.title : item.title}{" "}
+                      {/* Conditionally render Arabic or English title */}
+                    </Typography>
+                    <Typography
+                      variant="body2"
                       sx={{
-                        height: 300,
-                        width: "100%",
-                        objectFit: "cover",
+                        fontSize: { xl: '1.6rem', lg: "1rem", md: "1rem", sm: "1rem", xs: "1rem" },
+                        fontFamily: "Roboto",
+                        fontWeight: 400,
+                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
                       }}
-                      image={item.img}
-                      //   title={item.title}
-                    />
+                    >
+                      {isArabic ? item.ar.name : item.name}{" "}
+                      {/* Conditionally render Arabic or English name */}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Box>) :
+              (<Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+              >
+                <Card
+                  sx={{
+                    maxWidth: "300px",
+                    minWidth: "300px",
+                    maxHeight: 380,
+                    minHeight: 380,
+                    borderRadius: "24px",
+                    border: "4px solid",
+                    borderColor: getTextColor(item.title),
+                    flexGrow: 1,
+                    cursor: "pointer",
+                    boxShadow: "none",
+                  }}
+                  //   onClick={() => navigate(`/subscriptions/category/${id}`)}
+                >
+                  <CardMedia
+                    sx={{
+                      height: 300,
+                      width: "100%",
+                      objectFit: "cover",
+                    }}
+                    image={item.img}
+                    //   title={item.title}
+                  />
 
                     <CardContent
                       sx={{

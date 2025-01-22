@@ -12,7 +12,6 @@ const Layout = () => {
     >
       <NavLayout />
       <Outlet />
-      <Footer />
     </Grid2>
   );
 };
