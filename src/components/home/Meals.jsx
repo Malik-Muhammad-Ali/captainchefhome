@@ -102,7 +102,7 @@ const Meals = () => {
             sx={{
               fontSize: { lg: "40px", md: "30px", sm: "24px", xs: "24px" },
               fontWeight: 600,
-              fontFamily: "Roboto",
+              fontFamily: "Lexend",
               display: "inline-block",
             }}
           >
@@ -193,6 +193,7 @@ const Meals = () => {
                   fontWeight="bold"
                   sx={{
                     fontSize: { xs: "10px", sm: "12px" },
+                    fontFamily:"Lexend",
                     color: "#D92531",
                   }}
                 >
@@ -241,6 +242,7 @@ const Meals = () => {
                   variant="body2"
                   fontWeight="bold"
                   sx={{
+                    fontFamily:"Lexend",
                     fontSize: { xs: "10px", sm: "12px" },
                     color: "#D92531",
                   }}
@@ -287,6 +289,7 @@ const Meals = () => {
                   variant="body2"
                   fontWeight="bold"
                   sx={{
+                    fontFamily:"Lexend",
                     fontSize: { xs: "10px", sm: "12px" },
                     color: "#D92531",
                   }}
@@ -325,6 +328,7 @@ const Meals = () => {
                   variant="body2"
                   fontWeight="bold"
                   sx={{
+                    fontFamily:"Lexend",
                     fontSize: { xs: "10px", sm: "12px" },
                     color: "#D92531",
                   }}
@@ -367,6 +371,7 @@ const Meals = () => {
                   variant="body2"
                   fontWeight="bold"
                   sx={{
+                    fontFamily:"Lexend",
                     fontSize: { xs: "10px", sm: "12px" },
                     color: "#D92531",
                   }}
@@ -489,10 +494,10 @@ const Meals = () => {
                     height: "100%",
                   }}
                 >
-                  <Typography variant="h6" fontWeight="bold">
+                  <Typography variant="h6" fontWeight="bold" fontFamily="Lexend">
                     {item.name}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" fontFamily="Lexend">
                     {item.kcal}
                   </Typography>
                   <Box

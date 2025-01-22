@@ -132,7 +132,7 @@ export default function BestSeller() {
             sx={{
               fontSize: { lg: "40px", md: "30px", sm: "24px", xs: "24px" },
               fontWeight: 600,
-              fontFamily: "Roboto",
+              fontFamily:"Lexend",
               display: "inline-block",
             }}
           >
@@ -260,7 +260,7 @@ export default function BestSeller() {
                       fontSize: "1.3rem",
                       fontWeight: "bold",
                       textAlign: "center",
-                      fontFamily: "Roboto",
+                      fontFamily:"Lexend",
                       color: getTextColor(item.title),
                     }}
                   >
@@ -322,7 +322,7 @@ export default function BestSeller() {
                       fontSize: "1.75rem",
                       fontWeight: "bold",
                       textAlign: "center",
-                      fontFamily: "Roboto",
+                      fontFamily:"Lexend",
                       color: getTextColor(item.title),
                     }}
                   >

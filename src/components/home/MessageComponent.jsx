@@ -39,8 +39,8 @@ const MessageComponent = () => {
         <Typography
             sx={{
               fontSize: { lg: "40px", md: "30px", sm: "24px", xs: "24px" },
-              fontWeight: 600,
-              fontFamily: "Roboto",
+              fontWeight: 600,    
+              fontFamily: "Lexend",
               display: "inline-block",
               textAlign: isArabic ? "right" : "left", // Adjust alignment dynamically
             }}
@@ -58,10 +58,10 @@ const MessageComponent = () => {
         </Box>
         <Typography
         sx={{
-          fontSize: { xs: "14px", md: "20px",lg:"24px", xl: "40px" },
+          fontSize: { xs: "14px", md: "20px",lg:"22px", xl: "40px" },
           fontWeight: 400,
           wordSpacing: "1px",
-          fontFamily: "Roboto",
+          fontFamily: "Lexend",
           direction: isArabic ? "rtl" : "ltr",
         }}
       >

@@ -109,7 +109,7 @@ const TestimonialsSec = () => {
                 sx={{
                   color: "#D92531",
                   fontWeight: "bold",
-                  fontFamily: "Roboto",
+                  fontFamily:"Lexend",
                 }}
               >
                 What Others Say About Us
@@ -117,7 +117,7 @@ const TestimonialsSec = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  fontFamily: "Roboto",
+                  fontFamily:"Lexend",
                   fontWeight: 500,
                 }}
               >
@@ -142,7 +142,7 @@ const TestimonialsSec = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontFamily: "Roboto",
+                    fontFamily:"Lexend",
                     fontSize: "18px",
                     fontWeight: 500,
                   }}

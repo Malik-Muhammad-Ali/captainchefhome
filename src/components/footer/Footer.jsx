@@ -102,6 +102,7 @@ const Footer = () => {
               variant="h4"
               sx={{
                 color: "#CE2729",
+                fontFamily:"Lexend",
                 fontWeight: "bold",
                 textAlign: "center",
                 fontSize: { xs: "24px", md: "38px" },
@@ -114,6 +115,7 @@ const Footer = () => {
               sx={{
                 color: "#CE2729",
                 fontWeight: "bold",
+                fontFamily:"Lexend",
                 textAlign: "center",
                 alignSelf: { xs: "center", md: "start" },
                 fontSize: { xs: "24px", md: "38px" },
@@ -201,6 +203,7 @@ const Footer = () => {
                         sx={{
                           color: "#191919",
                           fontSize: { xs: "14px", md: "18px" },
+                          fontFamily:"Lexend",
                           fontWeight: "bold",
                           textTransform: "uppercase",
                         }}
@@ -262,6 +265,7 @@ const Footer = () => {
                         sx={{
                           color: "#191919",
                           fontSize: { xs: "14px", md: "18px" },
+                          fontFamily:"Lexend",
                           fontWeight: "bold",
                           textTransform: "uppercase",
                           transition: isHovered
@@ -310,6 +314,7 @@ const Footer = () => {
                               sx={{
                                 color: "#191919",
                                 fontSize: { xs: "12px", md: "14px" },
+                                fontFamily:"Lexend",
                                 fontWeight: "bold",
                                 textTransform: "uppercase",
                               }}
@@ -347,6 +352,7 @@ const Footer = () => {
                 <Typography
                   sx={{
                     fontSize: { lg: "20px" },
+                    fontFamily:"Lexend",
                     fontWeight: 600,
                   }}
                 >
@@ -358,6 +364,7 @@ const Footer = () => {
                   // onClick={()=> navigate("/contactus")}
                   sx={{
                     fontSize: { lg: "16px" },
+                    fontFamily:"Lexend",
                     fontWeight: 400,
                     cursor: "pointer",
                   }}
@@ -368,6 +375,7 @@ const Footer = () => {
                   // onClick={()=> navigate("/termsandconditions")}
                   sx={{
                     fontSize: { lg: "16px" },
+                    fontFamily:"Lexend",
                     fontWeight: 400,
                     cursor: "pointer",
                   }}
@@ -378,6 +386,7 @@ const Footer = () => {
                   // onClick={() => navigate("/privacyPolicy")}
                   sx={{
                     fontSize: { lg: "16px" },
+                    fontFamily:"Lexend",
                     fontWeight: 400,
                     cursor: "pointer",
                   }}
@@ -398,6 +407,7 @@ const Footer = () => {
                 <Typography
                   sx={{
                     fontSize: { lg: "20px" },
+                    fontFamily:"Lexend",
                     fontWeight: 600,
                   }}
                 >
@@ -414,6 +424,7 @@ const Footer = () => {
                 <Typography
                   sx={{
                     fontSize: { lg: "16px" },
+                    fontFamily:"Lexend",
                     fontWeight: 400,
                     cursor: "pointer",
                   }}
@@ -423,6 +434,7 @@ const Footer = () => {
                 <Typography
                   sx={{
                     fontSize: { lg: "16px" },
+                    fontFamily:"Lexend",
                     fontWeight: 400,
                     cursor: "pointer",
                   }}
@@ -432,6 +444,7 @@ const Footer = () => {
                 <Typography
                   sx={{
                     fontSize: { lg: "16px" },
+                    fontFamily:"Lexend",
                     fontWeight: 400,
                     cursor: "pointer",
                   }}
@@ -451,6 +464,7 @@ const Footer = () => {
                 <Typography
                   sx={{
                     fontSize: { lg: "20px" },
+                    fontFamily:"Lexend",
                     fontWeight: 600,
                   }}
                 >
@@ -467,6 +481,7 @@ const Footer = () => {
                 <Typography
                   sx={{
                     fontSize: { lg: "16px" },
+                    fontFamily:"Lexend",
                     fontWeight: 400,
                     cursor: "pointer",
                   }}
@@ -476,6 +491,7 @@ const Footer = () => {
                 <Typography
                   sx={{
                     fontSize: { lg: "16px" },
+                    fontFamily:"Lexend",
                     fontWeight: 400,
                     cursor: "pointer",
                   }}
@@ -485,6 +501,7 @@ const Footer = () => {
                 <Typography
                   sx={{
                     fontSize: { lg: "16px" },
+                    fontFamily:"Lexend",
                     fontWeight: 400,
                     cursor: "pointer",
                   }}
@@ -529,6 +546,7 @@ const Footer = () => {
               variant="h5"
               sx={{
                 fontWeight: "bold",
+                fontFamily:"Lexend",
                 color: "#CE2729",
                 marginBottom: "10px",
               }}
@@ -537,7 +555,11 @@ const Footer = () => {
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: "#777", marginBottom: "20px" }}
+              sx={{ 
+                color: "#777",
+                fontFamily:"Lexend", 
+                marginBottom: "20px"
+                }}
             >
               To Stay Up To Date Our Promotions, Promotions Discount Sales
               Special Offers And More
@@ -696,7 +718,7 @@ const Footer = () => {
         }}
       >
         <Box sx={{ width: "45%" }}>
-          <Typography sx={{ color: "ffffff", fontSize: "13px" }}>
+          <Typography sx={{ color: "ffffff",fontFamily:"Lexend", fontSize: "13px" }}>
             © Copyright Team Inc.
           </Typography>
         </Box>
@@ -710,22 +732,22 @@ const Footer = () => {
           }}
         >
           <Typography
-            sx={{ color: "ffffff", fontSize: "13px", cursor: "pointer" }}
+            sx={{ color: "ffffff", fontSize: "13px",fontFamily:"Lexend", cursor: "pointer" }}
           >
             Terms
           </Typography>
           <Typography
-            sx={{ color: "ffffff", fontSize: "13px", cursor: "pointer" }}
+            sx={{ color: "ffffff", fontSize: "13px",fontFamily:"Lexend", cursor: "pointer" }}
           >
             Privacy Policy
           </Typography>
           <Typography
-            sx={{ color: "ffffff", fontSize: "13px", cursor: "pointer" }}
+            sx={{ color: "ffffff", fontSize: "13px",fontFamily:"Lexend", cursor: "pointer" }}
           >
             Legal Notice
           </Typography>
           <Typography
-            sx={{ color: "ffffff", fontSize: "13px", cursor: "pointer" }}
+            sx={{ color: "ffffff", fontSize: "13px",fontFamily:"Lexend", cursor: "pointer" }}
           >
             Accessibility
           </Typography>
