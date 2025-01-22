@@ -38,6 +38,7 @@ const TestimonialsSec = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        mb:"20px",
         gap: "20px",
       }}
     >
@@ -48,6 +49,8 @@ const TestimonialsSec = () => {
           alignItems: "center",
           flexWrap: "wrap",
           width: { xs: "100%", sm: "30%", xl: "20%" },
+          objectFit:"contain",
+          // border:"2px solid black",
           ml: "auto",
           height: "auto",
         }}
@@ -57,8 +60,9 @@ const TestimonialsSec = () => {
           src="testimonials-img.png"
           alt="Top Left Image"
           sx={{
-            aspectRatio: { xs: "6/8", lg: "1 / 2" },
+            aspectRatio: { xs: "6/8", lg: "6/8" },
             objectFit: "contain",
+            height:"400px"
           }}
         />
       </Box>

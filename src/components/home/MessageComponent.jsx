@@ -58,9 +58,9 @@ const MessageComponent = () => {
         </Box>
         <Typography
         sx={{
-          fontSize: { xs: "14px", md: "20px",lg:"26px", xl: "40px" },
+          fontSize: { xs: "14px", md: "20px",lg:"24px", xl: "40px" },
           fontWeight: 400,
-          wordSpacing: "2px",
+          wordSpacing: "1px",
           fontFamily: "Roboto",
           direction: isArabic ? "rtl" : "ltr",
         }}
