@@ -213,17 +213,17 @@ const NavBottom = () => {
           transformOrigin={{ vertical: "top", horizontal: "center" }}
         >
           <MenuItem
-            onClick={() => handleDropdownClick("/contact/b2b", "contact")}
+            onClick={() => handleDropdownClick("/b2b", "contact")}
           >
             {isArabic ? "B2B" : "B2B"}
           </MenuItem>
           <MenuItem
-            onClick={() => handleDropdownClick("/contact/events", "contact")}
+            onClick={() => handleDropdownClick("/events", "contact")}
           >
             {isArabic ? "الفعاليات" : "Events"}
           </MenuItem>
           <MenuItem
-            onClick={() => handleDropdownClick("/contact/help", "contact")}
+            onClick={() => handleDropdownClick("/help", "contact")}
           >
             {isArabic ? "ساعدني" : "Help Me"}
           </MenuItem>
