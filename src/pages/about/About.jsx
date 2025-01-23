@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React, { useState } from "react";
 import useAppStore from "../../components/store";
 
@@ -9,21 +9,21 @@ const About = () => {
 
   const cards = [
     {
-      image: "card111.png", // Replace with your image URL
+      image: "change1.jpg", // Replace with your image URL
       title: "Our Mission",
       backTitle: "Our Mission",
       backContent:
         "At Captain Chef, our vision is to lead in healthy nutrition, building a vibrant community aligned with Saudi Vision 2030. We provide balanced, creative meals to enhance quality of life for all..",
     },
     {
-      image: "who2.png", // Replace with your image URL
+      image: "change2.png", // Replace with your image URL
       title: "Our Vision",
       backTitle: "Our Vision",
       backContent:
         "At Captain Chef, our vision is to lead in healthy nutrition, building a vibrant community aligned with Saudi Vision 2030. We provide balanced, creative meals to enhance quality of life for all.",
     },
     {
-      image: "who3.png", // Replace with your image URL
+      image: "change3.png", // Replace with your image URL
       title: "Our Values at Captain Chef",
       backTitle: "Our Values at Captain Chef",
       backContent:
@@ -66,26 +66,18 @@ const About = () => {
             // justifyContent: "start",
             // alignItems: "start",
             // gap: 2,
-            marginTop: 2,
+            border: "2px solid black",
+            m: 2,
+            // p: 3,
           }}
         >
-          <Typography
-            // variant="h4"
-            sx={{
-              color: "#D92531",
-              fontWeight: "bold",
-              textAlign: "left",
-              fontSize: {
-                xs: "22px",
-                md: "30px",
-                sm: "30px",
-                lg: "30px",
-                xl: "30px",
-              },
-            }}
-          >
-            Meet Hussain Mahmoud Al Daqal: Founder of Captain Chef
+          <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+            <span style={{ color: "#000" }}>Meet</span>{" "}
+            <span style={{ color: "#D92531" }}>Hussain Mahmoud Al Daqal</span>:{" "}
+            <span style={{ color: "#000" }}>Founder of</span>{" "}
+            <span style={{ color: "#D92531" }}>Captain Chef</span>
           </Typography>
+
           {/* <Box sx={{ textAlign: "left", margin: "0 auto" }}>
             <Typography>
               {" "}
@@ -95,81 +87,172 @@ const About = () => {
 
         <Box
           sx={{
-            // border:"2px solid black",
             display: "flex",
-            // m: { xs: 2, sm: 4, md: 2 },
-            // ml: { xs: 2, sm: 4, md: 8 },
+            height: "auto",
+            // alignItems: "center",
+            // gap: "30px",
+            glexDirection: { lg: "row", xs: "column", md: "row", sm: "row" },
+            justifyContent: {
+              lg: "start",
+              md: "start",
+              sm: "center",
+              xs: "center",
+            },
+            width: "100%",
+            // gridTemplateColumns: !isArabic
+            //   ? { lg: "1fr 1fr", xs: "1fr" }
+            //   : { lg: "1fr 1fr", xs: "1fr" },
+            // gridAutoRows: "auto",
+            gap: { md: 10, sm: 10, xs: 10, lg: 10 },
             backgroundColor: "background.paper",
-            flexDirection: !isArabic
-              ? { lg: "row", md: "row", sm: "row", xs: "column" }
-              : {
-                  lg: "row-reverse",
-                  md: "row-reverse",
-                  sm: "row-reverse",
-                  xs: "column-reverse",
-                },
-            justifyContent: "space-between",
-            direction: isArabic == "ar" ? "rtl" : "ltr",
+            padding: 2,
+            // direction: isArabic ? "rtl" : "ltr",
           }}
         >
-          {/* left section */}
+          {/* Left Section */}
           <Box
             sx={{
-              width: { lg: "50%", md: "50%", sm: "100%", xs: "100%" },
               display: "flex",
               flexDirection: "column",
-              direction: isArabic == "ar" ? "rtl" : "ltr",
-              pt: "50px",
-              alignItems: "center",
-              justifyContent: "center",
+              width: "100%",
+              justifyContent: "start",
+              height: { lg: "450px", md: "auto", sm: "auto", xs: "auto" },
+              alignItems: "start",
+              maxWidth: { lg: "50%", xs: "350px", sm: "300px", md: "450px" },
+              // flexWrap: "wrap",
+
+              // height: "100%",
+              padding: 2,
+              backgroundColor: "#f9f9f9",
+              borderRadius: "8px",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              // height: "100%", // Ensure left section takes full height of its container
             }}
           >
+            {/* Title Section */}
+            <Typography sx={{ fontWeight: "bold", textAlign: "center" }}>
+              <span style={{ color: "#D92531" }}>Hussain Mahmoud Al Daqal</span>
+              , The Visionary Founder Of{" "}
+              <span style={{ color: "#D92531" }}>Captain Chef</span>
+            </Typography>
+
+            {/* Paragraph Section */}
             <Typography
-              variant="h6"
+              variant="body1"
+              sx={{ color: "#272727", marginBottom: 2 }}
+            >
+              Established The Brand To Inspire Saudi Youth To Embrace Healthier
+              Lifestyles. With A Focus On Accessible,{" "}
+              <span style={{ fontWeight: "bold" }}>Nutritious Meal Plans</span>{" "}
+              And A Commitment To Quality, He Empowers Individuals To Make
+              Better Choices For Their Well-Being. Guided By The Belief That{" "}
+              <span style={{ fontWeight: "bold" }}>"You Are Not Alone"</span>,{" "}
+              <span style={{ color: "#D92531", fontWeight: "bold" }}>
+                Captain Chef
+              </span>{" "}
+              Fosters A Culture Of Wellness Across The Community.
+            </Typography>
+
+            {/* Bullet Points Section */}
+            <Box
               sx={{
-                fontFamily: "Roboto",
-                direction: isArabic ? "rtl" : "ltr",
-                textAlign: "left",
-                fontSize: {
-                  xs: "18px",
-                  md: "20px",
-                  sm: "25px",
-                  lg: "20px",
-                  xl: "30px",
-                },
+                padding: 2,
+                backgroundColor: "#f9f9f9",
+                borderRadius: "8px",
+                marginBottom: 2,
               }}
             >
-              Hussain Mahmoud Al Daqal, the visionary founder of Captain Chef,
-              established the brand to inspire Saudi youth to embrace healthier
-              lifestyles.
-            </Typography>
+              <ul style={{ paddingLeft: "10px" }}>
+                <li>
+                  <Typography variant="body1" sx={{ color: "#272727" }}>
+                    The Brand Focuses On Accessible And{" "}
+                    <span style={{ fontWeight: "bold" }}>
+                      Nutritious Meal Plans
+                    </span>
+                    .
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="body1" sx={{ color: "#272727" }}>
+                    Commitment To Quality Ensures{" "}
+                    <span style={{ fontWeight: "bold" }}>High Standards</span>{" "}
+                    For Well-Being.
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="body1" sx={{ color: "#272727" }}>
+                    <span style={{ fontWeight: "bold" }}>Captain Chef</span>{" "}
+                    Empowers Individuals To Make Better Health Choices.
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="body1" sx={{ color: "#272727" }}>
+                    Guided By{" "}
+                    <span style={{ fontWeight: "bold" }}>
+                      "You Are Not Alone"
+                    </span>
+                    , It Fosters A{" "}
+                    <span style={{ fontWeight: "bold" }}>
+                      Culture Of Wellness
+                    </span>
+                    .
+                  </Typography>
+                </li>
+              </ul>
+            </Box>
+
+            {/* Read More Button */}
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#D92531",
+                  borderRadius: "10px",
+                  color: "#fff",
+                  padding: "10px 20px",
+                  fontWeight: "bold",
+                  "&:hover": {
+                    backgroundColor: "#ff4d4d",
+                  },
+                }}
+              >
+                Read More
+              </Button>
+            </Box>
           </Box>
-          {/* right section */}
+
+          {/* Right Section */}
           <Box
             sx={{
-              width: {
-                xl: "40%",
-                lg: "30%",
-                md: "50%",
-                sm: "100%",
-                xs: "100%",
-              },
               display: "flex",
               alignItems: "start",
               justifyContent: "start",
-              objectFit: "contain",
+              // width: { lg: "auto", xs: "350px" },
+
+              padding: 2,
+              // height: "100%", // Match the height of the left section
             }}
           >
             <img
               style={{
-                width: "100%",
-                height: "auto",
+                maxWidth: { lg: "500px", xs: "auto", sm: "0px", md: "450px" },
+                width: { lg: "500px", xs: "auto", sm: "0px", md: "450px" },
+                height: { lg: "90%", md: "40%", sm: "auto", xs: "20%" },
+                objectFit: "contain",
+                borderRadius: "8px",
               }}
-              src="/messageBg.svg"
+              src="ownerpic.png"
               alt="image"
             />
           </Box>
         </Box>
+
         <Box
           sx={{
             padding: 2,
@@ -253,26 +336,80 @@ const About = () => {
               {hoveredIndex === index ? (
                 <Box
                   sx={{
-                    textAlign: "center",
-                    padding: 2,
-                    color: "#333",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "15px",
-                    backgroundColor: "#fff",
-                    justifyContent: "start",
-                    alignItems: "space-between",
+                    position: "relative", // Allows layering child elements
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                    backgroundColor: "#fff", // Fallback color in case the image doesn't load
                   }}
                 >
-                  <Box>
-                    <Typography variant="h5" sx={{ color: "#D92531" }}>
-                      {card.backTitle}
-                    </Typography>
-                  </Box>
-                  <Box>
-                    <Typography variant="body3" sx={{ color: "#272727" }}>
-                      {card.backContent}
-                    </Typography>
+                  {/* Background Image */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      backgroundImage: `url(${card.image})`, // Use your image path here
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      opacity: 0.4, // Low opacity for the background image
+                      zIndex: 1, // Positioned behind the text content
+                    }}
+                  />
+
+                  {/* Content */}
+                  <Box
+                    sx={{
+                      position: "relative", // Ensures this stays above the background image
+                      textAlign: "center",
+                      padding: 2,
+                      color: "#333",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "60px",
+                      justifyContent: "center",
+                      alignItems: "center", // Align items properly
+                      zIndex: 2, // Positioned above the background image
+                    }}
+                  >
+                    {/* Heading */}
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Typography variant="h5" sx={{ color: "#D92531" }}>
+                        {card.backTitle}
+                      </Typography>
+                    </Box>
+
+                    {/* Content */}
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        textAlign: "center",
+                      }}
+                    >
+                      <Typography
+                        variant="body3"
+                        sx={{
+                          color: "#272727",
+                          textAlign: "center",
+                          justifySelf: "center",
+                        }}
+                      >
+                        {card.backContent}
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
               ) : (
@@ -284,16 +421,17 @@ const About = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundColor: "transparent", // Updated to transparent
-                    // borderRadius: "10%",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     color: "#fff",
                     fontWeight: "bold",
-                    fontSize: "1.5rem",
+                    fontSize: "3rem",
                   }}
                 >
-                  <Typography variant="h6">{card.title}</Typography>
+                  <Typography variant="h6" sx={{ fontSize: "1.7rem" }}>
+                    {card.title}
+                  </Typography>
                 </Box>
               )}
             </Box>

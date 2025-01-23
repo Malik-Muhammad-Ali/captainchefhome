@@ -10,27 +10,27 @@ const Careers = () => {
 
   const cards = [
     {
-      image: "who1.png", // Replace with your image URL
+      image: "change1.jpg", // Replace with your image URL
       title: "Cashier",
     },
     {
-      image: "who2.png", // Replace with your image URL
+      image: "change1.jpg", // Replace with your image URL
       title: "IT department",
     },
     {
-      image: "who3.png", // Replace with your image URL
+      image: "change2.png", // Replace with your image URL
       title: "Data Entry",
     },
     {
-      image: "who3.png", // Replace with your image URL
+      image: "change2.png", // Replace with your image URL
       title: "Developer",
     },
     {
-      image: "who3.png", // Replace with your image URL
+      image: "change3.png", // Replace with your image URL
       title: "Video Editor",
     },
     {
-      image: "who3.png", // Replace with your image URL
+      image: "change3.png", // Replace with your image URL
       title: "HR",
     },
   ];
@@ -77,25 +77,55 @@ const Careers = () => {
           {hoveredIndex === index ? (
             <Box
               sx={{
-                textAlign: "center",
-                padding: 2,
-                color: "#333",
-                display: "flex",
-                flexDirection: "column",
-                gap: "15px",
-                backgroundColor: "#fff",
-                justifyContent: "start",
-                alignItems: "space-between",
+                position: "relative", // Allows absolute positioning for child elements
+                width: "100%", // Full width of the container
+                height: "100%", // Full height of the container
+                borderRadius: "10px",
+                overflow: "hidden", // Prevents content from overflowing
               }}
             >
+              {/* Background Image Box */}
               <Box
                 sx={{
-                  backgroundColor: "#D92531",
-                  borderRadius: "10px",
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundImage: `url(${card.image})`, // Use your image path
+                  transition: "opacity 0.3s ease-in-out",
+                  opacity: 0.4, // Default opacity
+                  zIndex: 1, // Ensure it’s behind the button
+                  "&:hover": {
+                    opacity: 0.4, // Increase opacity on hover
+                  },
                 }}
-                onClick={() => navigate(`/apply`)}
+              />
+              {/* Button Container */}
+              <Box
+                sx={{
+                  position: "relative", // Keep the button container above the image
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "100%", // Center the button vertically and horizontally
+                  zIndex: 2, // Ensure it stays above the background
+                }}
               >
-                <Button variant="body3" sx={{ color: "white" }}>
+                <Button
+                  variant="contained"
+                  onClick={() => navigate(`/apply`)}
+                  sx={{
+                    backgroundColor: "#D92531",
+                    color: "white",
+                    fontWeight: "bold",
+                    "&:hover": {
+                      backgroundColor: "#ff4d4d", // Button hover effect
+                    },
+                  }}
+                >
                   Apply Now
                 </Button>
               </Box>
