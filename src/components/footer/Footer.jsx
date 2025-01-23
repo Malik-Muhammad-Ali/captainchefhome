@@ -1,4 +1,5 @@
-import { Box, Typography, TextField, Button } from "@mui/material";
+import React from "react";
+import { Box, Typography, TextField, Button, Grid } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useState } from "react";
 
@@ -42,16 +43,24 @@ const Footer = () => {
   const [isHovered, setIsHovered] = useState(null);
   return (
     <>
-      <Box
+      <Grid2
         sx={{
           backgroundColor: "#F9F9F9",
           // padding: "40px 20px",
           display: "flex",
-          flexDirection: { xs: "column-reverse", md: "row" },
+          flexDirection: { xs: "column-reverse", sm: "row" },
+          backgroundImage: `url('/footerbg.png')`, // Set the background image
+          backgroundSize: "cover", // Ensure the image covers the entire container
+          backgroundPosition: "center", // Center the image
+          backgroundRepeat: "no-repeat", // Prevent the image from repeating
           gap: { lg: "20px", sm: "10px" },
           alignItems: "center",
+          borderTopLeftRadius: "40px",
+          borderTopRightRadius: "40px",
           // border: "2px solid red",
-          height: "70vh",
+          height: { xs: "90vh", sm: "80vh", md: "75vh" },
+          mr: { xs: 2, sm: 4, md: 8 },
+          ml: { xs: 2, sm: 4, md: 8 },
         }}
       >
         <Box
@@ -64,7 +73,7 @@ const Footer = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            gap: 4,
+            // gap: 4,
             // border: "2px solid black",
             height: "100%",
           }}
@@ -85,25 +94,27 @@ const Footer = () => {
               variant="h4"
               sx={{
                 color: "#CE2729",
+                fontFamily: "Lexend",
                 fontWeight: "bold",
                 textAlign: "center",
                 fontSize: { xs: "24px", md: "38px" },
               }}
             >
-              Our Branches Across The Kingdom
+              Our Branches Across
             </Typography>
-            {/* <Typography
-            variant="h4"
-            sx={{
-              color: "#CE2729",
-              fontWeight: "bold",
-              textAlign: "center",
-              alignSelf: { xs: "center", md: "start" },
-              fontSize: { xs: "24px", md: "38px" },
-            }}
-          >
-            The Kingdom
-          </Typography> */}
+            <Typography
+              variant="h4"
+              sx={{
+                color: "#CE2729",
+                fontWeight: "bold",
+                fontFamily: "Lexend",
+                textAlign: "center",
+                alignSelf: { xs: "center", md: "start" },
+                fontSize: { xs: "24px", md: "38px" },
+              }}
+            >
+              The Kingdom
+            </Typography>
             {/* <Typography
             variant="h6"
             sx={{
@@ -124,6 +135,7 @@ const Footer = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
+              // justifyContent:"center",
               padding: { lg: "20px", md: "5px" }, // Optional padding to create spacing
               // border:"2px solid black",
               width: "100%",
@@ -145,11 +157,9 @@ const Footer = () => {
                   onMouseEnter={() => {
                     setIsHovered(index);
                   }}
-                  key={index}
                   onMouseLeave={() => {
                     setIsHovered(null);
                   }}
-                  key={index}
                   sx={{
                     display: "flex",
                     flex: 1,
@@ -163,7 +173,7 @@ const Footer = () => {
                       sx={{
                         display: "flex",
                         justifyContent: "center",
-                        flexDirection: "column",
+                        // flexDirection: "column",
                         alignItems: "center",
                         width: "100%",
                         padding: "10px",
@@ -172,10 +182,10 @@ const Footer = () => {
                       <LocationOnIcon
                         sx={{
                           fontSize: {
-                            lg: "100px",
-                            md: "100px",
-                            sm: "70px",
-                            xs: "70px",
+                            lg: "80px",
+                            md: "80px",
+                            sm: "50px",
+                            xs: "50px",
                           },
                           color: branch.color,
                         }}
@@ -184,7 +194,8 @@ const Footer = () => {
                         variant="h6"
                         sx={{
                           color: "#191919",
-                          fontSize: { xs: "16px", md: "22px" },
+                          fontSize: { xs: "14px", md: "18px" },
+                          fontFamily: "Lexend",
                           fontWeight: "bold",
                           textTransform: "uppercase",
                         }}
@@ -223,7 +234,9 @@ const Footer = () => {
                         alignItems: "center",
                         width: "100%",
                         padding: "10px",
-                        transition: "all 0.5s ease-in-out",
+                        transition: "all 0.3s ease-in-out",
+                        borderRadius: "20px",
+                        backgroundColor: "#FFFFFF",
                         // border:"2px solid black"
                       }}
                     >
@@ -243,7 +256,8 @@ const Footer = () => {
                         variant="h6"
                         sx={{
                           color: "#191919",
-                          fontSize: { xs: "16px", md: "22px" },
+                          fontSize: { xs: "14px", md: "18px" },
+                          fontFamily: "Lexend",
                           fontWeight: "bold",
                           textTransform: "uppercase",
                           transition: isHovered
@@ -259,7 +273,7 @@ const Footer = () => {
                           flexDirection: "column",
                           justifyContent: "center",
                           alignItems: "center",
-                          gap: "10px",
+                          // gap: "10px",
                           width: "100%",
                           // border:"2px solid red"
                         }}
@@ -291,7 +305,8 @@ const Footer = () => {
                               variant="h6"
                               sx={{
                                 color: "#191919",
-                                fontSize: { xs: "16px", md: "16px" },
+                                fontSize: { xs: "12px", md: "14px" },
+                                fontFamily: "Lexend",
                                 fontWeight: "bold",
                                 textTransform: "uppercase",
                               }}
@@ -307,15 +322,196 @@ const Footer = () => {
               ))}
             </Box>
           </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-around",
+              alignItems: "flex-start",
+              gap: { lg: "15px", md: "15px", sm: "10px", xs: "10px" },
+              width: { lg: "100%", md: "100%", sm: "100%", xs: "100%" },
+              // ml: { xs: 1, sm: 4, md: 8 },
+              // mr: { xs: 1, sm: 4, md: 8 },
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                // gap: { lg: "15px", md: "15px", sm: "10px", xs: "10px" },
+              }}
+            >
+              <Box>
+                <Typography
+                  sx={{
+                    fontSize: { lg: "20px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 600,
+                  }}
+                >
+                  About Us
+                </Typography>
+              </Box>
+              <Box>
+                <Typography
+                  // onClick={()=> navigate("/contactus")}
+                  sx={{
+                    fontSize: { lg: "16px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 400,
+                    cursor: "pointer",
+                  }}
+                >
+                  How To Reach Us
+                </Typography>
+                <Typography
+                  // onClick={()=> navigate("/termsandconditions")}
+                  sx={{
+                    fontSize: { lg: "16px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 400,
+                    cursor: "pointer",
+                  }}
+                >
+                  Book Consultation
+                </Typography>
+                <Typography
+                  // onClick={() => navigate("/privacyPolicy")}
+                  sx={{
+                    fontSize: { lg: "16px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 400,
+                    cursor: "pointer",
+                  }}
+                >
+                  Partners
+                </Typography>
+                {/* <Typography sx={{fontSize:{lg:"18px"},fontWeight:400,cursor:"pointer"}}>FAQs</Typography> */}
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                // gap: { lg: "15px", md: "15px", sm: "10px", xs: "10px" },
+              }}
+            >
+              <Box>
+                <Typography
+                  sx={{
+                    fontSize: { lg: "20px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 600,
+                  }}
+                >
+                  More Info
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: { lg: "16px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 400,
+                    cursor: "pointer",
+                  }}
+                >
+                  Careers
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: { lg: "16px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 400,
+                    cursor: "pointer",
+                  }}
+                >
+                  Terms & Conditions
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: { lg: "16px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 400,
+                    cursor: "pointer",
+                  }}
+                >
+                  FAQs
+                </Typography>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                // gap: { lg: "15px", md: "15px", sm: "10px", xs: "10px" },
+              }}
+            >
+              <Box>
+                <Typography
+                  sx={{
+                    fontSize: { lg: "20px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 600,
+                  }}
+                >
+                  Contact Us
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: { lg: "16px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 400,
+                    cursor: "pointer",
+                  }}
+                >
+                  Live Chat
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: { lg: "16px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 400,
+                    cursor: "pointer",
+                  }}
+                >
+                  0561373031
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: { lg: "16px" },
+                    fontFamily: "Lexend",
+                    fontWeight: 400,
+                    cursor: "pointer",
+                  }}
+                >
+                  info@CaptainChef.net
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
         </Box>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-            alignItems: { xs: "flex-start", md: "flex-start" },
+            alignItems: { xs: "center", md: "flex-start" },
             justifyContent: "space-between",
             gap: { xs: "20px", md: "20px" },
-            height: "100%",
+            height: "auto",
             // border: "2px solid red",
           }}
         >
@@ -323,7 +519,8 @@ const Footer = () => {
             <img
               style={{
                 width: "150px",
-                height: "150px",
+                height: "80px",
+                // border:"2px solid red"
               }}
               src="footerlogo.svg"
               alt="logo"
@@ -341,6 +538,7 @@ const Footer = () => {
               variant="h5"
               sx={{
                 fontWeight: "bold",
+                fontFamily: "Lexend",
                 color: "#CE2729",
                 marginBottom: "10px",
               }}
@@ -349,7 +547,11 @@ const Footer = () => {
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: "#777", marginBottom: "20px" }}
+              sx={{
+                color: "#777",
+                fontFamily: "Lexend",
+                marginBottom: "20px",
+              }}
             >
               To Stay Up To Date Our Promotions, Promotions Discount Sales
               Special Offers And More
@@ -369,7 +571,7 @@ const Footer = () => {
                 sx={{
                   backgroundColor: "#FFF", // Background color for the TextField
                   borderRadius: "24px", // Rounded corners
-                  width: "auto", // Auto width
+                  width: { xs: "100%", sm: "auto" }, // Auto width
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "28px", // Border radius for the input
                     "& fieldset": {
@@ -407,13 +609,28 @@ const Footer = () => {
                   textTransform: "none",
                   borderRadius: "28px",
                   height: "30px",
+                  width: "150px",
                 }}
               >
                 Submit
               </Button>
+              <Button
+                variant="outlined"
+                sx={{
+                  // backgroundColor: "#CE2729",
+                  color: "black",
+                  padding: "10px 20px",
+                  textTransform: "none",
+                  borderRadius: "28px",
+                  height: "30px",
+                  width: "150px",
+                }}
+              >
+                Download App
+              </Button>
             </Box>
           </Box>
-          <Box
+          {/* <Box
             sx={{
               display: "flex",
               gap: "10px",
@@ -467,7 +684,7 @@ const Footer = () => {
                 srcset=""
               />
             </Box>
-          </Box>
+          </Box> */}
           {/* <Box sx={{}}>
           <img
             style={{
@@ -480,19 +697,22 @@ const Footer = () => {
           />
         </Box> */}
         </Box>
-      </Box>
+      </Grid2>
       <Box
         sx={{
           textAlign: "center",
           display: { md: "flex", xs: "none" },
-          marginTop: "20px",
+          alignItems: "center",
+          // marginTop: "20px",
           borderTop: "2px solid #AFAFAF",
-          paddingTop: "10px",
+          // paddingTop: "10px",
           width: "100%",
         }}
       >
         <Box sx={{ width: "45%" }}>
-          <Typography sx={{ color: "ffffff", fontSize: "13px" }}>
+          <Typography
+            sx={{ color: "ffffff", fontFamily: "Lexend", fontSize: "13px" }}
+          >
             © Copyright Team Inc.
           </Typography>
         </Box>
@@ -501,21 +721,105 @@ const Footer = () => {
             width: "50%",
             // border: "2px solid black",
             display: { md: "flex", xs: "none" },
+            alignItems: "center",
             gap: "70px",
           }}
         >
-          <Typography sx={{ color: "ffffff", fontSize: "13px" }}>
+          <Typography
+            sx={{
+              color: "ffffff",
+              fontSize: "13px",
+              fontFamily: "Lexend",
+              cursor: "pointer",
+            }}
+          >
             Terms
           </Typography>
-          <Typography sx={{ color: "ffffff", fontSize: "13px" }}>
+          <Typography
+            sx={{
+              color: "ffffff",
+              fontSize: "13px",
+              fontFamily: "Lexend",
+              cursor: "pointer",
+            }}
+          >
             Privacy Policy
           </Typography>
-          <Typography sx={{ color: "ffffff", fontSize: "13px" }}>
+          <Typography
+            sx={{
+              color: "ffffff",
+              fontSize: "13px",
+              fontFamily: "Lexend",
+              cursor: "pointer",
+            }}
+          >
             Legal Notice
           </Typography>
-          <Typography sx={{ color: "ffffff", fontSize: "13px" }}>
+          <Typography
+            sx={{
+              color: "ffffff",
+              fontSize: "13px",
+              fontFamily: "Lexend",
+              cursor: "pointer",
+            }}
+          >
             Accessibility
           </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            gap: "10px",
+          }}
+        >
+          <Box>
+            <img
+              style={{
+                width: "30px",
+                height: "30px",
+                cursor: "pointer",
+              }}
+              src="instagram.png"
+              alt=""
+              srcset=""
+            />
+          </Box>
+          <Box>
+            <img
+              style={{
+                width: "30px",
+                height: "30px",
+                cursor: "pointer",
+              }}
+              src="facebook.png"
+              alt=""
+              srcset=""
+            />
+          </Box>
+          <Box>
+            <img
+              style={{
+                width: "30px",
+                height: "30px",
+                cursor: "pointer",
+              }}
+              src="twitter.png"
+              alt=""
+              srcset=""
+            />
+          </Box>
+          <Box>
+            <img
+              style={{
+                width: "30px",
+                height: "30px",
+                cursor: "pointer",
+              }}
+              src="youtube.png"
+              alt=""
+              srcset=""
+            />
+          </Box>
         </Box>
       </Box>
     </>

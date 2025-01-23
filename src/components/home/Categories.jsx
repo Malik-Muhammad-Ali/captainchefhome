@@ -121,6 +121,7 @@ export default function Categories() {
           mr: { xs: 2, sm: 4, md: 8 },
           // ml: { xs: 2, sm: 4, md: 8 },
           mb: { xs: 2, sm: 4, md: 1 },
+          fontFamily:"Lexend"
           // border:"2px solid black"
         }}
       >
@@ -136,7 +137,7 @@ export default function Categories() {
             sx={{
               fontSize: { lg: "40px", md: "30px", sm: "24px", xs: "24px" },
               fontWeight: 600,
-              fontFamily: "Roboto",
+              fontFamily: "Lexend",
               display: "inline-block",
             }}
           >
@@ -255,7 +256,7 @@ export default function Categories() {
                       variant="body2"
                       sx={{
                         fontSize: { xl: '1.6rem', lg: "1rem", md: "1rem", sm: "1rem", xs: "1rem" },
-                        fontFamily: "Roboto",
+                        fontFamily: "Lexend",
                         color: getTextColor(item.title),
                         // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
                       }}
@@ -267,7 +268,7 @@ export default function Categories() {
                       variant="body2"
                       sx={{
                         fontSize: { xl: '1.6rem', lg: "1rem", md: "1rem", sm: "1rem", xs: "1rem" },
-                        fontFamily: "Roboto",
+                        fontFamily: "Lexend",
                         fontWeight: 400,
                         // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
                       }}
@@ -326,7 +327,7 @@ export default function Categories() {
                         variant="body2"
                         sx={{
                           fontSize: "1rem",
-                          fontFamily: "Roboto",
+                          fontFamily: "Lexend",
                           color: getTextColor(item.title),
                           // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
                         }}
@@ -338,7 +339,7 @@ export default function Categories() {
                         variant="body2"
                         sx={{
                           fontSize: "1rem",
-                          fontFamily: "Roboto",
+                          fontFamily: "Lexend",
                           fontWeight: 400,
                           // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
                         }}
