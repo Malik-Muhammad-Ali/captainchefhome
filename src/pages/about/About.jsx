@@ -9,7 +9,7 @@ const About = () => {
 
   const cards = [
     {
-      image: "who1.png", // Replace with your image URL
+      image: "card111.png", // Replace with your image URL
       title: "Our Mission",
       backTitle: "Our Mission",
       backContent:
@@ -74,7 +74,7 @@ const About = () => {
             sx={{
               color: "#D92531",
               fontWeight: "bold",
-              textAlign: "center",
+              textAlign: "left",
               fontSize: {
                 xs: "22px",
                 md: "30px",
@@ -86,14 +86,19 @@ const About = () => {
           >
             Meet Hussain Mahmoud Al Daqal: Founder of Captain Chef
           </Typography>
+          {/* <Box sx={{ textAlign: "left", margin: "0 auto" }}>
+            <Typography>
+              {" "}
+            </Typography>
+          </Box> */}
         </Box>
 
         <Box
           sx={{
             // border:"2px solid black",
             display: "flex",
-            m: { xs: 2, sm: 4, md: 2 },
-            ml: { xs: 2, sm: 4, md: 8 },
+            // m: { xs: 2, sm: 4, md: 2 },
+            // ml: { xs: 2, sm: 4, md: 8 },
             backgroundColor: "background.paper",
             flexDirection: !isArabic
               ? { lg: "row", md: "row", sm: "row", xs: "column" }
@@ -103,7 +108,7 @@ const About = () => {
                   sm: "row-reverse",
                   xs: "column-reverse",
                 },
-            justifyContent: "space-around",
+            justifyContent: "space-between",
             direction: isArabic == "ar" ? "rtl" : "ltr",
           }}
         >
@@ -124,7 +129,7 @@ const About = () => {
               sx={{
                 fontFamily: "Roboto",
                 direction: isArabic ? "rtl" : "ltr",
-                textAlign: "center",
+                textAlign: "left",
                 fontSize: {
                   xs: "18px",
                   md: "20px",
@@ -136,9 +141,7 @@ const About = () => {
             >
               Hussain Mahmoud Al Daqal, the visionary founder of Captain Chef,
               established the brand to inspire Saudi youth to embrace healthier
-              lifestyles. Hussain Mahmoud Al Daqal, the visionary founder of
-              Captain Chef, established the brand to inspire Saudi youth to
-              embrace healthier lifestyles.
+              lifestyles.
             </Typography>
           </Box>
           {/* right section */}
@@ -170,12 +173,12 @@ const About = () => {
         <Box
           sx={{
             padding: 2,
-            textAlign: "center",
+            textAlign: "left",
             display: "flex",
             // gap: "25px",
             flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
+            // alignItems: "center",
+            // justifyContent: "center",
           }}
         >
           <Typography
@@ -186,15 +189,17 @@ const About = () => {
           </Typography>
           <Box
             sx={{
-              maxWidth: {
-                xs: "90%",
-                sm: "80%",
-                md: "60%",
-                lg: "88%",
-                xl: "85%",
-              },
-              margin: "0 auto",
-              textAlign: "center",
+              // maxWidth: {
+              //   xs: "90%",
+              //   sm: "80%",
+              //   md: "60%",
+              //   lg: "88%",
+              //   xl: "85%",
+              // },
+              // margin: "0 auto",
+              border: "2px solid black",
+              textAlign: "left",
+              // alignSelf: "left",
             }}
           >
             <Typography
@@ -207,10 +212,12 @@ const About = () => {
                   lg: "1.5rem",
                   xl: "1.5rem",
                 },
+                textAlign: "left",
               }}
             >
-              To promote a holistic lifestyle through high-quality, nutritious
-              meal services.
+              Hussain Mahmoud Al Daqal, the visionary founder of Captain Chef,
+              established the brand to inspire Saudi youth to embrace healthier
+              lifestyles.
             </Typography>
           </Box>
         </Box>
@@ -276,6 +283,8 @@ const About = () => {
                     backgroundImage: `url(${card.image})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
+                    backgroundColor: "transparent", // Updated to transparent
+                    // borderRadius: "10%",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",

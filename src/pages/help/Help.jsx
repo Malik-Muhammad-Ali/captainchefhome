@@ -1,325 +1,318 @@
-import { Box, TextField, Typography, Button, Grid } from "@mui/material";
-import { useState } from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
+import {
+  Box,
+  Typography,
+  IconButton,
+  Grid2,
+  TextareaAutosize,
+  TextField,
+  Button,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import styled from "styled-components";
-const CustomAccordion = styled(Accordion)(({ theme }) => ({
-  backgroundColor: "transparent",
-  color: "black", // White text
-  boxShadow: "none", // No shadow
-  "&:before": {
-    display: "none", // Remove the divider line
-  },
-  "&.Mui-expanded": {
-    margin: 0, // Prevent spacing on expand
-  },
-  "& .MuiAccordionSummary-root": {
-    "&.Mui-expanded": {
-      minHeight: "unset", // Adjust to fit content
-    },
-  },
-}));
-
-const CustomAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
-  background:
-    "linear-gradient(to right, rgba(255, 7, 27, 0.6), rgba(255, 255, 255, 0.6))",
-  // Gradient background
-  borderRadius: "8px", // Rounded corners
-  minHeight: "40px",
-  maxHeight: "40px",
-  // padding: "8px", // Padding for header
-  "& .MuiTypography-root": {
-    fontSize: "18px", // Adjust heading font size
-    fontWeight: 600, // Bold heading text
-  },
-  "&.Mui-expanded": {
-    borderRadius: "8px 8px 0 0", // Top corners rounded when expanded
-    maxHeight: "40px",
-    minHeight: "40px",
-  },
-}));
-
-const CustomAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
-  backgroundColor: "rgba(173, 216, 230, 0.2)", // Slightly tinted background for details
-  padding: "4px 8px", // Padding for details with a small gap
-  borderRadius: "0 0 8px 8px", // Rounded bottom corners
-  // marginTop: "4px", // Gap between header and details
-  "& .MuiTypography-root": {
-    fontSize: "16px", // Adjust description font size
-    lineHeight: 1.5, // Improve readability
-  },
-}));
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { useState } from "react";
 
 const Help = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(null);
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+  const handleToggle = (index) => {
+    setExpanded(expanded === index ? null : index);
   };
+
   return (
     <Box
       sx={{
+        backgroundColor: "#ffffff",
+        minHeight: "100vh",
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#f0f4f8",
         flexDirection: "column",
+        gap: "30px",
+        // alignItems: "center",
+        // justifyContent: "center",
+        padding: 4,
       }}
     >
       <Box
         sx={{
-          padding: 4,
-          backgroundColor: "#f0f4f8",
-          minHeight: "100vh",
-          //   width: "1200px",
-          // border: "2px solid black",
+          marginBottom: 4, // Add spacing between text fields and FAQ section
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          flexDirection: "column",
+          // fontSize: "30px",
         }}
       >
-        {/* Heading */}
         <Typography
-          variant="h4"
           sx={{
-            fontWeight: "bold",
-            marginBottom: 4,
+            fontSize: "2rem",
             textAlign: "center",
-            color: "#333",
+            fontWeight: 600,
+            marginBottom: 2,
+            color: "#D92531",
           }}
         >
-          Get Started
+          Contact Us
         </Typography>
-
-        {/* Form Fields */}
-        <Grid
+        <Grid2
           container
           spacing={2}
           sx={{
-            maxWidth: "600px",
-            width: "100%",
-            marginBottom: 4,
-          }}
-        >
-          {/* First Row */}
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              label="First Name"
-              variant="outlined"
-              required
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "8px",
-                  boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
-                  "&:hover fieldset": {
-                    borderColor: "#00aaff",
-                  },
-                },
-                "& .MuiInputLabel-root": {
-                  color: "#555",
-                },
-              }}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              label="Last Name"
-              variant="outlined"
-              required
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "8px",
-                  boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
-                  "&:hover fieldset": {
-                    borderColor: "#00aaff",
-                  },
-                },
-                "& .MuiInputLabel-root": {
-                  color: "#555",
-                },
-              }}
-            />
-          </Grid>
-
-          {/* Second Row */}
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              label="Email"
-              variant="outlined"
-              type="email"
-              required
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "8px",
-                  boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
-                  "&:hover fieldset": {
-                    borderColor: "#00aaff",
-                  },
-                },
-                "& .MuiInputLabel-root": {
-                  color: "#555",
-                },
-              }}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              label="Phone Number"
-              variant="outlined"
-              type="tel"
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "8px",
-                  boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
-                  "&:hover fieldset": {
-                    borderColor: "#00aaff",
-                  },
-                },
-                "& .MuiInputLabel-root": {
-                  color: "#555",
-                },
-              }}
-            />
-          </Grid>
-        </Grid>
-
-        {/* Text Area */}
-        <TextField
-          fullWidth
-          label="How can we help you?"
-          variant="outlined"
-          multiline
-          rows={4}
-          sx={{
-            maxWidth: "600px",
-            width: "100%",
-            marginBottom: 4,
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "8px",
-              boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
-              "&:hover fieldset": {
-                borderColor: "#00aaff",
-              },
-            },
-            "& .MuiInputLabel-root": {
-              color: "#555",
-            },
-          }}
-        />
-
-        {/* Submit Button */}
-        <Button
-          variant="contained"
-          sx={{
-            paddingX: 4,
-            paddingY: 1.5,
-            fontSize: "1rem",
-            borderRadius: "8px",
-            textTransform: "none",
-            width: "100%",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-            backgroundColor: "#D92531",
-            "&:hover": {
-              // backgroundColor: "#0088cc",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+            width: {
+              lg: "70%", // Laptop
+              md: "70%", // Tablet
+              sm: "80%", // Mobile
+              xs: "100%", // Small mobile
             },
           }}
         >
-          Submit
-        </Button>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              gap: "10px",
+              flexWrap: "wrap", // Adjust for smaller screens
+            }}
+          >
+            <Grid2 xs={12} sm={6} sx={{ flexGrow: 1 }}>
+              <TextField
+                fullWidth
+                label="First Name"
+                variant="outlined"
+                sx={{
+                  borderRadius: 2,
+                  "& .MuiOutlinedInput-root": {
+                    "&:hover fieldset": { borderColor: "#D92531" },
+                    "&.Mui-focused fieldset": { borderColor: "#D92531" },
+                  },
+                }}
+              />
+            </Grid2>
+            <Grid2 xs={12} sm={6} sx={{ flexGrow: 1 }}>
+              <TextField
+                fullWidth
+                label="Last Name"
+                variant="outlined"
+                sx={{
+                  borderRadius: 2,
+                  "& .MuiOutlinedInput-root": {
+                    "&:hover fieldset": { borderColor: "#D92531" },
+                    "&.Mui-focused fieldset": { borderColor: "#D92531" },
+                  },
+                }}
+              />
+            </Grid2>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+
+              gap: "10px",
+              flexWrap: "wrap", // Adjust for smaller screens
+            }}
+          >
+            <Grid2 xs={12} sm={6} sx={{ flexGrow: 1 }}>
+              <TextField
+                fullWidth
+                label="Email Address"
+                variant="outlined"
+                sx={{
+                  borderRadius: 2,
+                  "& .MuiOutlinedInput-root": {
+                    "&:hover fieldset": { borderColor: "#D92531" },
+                    "&.Mui-focused fieldset": { borderColor: "#D92531" },
+                  },
+                }}
+              />
+            </Grid2>
+            <Grid2 xs={12} sm={6} sx={{ flexGrow: 1 }}>
+              <TextField
+                fullWidth
+                label="Phone Number"
+                variant="outlined"
+                sx={{
+                  borderRadius: 2,
+                  "& .MuiOutlinedInput-root": {
+                    "&:hover fieldset": { borderColor: "#D92531" },
+                    "&.Mui-focused fieldset": { borderColor: "#D92531" },
+                  },
+                }}
+              />
+            </Grid2>
+          </Box>
+          <Grid2 xs={12} sx={{ marginTop: 2, width: "100%" }}>
+            <TextareaAutosize
+              minRows={4}
+              placeholder="Your Message"
+              style={{
+                width: "100%", // Adjusts based on container's width
+                padding: "10px",
+                border: "1px solid #ccc",
+                borderRadius: "8px",
+                outlineColor: "#D92531",
+              }}
+            />
+          </Grid2>
+          <Grid2
+            xs={12}
+            sx={{
+              marginTop: 3,
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Button
+              sx={{
+                width: { lg: "50%", md: "50%", sm: "100%", xs: "100%" },
+                padding: "12px",
+                backgroundColor: "#D92531",
+                textAlign: "center",
+                color: "white",
+                fontSize: "1rem",
+                fontWeight: 600,
+                border: "none",
+                borderRadius: "8px",
+                cursor: "pointer",
+                transition: "background-color 0.3s",
+              }}
+              onMouseOver={(e) => (e.target.style.backgroundColor = "#a91c28")}
+              onMouseOut={(e) => (e.target.style.backgroundColor = "#D92531")}
+            >
+              Submit
+            </Button>
+          </Grid2>
+        </Grid2>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 1, // Space between accordions
-          mb: 8,
-        }}
-      >
-        <CustomAccordion
-          expanded={expanded === "panel1"}
-          onChange={handleChange("panel1")}
-        >
-          <CustomAccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1-content"
-            id="panel1-header"
-          >
-            <Typography>01. Comprehensive Subject Notes</Typography>
-          </CustomAccordionSummary>
-          <CustomAccordionDetails>
-            <Typography>
-              We handle the Dataflow verification process to ensure your
-              credentials are validated correctly.
-            </Typography>
-          </CustomAccordionDetails>
-        </CustomAccordion>
 
-        <CustomAccordion
-          expanded={expanded === "panel2"}
-          onChange={handleChange("panel2")}
+      <Grid2 container spacing={2} sx={{ width: "100%" }}>
+        {/* Left Section */}
+        <Grid2
+          xs={12}
+          md={4}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "start",
+            alignItems: "flex-start",
+            padding: 2,
+            width: "auto",
+          }}
         >
-          <CustomAccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2-content"
-            id="panel2-header"
+          <Typography
+            sx={{
+              color: "#D92531",
+              fontSize: "2rem",
+              fontWeight: 500,
+              marginBottom: 1,
+            }}
           >
-            <Typography>02. Header</Typography>
-          </CustomAccordionSummary>
-          <CustomAccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </CustomAccordionDetails>
-        </CustomAccordion>
+            Answer All Your Questions
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "2.5rem",
+              fontWeight: "bold",
+            }}
+          >
+            Frequently <br />
+            Asked Questions
+          </Typography>
+        </Grid2>
 
-        <CustomAccordion
-          expanded={expanded === "panel3"}
-          onChange={handleChange("panel3")}
+        {/* Right Section */}
+        <Grid2
+          xs={12}
+          md={8}
+          sx={{
+            padding: 2,
+            width: {
+              lg: "60%",
+              md: "50%",
+              sm: "100%",
+              xs: "100%",
+              xl: "70%",
+            },
+          }}
         >
-          <CustomAccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3-content"
-            id="panel3-header"
-          >
-            <Typography>03. Header</Typography>
-          </CustomAccordionSummary>
-          <CustomAccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </CustomAccordionDetails>
-        </CustomAccordion>
-        <CustomAccordion
-          expanded={expanded === "panel4"}
-          onChange={handleChange("panel4")}
-        >
-          <CustomAccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel4-content"
-            id="panel4-header"
-          >
-            <Typography>04. Header</Typography>
-          </CustomAccordionSummary>
-          <CustomAccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </CustomAccordionDetails>
-        </CustomAccordion>
-      </Box>
+          <Box>
+            {Array.from({ length: 10 }, (_, index) => (
+              <Box key={index}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: "8px 0",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => handleToggle(index)}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "1rem",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {`Question ${index + 1}`}
+                  </Typography>
+                  <IconButton
+                    sx={{
+                      // border: "1px solid rgb(116, 40, 45)", // Add black border
+                      // borderRadius: "20px",
+                      borderRadius: "10px", // Slight border-radius for rounded corners
+                      padding: "4px", // Add padding to ensure proper spacing
+                      color: expanded === index ? "white" : "white", // Icon color
+                      backgroundColor: expanded === index ? "grey" : "#8b98a4", // Optional background for active state
+                      "&:hover": {
+                        backgroundColor: "#D92531", // Background turns red on hover
+                        color: "white", // Icon color changes to white for better contrast
+                      },
+                      transition: "all 0.3s ease", // Smooth transition for hover effects
+                    }}
+                  >
+                    {expanded === index ? (
+                      <ExpandLessIcon />
+                    ) : (
+                      <ExpandMoreIcon />
+                    )}
+                  </IconButton>
+                </Box>
+                {expanded === index && (
+                  <Typography
+                    sx={{
+                      fontSize: "0.875rem",
+                      color: "#555",
+                      marginTop: 1,
+                      marginBottom: 2,
+                    }}
+                  >
+                    This is the answer to question {index + 1}. You can add
+                    detailed information here.
+                  </Typography>
+                )}
+                {index < 9 && (
+                  <Box
+                    sx={{
+                      height: "1px",
+                      backgroundColor: "lightgray",
+                      marginY: 2,
+                    }}
+                  />
+                )}
+              </Box>
+            ))}
+          </Box>
+        </Grid2>
+      </Grid2>
     </Box>
   );
 };
