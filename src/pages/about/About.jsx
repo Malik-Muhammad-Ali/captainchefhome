@@ -120,7 +120,6 @@ const About = () => {
               alignItems: "start",
               maxWidth: { lg: "50%", xs: "350px", sm: "300px", md: "450px" },
               // flexWrap: "wrap",
-
               // height: "100%",
               padding: 2,
               backgroundColor: "#f9f9f9",

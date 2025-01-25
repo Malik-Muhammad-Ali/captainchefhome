@@ -108,7 +108,7 @@ export default function Categories() {
   };
 
   const handleNavigation = () => {
-    window.location.href = 'http://localhost:5173/';
+    window.location.href = "http://localhost:5173/";
   };
 
   return (
@@ -121,7 +121,7 @@ export default function Categories() {
           mr: { xs: 2, sm: 4, md: 8 },
           // ml: { xs: 2, sm: 4, md: 8 },
           mb: { xs: 2, sm: 4, md: 1 },
-          fontFamily:"Lexend"
+          fontFamily: "Lexend",
           // border:"2px solid black"
         }}
       >
@@ -154,7 +154,7 @@ export default function Categories() {
           ></Box>
         </Box>
       </Box>
-      <Box >
+      <Box>
         <Swiper
           spaceBetween={70}
           slidesPerView={6}
@@ -191,7 +191,7 @@ export default function Categories() {
             },
             1200: {
               slidesPerView: 6,
-              centeredSlides: false
+              centeredSlides: false,
             },
             1440: {
               slidesPerView: 7,
@@ -205,31 +205,31 @@ export default function Categories() {
         >
           {arr.map((item, index) => (
             <SwiperSlide key={index}>
-            {!isExtraLarge?
-              (<Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "10px",
-                  // padding: "10px",
-                  // margin: "10px",
-                }}
-              >
-                <Card
+              {!isExtraLarge ? (
+                <Box
                   sx={{
-                    maxWidth: "180px",
-                    minWidth: "180px",
-                    maxHeight: 250,
-                    minHeight: 250,
-                    borderRadius: "24px",
-                    border: "4px solid",
-                    borderColor: getTextColor(item.title),
-                    flexGrow: 1,
-                    cursor: "pointer",
-                    boxShadow: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
+                    // padding: "10px",
+                    // margin: "10px",
                   }}
+                >
+                  <Card
+                    sx={{
+                      maxWidth: "180px",
+                      minWidth: "180px",
+                      maxHeight: 250,
+                      minHeight: 250,
+                      borderRadius: "24px",
+                      border: "4px solid",
+                      borderColor: getTextColor(item.title),
+                      flexGrow: 1,
+                      cursor: "pointer",
+                      boxShadow: "none",
+                    }}
                     onClick={handleNavigation}
                   >
                     <CardMedia
@@ -242,76 +242,89 @@ export default function Categories() {
                       //   title={item.title}
                     />
 
-                  <CardContent
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      padding: 0.8,
-                      height: 45,
-                      justifyContent: "flex-start",
-                      direction: isArabic ? "rtl" : "ltr",
-                    }}
-                  >
-                    <Typography
-                      variant="body2"
+                    <CardContent
                       sx={{
-                        fontSize: { xl: '1.6rem', lg: "1rem", md: "1rem", sm: "1rem", xs: "1rem" },
-                        fontFamily: "Lexend",
-                        color: getTextColor(item.title),
-                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        display: "flex",
+                        flexDirection: "column",
+                        padding: 0.8,
+                        height: 45,
+                        justifyContent: "flex-start",
+                        direction: isArabic ? "rtl" : "ltr",
                       }}
                     >
-                      {isArabic ? item.ar.title : item.title}{" "}
-                      {/* Conditionally render Arabic or English title */}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontSize: { xl: '1.6rem', lg: "1rem", md: "1rem", sm: "1rem", xs: "1rem" },
-                        fontFamily: "Lexend",
-                        fontWeight: 400,
-                        // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
-                      }}
-                    >
-                      {isArabic ? item.ar.name : item.name}{" "}
-                      {/* Conditionally render Arabic or English name */}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Box>) :
-              (<Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "10px",
-                }}
-              >
-                <Card
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: {
+                            xl: "1.6rem",
+                            lg: "1rem",
+                            md: "1rem",
+                            sm: "1rem",
+                            xs: "1rem",
+                          },
+                          fontFamily: "Lexend",
+                          color: getTextColor(item.title),
+                          // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        }}
+                      >
+                        {isArabic ? item.ar.title : item.title}{" "}
+                        {/* Conditionally render Arabic or English title */}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: {
+                            xl: "1.6rem",
+                            lg: "1rem",
+                            md: "1rem",
+                            sm: "1rem",
+                            xs: "1rem",
+                          },
+                          fontFamily: "Lexend",
+                          fontWeight: 400,
+                          // textAlign: isArabic ? "right" : "left", // Adjust text alignment for Arabic
+                        }}
+                      >
+                        {isArabic ? item.ar.name : item.name}{" "}
+                        {/* Conditionally render Arabic or English name */}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Box>
+              ) : (
+                <Box
                   sx={{
-                    maxWidth: "300px",
-                    minWidth: "300px",
-                    maxHeight: 380,
-                    minHeight: 380,
-                    borderRadius: "24px",
-                    border: "4px solid",
-                    borderColor: getTextColor(item.title),
-                    flexGrow: 1,
-                    cursor: "pointer",
-                    boxShadow: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
                   }}
-                  //   onClick={() => navigate(`/subscriptions/category/${id}`)}
                 >
-                  <CardMedia
+                  <Card
                     sx={{
-                      height: 300,
-                      width: "100%",
-                      objectFit: "cover",
+                      maxWidth: "300px",
+                      minWidth: "300px",
+                      maxHeight: 380,
+                      minHeight: 380,
+                      borderRadius: "24px",
+                      border: "4px solid",
+                      borderColor: getTextColor(item.title),
+                      flexGrow: 1,
+                      cursor: "pointer",
+                      boxShadow: "none",
                     }}
-                    image={item.img}
-                    //   title={item.title}
-                  />
+                    //   onClick={() => navigate(`/subscriptions/category/${id}`)}
+                  >
+                    <CardMedia
+                      sx={{
+                        height: 300,
+                        width: "100%",
+                        objectFit: "cover",
+                      }}
+                      image={item.img}
+                      //   title={item.title}
+                    />
 
                     <CardContent
                       sx={{
